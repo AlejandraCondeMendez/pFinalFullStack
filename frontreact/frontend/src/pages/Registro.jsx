@@ -1,5 +1,6 @@
 import { useRef, useState } from "react"
-import Inputs from "../components/Inputs"
+import Input from "../components/Inputs"
+import Botton from "../components/Botton"
 
 const Registro = () => {
     const [nombre, setNombre] = useState()
@@ -12,8 +13,16 @@ const Registro = () => {
     const contraReg = useRef('')
     const numeroReg = useRef('')
 
-    const ValidarInputs=()=>{
-        
+    const ValidarInputs= async()=>{
+        const nombreVal=nombreReg.current.value.trim()
+        const correVal = correoReg.current.value.trim()
+        const contraVal = contraReg.current.value.trim()
+        const numeroVal = numeroReg.current.value.trim()
+
+        if (!nombreVal || !correVal || !contraVal || !numeroVal){
+            alert('Por favor llene los campos vacíos', 'error')
+            return 
+        }
     }
 
     return (
@@ -21,7 +30,7 @@ const Registro = () => {
         <h1>Crear una cuenta</h1>
         <div>
             <span>Crea un nombre de usuario</span>
-            <Inputs/>
+            <Input/>
         </div>
 
         </>
