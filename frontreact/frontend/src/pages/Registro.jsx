@@ -1,5 +1,5 @@
 import { useRef, useState } from "react"
-import Input from "../components/Inputs"
+import Input from "../components/Input"
 import Botton from "../components/Botton"
 
 const Registro = () => {
@@ -31,8 +31,8 @@ const Registro = () => {
         <div>
             <span>Crea un nombre de usuario</span>
             <Input/>
+            <Botton/>
         </div>
-
         </>
     )
 }
