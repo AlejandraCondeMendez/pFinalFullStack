@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'backendjango.apps.usuariosConfig',
-    'administrador',
-    'libros',
+    'apps.usuarios',
+    'apps.adminstrador',
+    'apps.libros',
     'rest_framework',
     'corsheaders',
     'rest_framework.authtoken'
