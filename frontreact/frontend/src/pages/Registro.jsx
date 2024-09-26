@@ -54,25 +54,23 @@ const Registro = () => {
     y el endpoint registro (BD), el objeto tiene los datos que se van agregar a la BD.*/}
     const postUsuario =async(obj, endpoint)=>{
         await postData(obj, endpoint,"error")
-        // muestraAlerta("Usuario registrado/agregado","success")
     }
    
-
     return (
         <>
         <h1>Crear una cuenta</h1>
         <div>
             <span>Crea un nombre de usuario</span>
-            <Input tipo={'text'} nombre={'usuario'} refvali={nombreReg} valor={nombre} cambio={(e)=> setNombre(e.target.value)}/>
+            <Input tipo={'text'} nombre={'Usuario'} refvali={nombreReg} valor={nombre} cambio={(e)=> setNombre(e.target.value)}/>
             <span>Crea una constraseña</span>
-            <Input tipo={'password'} nombre={'contraseña'} refvali={contraReg} valor={contra} cambio={(e)=>setContra(e.target.value)}/>
+            <Input tipo={'password'} nombre={'Contraseña'} refvali={contraReg} valor={contra} cambio={(e)=>setContra(e.target.value)}/>
             <span>Ingresa un correo</span>
-            <Input tipo={'email'} nombre={'correo electrónico'} refvali={correoReg} valor={correo} cambio={(e)=>setCorreo(e.target.value)}/>
+            <Input tipo={'email'} nombre={'Correo electrónico'} refvali={correoReg} valor={correo} cambio={(e)=>setCorreo(e.target.value)}/>
             <span>ingresa un teléfono</span>
             <i className="fa-solid fa-phone"></i>
-            <Input tipo={'number'} nombre={'número telefónico'} refvali={numeroReg} valor={numero} cambio={(e)=>setNumero(e.target.value)}/>
+            <Input tipo={'number'} nombre={'Número telefónico'} refvali={numeroReg} valor={numero} cambio={(e)=>setNumero(e.target.value)}/>
             <span>ingresa tu ubicacion</span>
-            <Input tipo={'text'} nombre={'ubicacion'} refvali={ubicacionReg} valor={ubicacion} cambio={(e)=>setUbicacion(e.target.value)}/>
+            <Input tipo={'text'} nombre={'Ubicacion'} refvali={ubicacionReg} valor={ubicacion} cambio={(e)=>setUbicacion(e.target.value)}/>
             <Botton nombre={'Registrar'} tipo={'Button'} evento={ValidarInputs}/>
             <a onClick={()=>navigate("/iniciosesion")}>Ir a inicio de sesión</a>
 

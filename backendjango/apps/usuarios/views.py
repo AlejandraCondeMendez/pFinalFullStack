@@ -4,6 +4,10 @@ from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework import status
 from apps.usuarios.models import Registro
+from apps.adminstrador.models import Admin
+from django.contrib.auth import authenticate
+from rest_framework.authtoken.models import Token
+
 
 # Se crea la view de registro, acá se va a manejar la lógica 
 # La APIView maneja peticiones HTPP (get, post)
@@ -32,5 +36,15 @@ class RegistroView(APIView):
             return Response({'success': 'Usuario creado'}, status=status.HTTP_201_CREATED)
                
 
-class InicioSesion(APIView):
-    pass 
+class InicioSesionView(APIView):
+    def post(self, request):
+        usuario = request.data.get('user')
+        contrasena = request.data.get('password')
+        
+        user = authenticate(request, user=usuario, password=contrasena)
+        
+        if user is not None:
+            token, created = Token.objects.get_or_create(user=user)
+            return Response({'token': token.key}, status=status.HTTP_200_OK)
+        
+        return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
