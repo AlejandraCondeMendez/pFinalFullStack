@@ -15,22 +15,23 @@ from rest_framework.authtoken.models import Token
 
 class RegistroView(APIView):
     def post(self, request):
-        usuario = request.data.get('username')
-        contrasena = request.data.get('password')
-        correo = request.data.get('email')
-        tel = request.data.get('telefono')
-        ubi = request.data.get('ubicacion')
+        usuario_registro = request.data.get('username')
+        contrasena_registro = request.data.get('password')
+        correo_registro = request.data.get('email')
+        
+        tel_registro = request.data.get('telefono')
+        ubi_registro = request.data.get('ubicacion')
     
     # si ambos usuarios son iguales, ya existe, por ende no va a dejar crear un nuevo usuario
-        if User.objects.filter(username = usuario).exists():
+        if User.objects.filter(username = usuario_registro).exists():
             return Response({'error': 'Usuario ya existe'}, status=status.HTTP_400_BAD_REQUEST)
         else: 
-            nuevo_usuario = User.objects.create_user(username=usuario, password=contrasena, email=correo)
+            nuevo_usuario = User.objects.create_user(username=usuario_registro, password=contrasena_registro, email=correo_registro)
             
             Registro.objects.create(
                 user = nuevo_usuario,
-                telefono = tel,
-                ubicacion = ubi
+                telefono = tel_registro,
+                ubicacion = ubi_registro
             )
             
             return Response({'success': 'Usuario creado'}, status=status.HTTP_201_CREATED)
@@ -38,13 +39,15 @@ class RegistroView(APIView):
 
 class InicioSesionView(APIView):
     def post(self, request):
-        usuario = request.data.get('username')
-        contrasena = request.data.get('password')
+        usuarioLogin = request.data.get('username')
+        contrasenaLogin = request.data.get('password')
         
-        user = authenticate(request, username=usuario, password=contrasena)
+        userDatos = authenticate(request, username=usuarioLogin, password=contrasenaLogin)
         
-        if user is not None:
-            token, created = Token.objects.get_or_create(user=user)
+        if userDatos is not None:
+            token = Token.objects.get_or_create(user=userDatos)
             return Response({'token': token.key}, status=status.HTTP_200_OK)
         
         return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
+    
+    # Los Token es la manera en la se autentica un usuario
