@@ -27,20 +27,26 @@ const Registro = () => {
             alert('Por favor llene los campos vacíos', 'error')
             return 
         }
-       await agregarUsuario()
+       await postUsuario(infoUsuario, 'registro/')
+       setNombre('')
+       setContra('')
+       setCorreo('')
+       setNumero('')
+       setUbicacion('')
     }
 
-    const agregarUsuario=async()=>{
-        const infoUsuario = {
-            username:nombre,
-            password:contra,
-            email:correo,
-            telefono:numero,
-            ubicacion: ubicacion
-        }
-
-
-        await postData(infoUsuario,'registro/')
+{/*Se crea la función postUsuario para agregar los datos a la BD. Recibe el objeto infoUsuario
+    y el endpoint registro (BD), el objeto tiene los datos que se van agregar a la BD.*/}
+    const postUsuario =async(obj, endpoint)=>{
+        alert('Usuario regitrado')
+        await postData(obj, endpoint)
+    }
+    const infoUsuario = {
+        username:nombre,
+        password:contra,
+        email:correo,
+        telefono:numero,
+        ubicacion: ubicacion
     }
 
     return (
