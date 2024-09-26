@@ -1,6 +1,7 @@
 const PagPrincipal =()=>{
     return(
         <>
+        <h1>Librería virtual</h1>
         </>
     )
 }

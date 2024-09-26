@@ -38,10 +38,10 @@ class RegistroView(APIView):
 
 class InicioSesionView(APIView):
     def post(self, request):
-        usuario = request.data.get('user')
+        usuario = request.data.get('username')
         contrasena = request.data.get('password')
         
-        user = authenticate(request, user=usuario, password=contrasena)
+        user = authenticate(request, username=usuario, password=contrasena)
         
         if user is not None:
             token, created = Token.objects.get_or_create(user=user)
