@@ -2,20 +2,28 @@ import { useRef, useState } from "react"
 import Input from "../components/Input"
 import Botton from "../components/Botton"
 import { postData } from "../services/fetch"
+import { useNavigate } from "react-router-dom"
+import { muestraAlerta } from "../services/alertas"
 
 const Registro = () => {
+    //Rutas
+    const navigate = useNavigate()
+
+    //Estados
     const [nombre, setNombre] = useState('')
     const [correo, setCorreo] = useState('')
     const [contra, setContra] = useState('')
     const [numero, setNumero] = useState('')
     const [ubicacion, setUbicacion] = useState('')
 
+    // Ref-Validaciones
     const nombreReg = useRef('')
     const correoReg = useRef('')
     const contraReg = useRef('')
     const numeroReg = useRef('')
     const ubicacionReg = useRef('')
 
+    // Funciones
     const ValidarInputs= async()=>{
         const nombreVal=nombreReg.current.value.trim()
         const correVal = correoReg.current.value.trim()
@@ -24,8 +32,15 @@ const Registro = () => {
         const ubicacionVal = ubicacionReg.current.value.trim()
 
         if (!nombreVal || !correVal || !contraVal || !numeroVal || !ubicacionVal){
-            alert('Por favor llene los campos vacíos', 'error')
+            muestraAlerta('Por favor llene los campos vacíos', 'error')
             return 
+        }
+        const infoUsuario = {
+            username:nombre,
+            password:contra,
+            email:correo,
+            telefono:numero,
+            ubicacion: ubicacion
         }
        await postUsuario(infoUsuario, 'registro/')
        setNombre('')
@@ -38,16 +53,10 @@ const Registro = () => {
 {/*Se crea la función postUsuario para agregar los datos a la BD. Recibe el objeto infoUsuario
     y el endpoint registro (BD), el objeto tiene los datos que se van agregar a la BD.*/}
     const postUsuario =async(obj, endpoint)=>{
-        alert('Usuario regitrado')
-        await postData(obj, endpoint)
+        await postData(obj, endpoint,"error")
+        // muestraAlerta("Usuario registrado/agregado","success")
     }
-    const infoUsuario = {
-        username:nombre,
-        password:contra,
-        email:correo,
-        telefono:numero,
-        ubicacion: ubicacion
-    }
+   
 
     return (
         <>
@@ -65,6 +74,8 @@ const Registro = () => {
             <span>ingresa tu ubicacion</span>
             <Input tipo={'text'} nombre={'ubicacion'} refvali={ubicacionReg} valor={ubicacion} cambio={(e)=>setUbicacion(e.target.value)}/>
             <Botton nombre={'Registrar'} tipo={'Button'} evento={ValidarInputs}/>
+            <a onClick={()=>navigate("/iniciosesion")}>Ir a inicio de sesión</a>
+
         </div>
         </>
     )

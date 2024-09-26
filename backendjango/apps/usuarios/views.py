@@ -31,4 +31,6 @@ class RegistroView(APIView):
             
             return Response({'success': 'Usuario creado'}, status=status.HTTP_201_CREATED)
                
-        
+
+class InicioSesion(APIView):
+    pass 

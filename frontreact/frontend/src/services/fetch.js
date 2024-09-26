@@ -1,3 +1,5 @@
+import { muestraAlerta } from "./alertas";
+
 const api = ('http://127.0.0.1:8000/')
 
 async function postData(obj, endpoint) {
@@ -11,7 +13,10 @@ async function postData(obj, endpoint) {
         })
         if(!response.ok){
             const errorData = await response.json();
-            throw new Error(errorData.error);
+            muestraAlerta(errorData.error,"error");
+        }else{
+            const successData = await response.json();
+            muestraAlerta(successData.success,"success");
         }
         const data = await response.json()
         return data
