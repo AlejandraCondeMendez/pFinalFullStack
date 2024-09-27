@@ -26,21 +26,17 @@ const InicioSesion=()=>{
             password: contra
         }
          postInicio(infoInicio, 'iniciosesion/')
-         paginaPrincipal()
-
+         navigate("/paginaprincipal")
 
     }
     const postInicio=async(obj, endpoint)=>{
         await postData(obj, endpoint)
     }
-    const paginaPrincipal = () => {
-        navigate("/paginaprincipal")
-    }
     
     return(
         <>
         <h1>Inicio de sesión</h1>
-        <Input tipo={'text'} nombre={'Usuario'} refvali={usuarioRef} valor={usuario} cambio={(e)=>setUsuario(e.target.value)}/>
+        <Input tipo={'text'} nombre={'Usuario'} refvali={usuarioRef} valor={usuario} cambio={(e)=>setUsuario(e.target.value)} />
         <Input tipo={'password'} nombre={'Contraseña'} refvali={contraRef} valor={contra} cambio={(e)=>setContra(e.target.value)}/>
         <Botton nombre={'Iniciar sesión'} tipo={'button'} evento={validarInicio}/>
         <a onClick={()=>navigate('/')}>Crear una cuenta</a>

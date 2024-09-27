@@ -4,10 +4,8 @@ from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework import status
 from apps.usuarios.models import Registro
-from apps.adminstrador.models import Admin
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
-
 
 # Se crea la view de registro, acá se va a manejar la lógica 
 # La APIView maneja peticiones HTPP (get, post)
@@ -51,3 +49,4 @@ class InicioSesionView(APIView):
         return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
     
     # Los Token es la manera en la se autentica un usuario
+    
