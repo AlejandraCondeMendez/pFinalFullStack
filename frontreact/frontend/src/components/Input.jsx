@@ -1,4 +1,3 @@
-import "../styles/Input.css"
 // eslint-disable-next-line react/prop-types
 const Input=({tipo, nombre, refvali, cambio, valor, clase})=>{
     return (

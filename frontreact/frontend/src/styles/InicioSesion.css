@@ -1,18 +1,98 @@
 .formulario{
-    margin-top: 25vh;
+    margin-top: 10vh;
 }
+
 .titulo{
     h1 {
-        margin-top: 160px;
+        margin-top: 100px;
         font-size: 30px;
         color: #333;
         text-align: center;
         margin-bottom: 8px;
         letter-spacing: 1.5px;
       }
-    
     p{
         text-align: center;
     }
-      
+}
+
+
+.InputInicioS {
+    width: 75%;
+    font-size: 16px;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    
+} 
+
+
+.inputForm{
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 3vh;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    width: 50%;
+
+  }
+  ::placeholder{
+    position: absolute;
+    left: 20px;
+  }
+
+
+  button {
+    margin: auto;
+    margin-top: 90px;
+    margin-bottom: 30px;
+    width: 250px;
+    background-color: #D1D1D1;
+    color: #000;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 15px;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+  button:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+
+.enlaceCrear{
+    margin-left: 45vw;
+}
+
+  a {
+    text-align: center;
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  a::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    transition: width 0.3s ease;
+  }
+  
+  a:hover::after {
+    width: 100%;
+  }
+.cont-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
 }
