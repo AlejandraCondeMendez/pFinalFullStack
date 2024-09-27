@@ -1,4 +1,6 @@
-// eslint-disable-next-line react/prop-types
+import '../styles/Boton.css'
+/* eslint-disable react/prop-types */
+
 const Botton=({nombre, tipo, evento, clase})=>{
     return(
         <>

@@ -45,8 +45,9 @@ class InicioSesionView(APIView):
         if userDatos is not None:
             token = Token.objects.get_or_create(user=userDatos)
             return Response({'token': token.key}, status=status.HTTP_200_OK)
-        
-        return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
     
     # Los Token es la manera en la se autentica un usuario
+    # HTTP 200 la petición fue correcta (se logró conectar)
     
