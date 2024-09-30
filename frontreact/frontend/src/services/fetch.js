@@ -1,6 +1,6 @@
 import { muestraAlerta } from "./alertas";
 
-const api = ('http://127.0.0.1:8000/')
+const api = ('http://127.0.0.1:8000/api/')
 
 async function postData(obj, endpoint) {
     try {

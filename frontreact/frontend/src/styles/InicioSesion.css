@@ -10,12 +10,11 @@
         text-align: center;
         margin-bottom: 8px;
         letter-spacing: 1.5px;
-      }
+    }
     p{
         text-align: center;
     }
 }
-
 
 .InputInicioS {
     width: 75%;
@@ -23,18 +22,17 @@
     transition: 0.3s;
     display: flex;
     flex-direction: column;
+
     
 } 
-
 
 .inputForm{
     padding: 10px;
     margin: 0 auto;
     margin-top: 3vh;
     border-radius: 25px;
-    border: 1px solid #ccc;
+    border: 1px solid #073B3A;
     width: 50%;
-
   }
   ::placeholder{
     position: absolute;
@@ -47,11 +45,11 @@
     margin-top: 90px;
     margin-bottom: 30px;
     width: 250px;
-    background-color: #D1D1D1;
-    color: #000;
+    background-color:#073B3A;
+    color: #f2f2f2;
     padding: 12px 24px;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-size: 15px;
     transition: box-shadow 0.3s ease, transform 0.2s ease;
@@ -96,3 +94,4 @@
     align-items: center;
     width: 30%;
 }
+
