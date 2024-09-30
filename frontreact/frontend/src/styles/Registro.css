@@ -1,0 +1,30 @@
+  /* botón del formulario registro  */
+  .botonRegistro {
+    margin: auto;
+    margin-top: 90px;
+    margin-bottom: 30px;
+    width: 250px;
+    background-color:#073B3A;
+    color: #f2f2f2;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 15px;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+.botonRegistro:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+/* título del formulario registro */
+.tituloRegistro {
+    margin-top: 45px;
+    font-size: 30px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 1.5px;
+    }

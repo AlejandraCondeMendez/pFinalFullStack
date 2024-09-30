@@ -7,6 +7,7 @@ const PageRoutes=()=>{
     return(
         <Routes>
             <Route path="/" element={<Registro/>}/>
+            <Route path="/registro" element={<Registro/>}/>
             <Route path="/iniciosesion" element={<InicioSesion/>}/>
             <Route path="/paginaprincipal" element={<PagPrincipal/>}/>
         </Routes>

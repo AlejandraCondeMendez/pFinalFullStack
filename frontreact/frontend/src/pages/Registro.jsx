@@ -4,6 +4,8 @@ import Botton from "../components/Botton"
 import { postData } from "../services/fetch"
 import { useNavigate } from "react-router-dom"
 import { muestraAlerta } from "../services/alertas"
+import "../styles/Registro.css"
+import Navbar from "../components/Navbar"
 
 const Registro = () => {
     //Rutas
@@ -52,37 +54,58 @@ const Registro = () => {
 
 {/*Se crea la función postUsuario para agregar los datos a la BD. Recibe el objeto infoUsuario
     y el endpoint registro (BD), el objeto tiene los datos que se van agregar a la BD.*/}
-    const postUsuario =async(obj, endpoint)=>{
+    const postUsuario = async(obj, endpoint)=>{
         await postData(obj, endpoint)
     }
    
     return (
         <>
-        <h1>Crear una cuenta</h1> 
-        <div className="cont-input">
-             <i className="fa-solid fa-user user-icon"></i>
+        <Navbar/>
+        <h1 className="tituloRegistro">Crear una cuenta</h1> 
+        
+        <div style={{display:"flex",flexDirection:"column",gap:"10vh"}}>
+
+        <div style={{display:'flex',marginTop:"10vh"}}>
+
+        <div className="cont-input-registro">
+            <i className="fa-solid fa-user estilos-iconos-registro"></i>
             <span className="text-center mt-2">Crea un nombre de usuario</span>
-            <Input clase={"inputForm"} tipo={"text"} valor={nombre} nombre={"Usuario"} cambio={(e)=>setNombre(e.target.value)}/>
+            <Input tipo={"text"} valor={nombre} nombre={"Usuario"} cambio={(e)=>setNombre(e.target.value)} clase={"inputFormRegistro"}/>
         </div>
 
-            <i className="fa-solid fa-lock"></i>
-            <span>Crea una constraseña</span>
-            <Input tipo={'password'} nombre={'Contraseña'} refvali={contraReg} valor={contra} cambio={(e)=>setContra(e.target.value)}/>
-            
-            <i className="fa-solid fa-envelope"></i>
-            <span>Ingresa un correo</span>
-            <Input tipo={'email'} nombre={'Correo electrónico'} refvali={correoReg} valor={correo} cambio={(e)=>setCorreo(e.target.value)}/>
-            
-            <i className="fa-solid fa-phone"></i>
-            <span>ingresa un teléfono</span>
-            <Input tipo={'number'} nombre={'Número telefónico'} refvali={numeroReg} valor={numero} cambio={(e)=>setNumero(e.target.value)}/>
-            
-            <i className="fa-solid fa-location-dot"></i>
-            <span>ingresa tu ubicacion</span>
-            <Input tipo={'text'} nombre={'Ubicacion'} refvali={ubicacionReg} valor={ubicacion} cambio={(e)=>setUbicacion(e.target.value)}/>
-            
-            <Botton nombre={'Registrar'} tipo={'Button'} evento={ValidarInputs}/>
+        <div className="cont-input-registro">
+            <i className="fa-solid fa-envelope estilos-iconos-registro"></i>
+            <span className="text-center mt-2">Ingresa un correo</span>
+            <Input tipo={'email'} nombre={'Correo electrónico'} refvali={correoReg} valor={correo} cambio={(e)=>setCorreo(e.target.value)} clase={"inputFormRegistro"}/>
+        </div>
+        </div>
+ 
+        <div style={{display:'flex'}}>
+        <div className="cont-input-registro">
+            <i className="fa-solid fa-lock estilos-iconos-registro"></i>
+            <span className="text-center mt-2">Crea una constraseña</span>
+            <Input tipo={'password'} nombre={'Contraseña'} refvali={contraReg} valor={contra} cambio={(e)=>setContra(e.target.value)} clase={"inputFormRegistro"}/>
+        </div>
+
+        <div className="cont-input-registro" style={{marginTop:"-15px"}}>
+            <i className="fa-solid fa-phone estilos-iconos-registro"></i>
+            <span className="text-center mt-2">Ingresa un teléfono</span>
+            <Input tipo={'number'} nombre={'Número telefónico'} refvali={numeroReg} valor={numero} cambio={(e)=>setNumero(e.target.value)} clase={"inputFormRegistro"}/>
+        </div>
+        </div>
+
+        <div className="cont-input-registro d-flex mx-auto" style={{marginTop:"-65px"}}>
+            <i className="fa-solid fa-location-dot estilos-iconos-registro"></i>
+            <span className="text-center mt-2">Ingresa tu ubicacion</span>
+            <Input tipo={'text'} nombre={'Ubicacion'} refvali={ubicacionReg} valor={ubicacion} cambio={(e)=>setUbicacion(e.target.value)} clase={"inputFormRegistro"}/>
+        </div>
+        </div>
+        <div className="d-flex flex-column">
+            <Botton clase={"botonRegistro"} nombre={'Registrar'} tipo={'Button'} evento={ValidarInputs}/>
+            </div>
+            <div className="text-center">
             <a onClick={()=>navigate("/iniciosesion")} className="enlaceInicio">Ir a inicio de sesión</a>
+            </div>
         </>
     )
 }

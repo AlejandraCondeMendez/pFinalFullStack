@@ -38,20 +38,23 @@ const InicioSesion=()=>{
     return(
         <>
         <Navbar/>
-        <div className="titulo">
-            <h1>Inicio de sesión</h1>
-            <p>Ingresa tus credenciales</p>
+        <div>
+            <h1 className="tituloInicio">Inicio de sesión</h1>
+            <p className="subtituloInicio">Ingresa tus credenciales</p>
         </div> 
         
         <div className="d-flex flex-column mx-auto InputInicioS">
             <Input tipo={'text'} nombre={'Usuario'} refvali={usuarioRef} valor={usuario} cambio={(e)=>setUsuario(e.target.value)}  clase={"inputForm"} />
             <Input tipo={'password'} nombre={'Contraseña'} refvali={contraRef} valor={contra} cambio={(e)=>setContra(e.target.value)}  clase={"inputForm"}/>
-            <Botton nombre={'Iniciar sesión'} tipo={'button'} evento={validarInicio}/>
+            <Botton clase={"botonInicio"} nombre={'Iniciar sesión'} tipo={'button'} evento={validarInicio}/>
         </div>
-        
+        <div className="text-center">
         <a onClick={()=>navigate('/')} className="enlaceCrear">Crear una cuenta</a>
+        </div>
         </>
     )
+    
 }
+
 
 export default InicioSesion
