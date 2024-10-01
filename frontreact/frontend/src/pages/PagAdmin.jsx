@@ -1,16 +1,19 @@
 import Navbar from "../components/Navbar"
-import Botton from "../components/Botton"
 import '../styles/PagAdmin.css'
+import ModalBook from "../components/ModalBook"
 
 const PagAdmin=()=>{
     
     return(
         <>
         <Navbar/>
-        <h1>Mis libros</h1>
-        <hr/>
-        <Botton nombre={'Agregar libro'} clase={'botonMicuenta'}/>
+        <div className="d-flex gap-3">
+            <i className="fa-solid fa-plus"></i>
+            <h3 className="text-nowrap text-title">Mis libros agregados </h3>
+        </div>
+            <hr/>
         <p>Mis libros: </p>
+        <ModalBook/>
         </>
     )
 }

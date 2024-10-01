@@ -48,6 +48,6 @@ class InicioSesionView(APIView):
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
     
-    # Los Token es la manera en la se autentica un usuario
-    # HTTP 200 la petición fue correcta (se logró conectar)
+# Los Token es la manera en la se autentica un usuario, generando una secuencia de #s únicos 
+# HTTP 200 la petición fue correcta (se logró conectar)
     
