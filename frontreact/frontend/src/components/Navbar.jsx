@@ -3,7 +3,7 @@ const Navbar =()=>{
     
     return(
         <>
-        <nav className="navbar" style={{backgroundColor:"#073B3A"}}>
+        <nav className="navbar" style={{backgroundColor:"#1a1a1a"}}>
             <div className="container-fluid">
                 <a className="navbar-brand text-light" href="/iniciosesion">LibertyBooks</a>
                 </div>

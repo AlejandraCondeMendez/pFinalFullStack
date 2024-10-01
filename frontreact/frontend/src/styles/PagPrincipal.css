@@ -1,0 +1,9 @@
+.input-busqueda{
+    border-top-right-radius: 0% !important;
+    border-bottom-right-radius: 0% !important;
+}
+.input-busqueda:focus{
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #000;
+}
