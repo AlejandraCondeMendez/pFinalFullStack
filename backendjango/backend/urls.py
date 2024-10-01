@@ -5,5 +5,5 @@ from apps.usuarios.views import RegistroView
 from apps.usuarios.views import InicioSesionView
 
 urlpatterns = [
-    path('api/', include('usuarios.urls'))
+    path('api/', include('apps.usuarios.urls'))
 ]

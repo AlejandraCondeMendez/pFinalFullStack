@@ -4,4 +4,4 @@ from .models import Libros
 class PostSerializer(ModelSerializer):
     class Meta:
         model = Libros
-        fields = []
+        fields = ['titulo', 'autor', 'estado', 'categoria', 'ubicacion']
