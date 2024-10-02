@@ -1,7 +1,12 @@
+import { useState } from "react"
 import CategoriaBooks from "./CategoriaBooks"
 import CheckBooks from "./CheckBooks"
 
 const ModalBook = () => {
+
+    const [titulo, setTitulo] = useState('')
+    const []
+
     return (
         <>
             <button

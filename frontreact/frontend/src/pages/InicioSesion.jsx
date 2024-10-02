@@ -32,7 +32,7 @@ const InicioSesion=()=>{
             navigate("/paginaprincipal")
         }
     }
-    
+
     return(
         <>
         <Navbar/>
@@ -53,6 +53,4 @@ const InicioSesion=()=>{
     )
     
 }
-
-
 export default InicioSesion
