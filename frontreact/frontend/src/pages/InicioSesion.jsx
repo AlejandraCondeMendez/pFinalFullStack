@@ -3,7 +3,7 @@ import Botton from "../components/Botton"
 import { useNavigate } from "react-router-dom"
 import { useRef, useState } from "react"
 import { muestraAlerta } from "../services/alertas"
-import { postData } from "../services/fetch"
+import { postDataForUser } from "../services/fetch"
 import '../styles/InicioSesion.css'
 import Navbar from "../components/Navbar"
 
@@ -20,19 +20,17 @@ const InicioSesion=()=>{
         const usuarioVal = usuarioRef.current.value.trim()
         const contraVal = contraRef.current.value.trim()
         if (!usuarioVal || !contraVal){
-            muestraAlerta('Porfavor llene los campos vacíos', 'error')
+            muestraAlerta('Porfavor llene los campos vacíos', 'error')  
             return
         }
         const infoInicio ={
-            username: usuario,
-            password: contra
+            username: usuarioVal,
+            password: contraVal
         }
-         postInicio(infoInicio, 'iniciosesion/')
-         navigate("/paginaprincipal")
-
-    }
-    const postInicio=async(obj, endpoint)=>{
-        await postData(obj, endpoint)
+        const inicioSesion = await postDataForUser(infoInicio, 'iniciosesion/')
+        if (inicioSesion.success){
+            navigate("/paginaprincipal")
+        }
     }
     
     return(

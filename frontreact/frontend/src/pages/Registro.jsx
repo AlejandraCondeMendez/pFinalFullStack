@@ -70,7 +70,7 @@ const Registro = () => {
         <div className="cont-input-registro">
             <i className="fa-solid fa-user estilos-iconos-registro"></i>
             <span className="text-center mt-2">Crea un nombre de usuario</span>
-            <Input tipo={"text"} valor={nombre} nombre={"Usuario"} cambio={(e)=>setNombre(e.target.value)} clase={"inputFormRegistro"}/>
+            <Input tipo={"text"} nombre={"Usuario"} refvali={nombreReg} valor={nombre} cambio={(e)=>setNombre(e.target.value)} clase={"inputFormRegistro"}/>
         </div>
 
         <div className="cont-input-registro">

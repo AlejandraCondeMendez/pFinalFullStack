@@ -43,8 +43,8 @@ class InicioSesionView(APIView):
         userDatos = authenticate(request, username=usuarioLogin, password=contrasenaLogin)
         
         if userDatos is not None:
-            token = Token.objects.get_or_create(user=userDatos)
-            return Response({'token': token.key}, status=status.HTTP_200_OK)
+            token, created = Token.objects.get_or_create(user=userDatos)
+            return Response({'success': "Usuario valido"}, status=status.HTTP_200_OK)
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
     

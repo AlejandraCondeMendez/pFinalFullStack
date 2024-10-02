@@ -10,21 +10,38 @@ async function postData(obj, endpoint) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(obj)
-        })
+        }) 
+        const respuesta = await response.json()
         if(!response.ok){
-            const errorData = await response.json();
-            muestraAlerta(errorData.error,"error");
+            muestraAlerta(respuesta.error,"error");
         }else{
-            const successData = await response.json();
-            muestraAlerta(successData.success,"success");
+            muestraAlerta(respuesta.success,"success");
         }
-        const data = await response.json()
-        return data
+        return respuesta
     } catch (error) {
         console.log(error);   
     }
 }
 export {postData}
 
+async function postDataForUser(obj, endpoint) {
+    try {
+        const response = await fetch(api+endpoint,{
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(obj)
+        })
+        const respuesta = response.json()
+        if(!response.ok){
+            muestraAlerta(respuesta.error,"error");
+        }
+        return respuesta
+    } catch (error) {
+        console.log(error);   
+    }
+}
+export {postDataForUser}
 
 
