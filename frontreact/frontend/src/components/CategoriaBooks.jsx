@@ -1,12 +1,12 @@
 // eslint-disable-next-line no-unused-vars, react/prop-types
-const CategoriaBooks = ({categoriaSeleccionada='Categoría', manejoCategoriaProp}) => {
+const CategoriaBooks = ({valor='Categoría', cambio}) => {
     return (
         <>
             <select
                 className="form-select form-select-lg mb-3"
                 aria-label=".form-select-lg example"
-                value={categoriaSeleccionada}
-                onChange={manejoCategoriaProp}
+                value={valor}
+                onChange={cambio}
             >
                 <option selected="">Categoría</option>
                 <option value={'Narrativa'}>Narrativa</option>

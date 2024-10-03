@@ -2,6 +2,7 @@ import { muestraAlerta } from "./alertas";
 
 const api = ('http://127.0.0.1:8000/api/')
 
+//POST
 async function postData(obj, endpoint) {
     try {
         const response = await fetch(api+endpoint,{
@@ -10,7 +11,7 @@ async function postData(obj, endpoint) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(obj)
-        }) 
+        })
         const respuesta = await response.json()
         if(!response.ok){
             muestraAlerta(respuesta.error,"error");
@@ -19,10 +20,13 @@ async function postData(obj, endpoint) {
         }
         return respuesta
     } catch (error) {
-        console.log(error);   
+        console.log(error);
     }
 }
 export {postData}
+
+//POST
+// Se hizo otro fetch solo para inicio de sesión para que así no saliera la alertade success.
 
 async function postDataForUser(obj, endpoint) {
     try {
@@ -39,9 +43,21 @@ async function postDataForUser(obj, endpoint) {
         }
         return respuesta
     } catch (error) {
-        console.log(error);   
+        console.log(error);
     }
 }
 export {postDataForUser}
 
+//GET
+async function getData(endpoint, id='') {
+    try {
+        const response = await fetch(api+endpoint+'/'+id)
+        const data = await response.json()
+        return data        
+    } catch (error) {
+        console.log(error);
+        return null
+    }
+}
+export {getData}
 

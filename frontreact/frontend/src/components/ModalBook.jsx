@@ -1,12 +1,44 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import CategoriaBooks from "./CategoriaBooks"
 import CheckBooks from "./CheckBooks"
+import { muestraAlerta } from "../services/alertas"
+import Botton from "./Botton"
+import Input from "./Input"
+import { postData } from "../services/fetch"
+
 
 const ModalBook = () => {
 
     const [titulo, setTitulo] = useState('')
-    const []
+    const [autor, setAutor] = useState('')
+    const [estadoVenta, setEstadoVenta] = useState(false)
+    const [estadoIntercambio, setIntercabmio] = useState(false)
+    const [categoria, setCategoria] = useState('')
+    const [ubicacion, setUbicacion] = useState('')
 
+    const tituloRef = useRef('')
+    const autorRef = useRef('')
+    const ubicacionRef = useRef('')
+
+    const validacionModalBook =async ()=>{
+        const tituloValidar = tituloRef.current.value.trim()
+        const autorValidar = autorRef.current.value.trim()
+        const ubiValidar = ubicacionRef.current.value.trim()
+
+        if (!tituloValidar || !autorValidar || !ubiValidar) {
+            muestraAlerta('Por favor llene los campos vacios', 'error')
+        } else{
+            const libro = {
+                titulo: tituloValidar,
+                autor: autorValidar,
+                categoria: categoria,
+                estado: estadoIntercambio ? "Intercambio" : estadoVenta ? "Venta" : "No hay estado",
+                ubicacion: ubiValidar,
+            }
+            await postData(libro, 'libros/')
+            }
+
+    }
     return (
         <>
             <button
@@ -45,14 +77,14 @@ const ModalBook = () => {
                                     <label htmlFor="recipient-name" className="col-form-label">
                                         Titulo
                                     </label>
-                                    <input type="text" className="form-control" id="recipient-name" />
+                                    <Input tipo={'text'} nombre={'Ingrese el titulo'} refvali={tituloRef} valor={titulo} cambio={(e)=>setTitulo(e.target.value)} clase={'form-control'}/>
                                 </div>
 
                                 <div className="mb-3">
                                     <label htmlFor="recipient-name" className="col-form-label">
                                         Autor
                                     </label>
-                                    <input type="text" className="form-control" id="recipient-name" />
+                                    <Input tipo={'text'} nombre={'Ingrese el autor'} refvali={autorRef} valor={autor} cambio={(e)=>setAutor(e.target.value)} clase={'form-control'}/>
                                 </div>
 
                                 <div className="mb-3">
@@ -60,12 +92,12 @@ const ModalBook = () => {
                                         Estado
                                     </label>
                                     <div>
-                                        <CheckBooks/>
+                                        <CheckBooks ventaMarcado={estadoVenta} interMarcado={estadoIntercambio} cambioVenta={(e)=>setEstadoVenta(e.target.checked)} cambioInter={(e)=>setIntercabmio(e.target.checked)}/>
                                     </div>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="recipient-name" className="col-form-label">
-                                        <CategoriaBooks/>
+                                        <CategoriaBooks valor={categoria} cambio={(e)=>setCategoria(e.target.value)}/>
                                     </label>
                                 </div>
 
@@ -73,7 +105,7 @@ const ModalBook = () => {
                                     <label htmlFor="recipient-name" className="col-form-label">
                                         Ubicación
                                     </label>
-                                    <input type="text" className="form-control" id="recipient-name" />
+                                    <Input tipo={'text'} nombre={'Ingrese la ubicación'} refvali={ubicacionRef} valor={ubicacion} cambio={(e)=>setUbicacion(e.target.value)} clase={'form-control'}/>
                                 </div>
 
                             </form>
@@ -86,9 +118,7 @@ const ModalBook = () => {
                             >
                                 Cerrar
                             </button>
-                            <button type="button" className="btn btn-primary">
-                                Guardar
-                            </button>
+                            <Botton tipo={'button'} clase={'btn btn-primary'} nombre={'Guardar'} evento={validacionModalBook}/>
                         </div>
                     </div>
                 </div>
