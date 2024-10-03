@@ -7,6 +7,8 @@ from apps.usuarios.models import Registro
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
 
+from backendjango.apps.libros.models import Libros
+
 # Se crea la view de registro, acá se va a manejar la lógica 
 # La APIView maneja peticiones HTTP (get, post)
 # la view se pone en el url y esta url se conecta con frontend
@@ -46,8 +48,14 @@ class InicioSesionView(APIView):
             token, created = Token.objects.get_or_create(user=userDatos)
             return Response({'success': "Usuario valido"}, status=status.HTTP_200_OK)
         else:
-            return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'error': 'Credenciales inválidas'}, status=status.HTTP_400_BAD_REQUEST)
     
 # Los Token es la manera en la se autentica un usuario, generando una secuencia de #s únicos 
 # HTTP 200 la petición fue correcta (se logró conectar)
-    
+class UsuariosNombreView(APIView):
+    def get(self,request):
+        usuarioLogin = request.data.get('username')
+        
+        usuario_id = Libros.objects.get("usuarioLibro_id")
+        
+        usuario = User.objects.get()

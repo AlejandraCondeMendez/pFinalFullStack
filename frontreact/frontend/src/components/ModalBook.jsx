@@ -36,6 +36,12 @@ const ModalBook = () => {
                 ubicacion: ubiValidar,
             }
             await postData(libro, 'libros/')
+            setAutor('')
+            setCategoria('')
+            setEstadoVenta('')
+            setIntercabmio('')
+            setTitulo('')
+            setUbicacion('')
             }
 
     }
