@@ -7,6 +7,8 @@ from apps.usuarios.models import Registro
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
 
+from apps.libros.models import Libros
+
 
 # Se crea la view de registro, acá se va a manejar la lógica 
 # La APIView maneja peticiones HTTP (get, post)
@@ -52,8 +54,27 @@ class InicioSesionView(APIView):
 # Los Token es la manera en la se autentica un usuario, generando una secuencia de #s únicos 
 # HTTP 200 la petición fue correcta (se logró conectar)
 # class UsuariosNombreView(APIView):
-#     def get(self,request):
-#         usuario = request.data.get('username')
-#         usuario_id = Libros.objects.get("usuarioLibro_id")
+#     def get(self, request):
+#         # Obtener el username desde el request
+#         username = request.query_params.get('username')
         
-#         usuario = User.objects.get()
+#         # Filtrar por el username en la tabla Libros
+#         try:
+#             libro = Libros.objects.get(username=username)  # Supongo que 'username' existe en Libros
+            
+#             # Obtener el ID del usuario (usuarioLibro_id) desde el objeto Libros
+#             usuario_id = libro.usuarioLibro_id
+            
+#             # Obtener el usuario desde la tabla User usando el usuario_id
+#             usuario = User.objects.get(id=usuario_id)
+            
+#             # Obtener el nombre del usuario
+#             nombre_usuario = usuario.nombre
+            
+#             # Retornar el nombre como respuesta
+#             return Response({"nombre_usuario": nombre_usuario}, status=status.HTTP_200_OK)
+        
+#         except Libros.DoesNotExist:
+#             return Response({"error": "El usuario no se encontró en Libros"}, status=status.HTTP_404_NOT_FOUND)
+#         except User.DoesNotExist:
+#             return Response({"error": "El usuario no se encontró en User"}, status=status.HTTP_404_NOT_FOUND)

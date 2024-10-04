@@ -9,10 +9,17 @@
 }
 
 .icono {
-    margin-top: -2px;
+    margin-top: 20px;
     font-size: 25px;
     margin-left: 180vh;
     position: absolute;
+}
+
+.icono-user {
+    font-size: 30px;
+    margin-top: 20px;
+    position: absolute;
+    margin-left: 50px;
 }
 
 .select-filtro {

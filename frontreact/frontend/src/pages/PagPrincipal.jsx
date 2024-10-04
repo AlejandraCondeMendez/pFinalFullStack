@@ -14,6 +14,8 @@ const PagPrincipal =()=>{
     useEffect(()=>{
         const traerLibros = async()=>{
             const getLbros = await getData('libros')
+            console.log(getLbros);
+            
             setBooks(getLbros)
         }
         console.log(books);
@@ -23,7 +25,7 @@ const PagPrincipal =()=>{
     return(
         <>
         <Navbar/>
-        <i className="fa-solid fa-user"></i> 
+        <i className="fa-solid fa-user icono-user"></i> 
         <div className="icono d-flex gap-5">
         <i className="fa-regular fa-bell icono-bell"></i>
         <i className="fa-solid fa-cart-shopping icono-cart"></i>
