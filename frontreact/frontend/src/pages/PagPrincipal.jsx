@@ -5,6 +5,7 @@ import "../styles/PagPrincipal.css"
 import ListaBooks from "../components/ListaBooks"
 import { useState,useEffect } from "react"
 import { getData } from "../services/fetch"
+import SelectFiltro from "../components/SelectFiltro"
 
 const PagPrincipal =()=>{
     const navigate = useNavigate()
@@ -22,8 +23,14 @@ const PagPrincipal =()=>{
     return(
         <>
         <Navbar/>
+        <i className="fa-solid fa-user"></i> 
+        <div className="icono d-flex gap-5">
+        <i className="fa-regular fa-bell icono-bell"></i>
+        <i className="fa-solid fa-cart-shopping icono-cart"></i>
+        </div>
         <Search/>
-        <h1>Libreria virtual</h1>
+        <SelectFiltro/>
+        <p>Contador</p>
         <ListaBooks cardBooks={books}/>
         <a onClick={()=>navigate('/iniciosesion')}>Iniciar sesión</a>
         </>

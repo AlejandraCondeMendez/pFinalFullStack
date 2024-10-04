@@ -7,3 +7,17 @@
     box-shadow: none;
     border: 1px solid #000;
 }
+
+.icono {
+    margin-top: -2px;
+    font-size: 25px;
+    margin-left: 180vh;
+    position: absolute;
+}
+
+.select-filtro {
+    position: relative;
+    left: 33%;
+    width: 30%;
+    margin-top: 40px;
+}

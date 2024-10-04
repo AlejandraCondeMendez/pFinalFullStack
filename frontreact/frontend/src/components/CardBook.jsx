@@ -5,7 +5,7 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
 
     return (
         <>
-            <div className="card" style={{ width: "18rem" }}>
+            <div className="card " style={{ width: "18rem", padding:'20px',margin:'20px'}}>
                 <h5 className="card-title">Libro: {tituloCard}</h5>
                 <p className="text-muted">Usuario: {usuarioCard}</p>
                 <img
