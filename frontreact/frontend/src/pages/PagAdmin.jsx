@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar"
 import '../styles/PagAdmin.css'
 import ModalBook from "../components/ModalBook"
+import Footer from "../components/Footer"
 
 const PagAdmin=()=>{
     
@@ -14,6 +15,8 @@ const PagAdmin=()=>{
             <hr/>
         <p>Mis libros: </p>
         <ModalBook/>
+
+        <Footer/>
         </>
     )
 }

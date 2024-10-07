@@ -5,8 +5,8 @@ const Mapa =()=>{
     textDecoration: "none",
     overflow: "hidden",
     maxWidth: "100%",
-    width: 500,
-    height: 500
+    width: 250,
+    height: 250
   }}
 >
   <div

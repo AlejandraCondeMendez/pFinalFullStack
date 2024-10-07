@@ -6,7 +6,6 @@ from rest_framework import status
 from apps.usuarios.models import Registro 
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
-
 from apps.libros.models import Libros
 
 

@@ -3,6 +3,7 @@ import Registro from "../pages/Registro"
 import InicioSesion from "../pages/InicioSesion"
 import PagPrincipal from "../pages/PagPrincipal"
 import PagAdmin from "../pages/PagAdmin"
+import AcercaDnosotros from "../pages/AcercaDnosotros"
 
 const PageRoutes=()=>{
     return(
@@ -12,6 +13,7 @@ const PageRoutes=()=>{
             <Route path="/iniciosesion" element={<InicioSesion/>}/>
             <Route path="/paginaprincipal" element={<PagPrincipal/>}/>
             <Route path="/micuenta" element={<PagAdmin/>}/>
+            <Route path="/nosotros" element={<AcercaDnosotros/>}/>
         </Routes>
     )    
 }

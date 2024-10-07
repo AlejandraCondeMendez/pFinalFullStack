@@ -149,3 +149,29 @@
   padding: 10px;
   border: 1px solid #073B3A;
 }
+
+.inicio-sesion {
+  display: flex;
+  position: absolute;
+  margin-top: 52px;
+  margin-left: 9px;
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  }
+
+.inicio-sesion::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    transition: width 0.3s ease;
+  }
+  
+  .inicio-sesion:hover::after {
+    width: 100%;
+  }

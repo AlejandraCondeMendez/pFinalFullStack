@@ -6,6 +6,7 @@ import ListaBooks from "../components/ListaBooks"
 import { useState,useEffect } from "react"
 import { getData } from "../services/fetch"
 import SelectFiltro from "../components/SelectFiltro"
+import Footer from "../components/Footer"
 
 const PagPrincipal =()=>{
     const navigate = useNavigate()
@@ -26,6 +27,8 @@ const PagPrincipal =()=>{
         <>
         <Navbar/>
         <i className="fa-solid fa-user icono-user"></i> 
+        <a className="inicio-sesion" onClick={()=>navigate('/iniciosesion')}>Iniciar sesión</a>
+        
         <div className="icono d-flex gap-5">
         <i className="fa-regular fa-bell icono-bell"></i>
         <i className="fa-solid fa-cart-shopping icono-cart"></i>
@@ -37,16 +40,22 @@ const PagPrincipal =()=>{
         <Search/>
         <SelectFiltro/>
         <div className="d-flex gap-3 flex-wrap justify-content-center">
+        <div className="d-flex flex-column">
         <p>Libros disponibles para venta</p>
-        <p>0</p>
+        <p className="text-center">0</p>
+        </div>
+        <div className="d-flex flex-column">
         <p>Libros disponibles para préstamo</p>
-        <p>0</p>
+        <p className="text-center">0</p>
+        </div>
         </div>
       
         <div className="d-flex gap-3 flex-wrap justify-content-center">
         <ListaBooks cardBooks={books}/>
         </div>
-        <a onClick={()=>navigate('/iniciosesion')}>Iniciar sesión</a>
+
+        <Footer/>
+
         </>
     )
 }
