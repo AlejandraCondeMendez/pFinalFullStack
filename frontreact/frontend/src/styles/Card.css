@@ -1,0 +1,23 @@
+.card-button-icon {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.card-button-icon i {
+    margin-right: 8px;
+}
+
+.card-button-icon:hover {
+    background-color: #218838;
+}
+
+

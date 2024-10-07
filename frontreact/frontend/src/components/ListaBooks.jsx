@@ -14,7 +14,7 @@ const ListaBooks=({cardBooks})=>{
                 estadoCard={iterar.estado}
                 categoriaCard={iterar.categoria}
                 ubicacionCard={iterar.ubicacion}
-                usuarioCard={iterar.usuarioLibro}
+                usuarioCard={iterar.usuarioLibro_nombre}
                 />
             </div>
         ))}

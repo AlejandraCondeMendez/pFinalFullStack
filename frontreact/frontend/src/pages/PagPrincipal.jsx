@@ -30,10 +30,22 @@ const PagPrincipal =()=>{
         <i className="fa-regular fa-bell icono-bell"></i>
         <i className="fa-solid fa-cart-shopping icono-cart"></i>
         </div>
+        <div className="contenedor-enlaces">
+        <a className="enlaces-navbar">Los más vendidos</a>
+        <a className="enlaces-navbar">Novedades</a>
+        </div>
         <Search/>
         <SelectFiltro/>
-        <p>Contador</p>
+        <div className="d-flex gap-3 flex-wrap justify-content-center">
+        <p>Libros disponibles para venta</p>
+        <p>0</p>
+        <p>Libros disponibles para préstamo</p>
+        <p>0</p>
+        </div>
+      
+        <div className="d-flex gap-3 flex-wrap justify-content-center">
         <ListaBooks cardBooks={books}/>
+        </div>
         <a onClick={()=>navigate('/iniciosesion')}>Iniciar sesión</a>
         </>
     )

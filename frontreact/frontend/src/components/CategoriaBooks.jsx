@@ -10,7 +10,7 @@ const CategoriaBooks = ({valor='Categoría', cambio}) => {
             >
                 <option selected="">Categoría</option>
                 <option value={'Narrativa'}>Narrativa</option>
-                <option value={'Posia'}>Poesía</option>
+                <option value={'Poesía'}>Poesía</option>
                 <option value={'Drama'}>Drama</option>
                 <option value={'Ensayo'}>Ensayo</option>
                 <option value={'No ficción'}>No ficción</option>

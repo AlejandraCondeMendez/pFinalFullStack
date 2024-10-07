@@ -7,5 +7,7 @@ class Registro(models.Model):
     telefono = models.CharField(max_length=20)
     ubicacion = models.CharField(max_length=100)
     
+    def __str__(self):
+        return self.user.username    
     
 

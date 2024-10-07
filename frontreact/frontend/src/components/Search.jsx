@@ -11,7 +11,7 @@ const Search = () => {
                     aria-describedby="search-addon"
                 />
                 <span className="input-group-text border-0" id="search-addon" style={{backgroundColor:'#002d85'}}>
-                    <i className="fas fa-search text-light" />
+                    <i className="lupita-busqueda fas fa-search text-light"/>
                 </span>
             </div>
 

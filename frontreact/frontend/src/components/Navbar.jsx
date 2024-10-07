@@ -1,11 +1,11 @@
-
+import '../styles/PagPrincipal.css'
 const Navbar =()=>{
     
     return(
         <>
-        <nav className="navbar" style={{backgroundColor:"#1a1a1a"}}>
+        <nav className="navbar" style={{backgroundColor:"#FFBE2D"}}>
             <div className="container-fluid">
-                <a className="navbar-brand text-light" href="/iniciosesion">LibertyBooks</a>
+                <a className="navbar-brand text-light titulo-navbar mx-auto" href="/iniciosesion"><strong>LibertyBooks</strong></a>
                 </div>
         </nav>
 </>

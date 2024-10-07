@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import Botton from "./Botton"
+import '../styles/Card.css'
+
 
 const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCard, usuarioCard}) => {
 
@@ -20,7 +22,7 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
                     <p>Ubicación: {ubicacionCard}</p>
                 </div>
                 <div className="card-body">
-                    <Botton nombre={'Agregar al carrito'}/>
+                    <Botton nombre={'Agregar al carrito'} clase={'card-button-icon'}/>
                     <Botton nombre={'Más información'}/>
                 </div>
             </div>
