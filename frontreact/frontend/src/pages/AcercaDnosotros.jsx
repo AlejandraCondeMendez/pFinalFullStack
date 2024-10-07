@@ -4,6 +4,7 @@ import Footer from "../components/Footer"
 import { useNavigate } from "react-router-dom"
 import '../styles/PagPrincipal.css'
 import Search from "../components/Search"
+
 const AcercaDnosotros = () => {
 
     const navigate = useNavigate()

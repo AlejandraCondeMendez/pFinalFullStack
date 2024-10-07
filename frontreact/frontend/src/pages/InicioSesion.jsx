@@ -6,6 +6,7 @@ import { muestraAlerta } from "../services/alertas"
 import { postDataForUser } from "../services/fetch"
 import '../styles/InicioSesion.css'
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 
 
 const InicioSesion=()=>{
@@ -46,9 +47,10 @@ const InicioSesion=()=>{
             <Input tipo={'password'} nombre={'Contraseña'} refvali={contraRef} valor={contra} cambio={(e)=>setContra(e.target.value)}  clase={"inputForm"}/>
             <Botton clase={"botonInicio"} nombre={'Iniciar sesión'} tipo={'button'} evento={validarInicio}/>
         </div>
-        <div className="text-center">
+        <div className="text-center" style={{marginBottom: 200}}>
         <a onClick={()=>navigate('/')} className="enlaceCrear">Crear una cuenta</a>
         </div>
+        <Footer/>
         </>
     )
     

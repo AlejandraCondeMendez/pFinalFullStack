@@ -4,7 +4,7 @@ const SelectFiltro = () => {
         <>
         <div className="select-filtro">
             <select
-                className="form-select form-select-lg mb-3"
+                className="form-select form-select-md mb-3"
                 aria-label="Large select example"
             >
                 <option selected="">Categorías de la biblioteca</option>

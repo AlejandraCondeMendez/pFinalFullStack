@@ -3,7 +3,7 @@ import '../styles/PagAdmin.css'
 import ModalBook from "../components/ModalBook"
 import Footer from "../components/Footer"
 
-const PagAdmin=()=>{
+const LibrosAgregados=()=>{
     
     return(
         <>
@@ -20,4 +20,4 @@ const PagAdmin=()=>{
         </>
     )
 }
-export default PagAdmin
+export default LibrosAgregados

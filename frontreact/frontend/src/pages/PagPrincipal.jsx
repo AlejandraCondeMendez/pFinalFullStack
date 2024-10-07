@@ -9,7 +9,6 @@ import SelectFiltro from "../components/SelectFiltro"
 import Footer from "../components/Footer"
 
 const PagPrincipal =()=>{
-    const navigate = useNavigate()
 
     const [books, setBooks] = useState ([])
     useEffect(()=>{
@@ -26,19 +25,10 @@ const PagPrincipal =()=>{
     return(
         <>
         <Navbar/>
-        <i className="fa-solid fa-user icono-user"></i> 
-        <a className="inicio-sesion" onClick={()=>navigate('/iniciosesion')}>Iniciar sesión</a>
-        
-        <div className="icono d-flex gap-5">
-        <i className="fa-regular fa-bell icono-bell"></i>
-        <i className="fa-solid fa-cart-shopping icono-cart"></i>
-        </div>
-        <div className="contenedor-enlaces">
-        <a className="enlaces-navbar">Los más vendidos</a>
-        <a className="enlaces-navbar">Novedades</a>
-        </div>
         <Search/>
+        <div className="w-25 mx-auto mt-3">
         <SelectFiltro/>
+        </div>
         <div className="d-flex gap-3 flex-wrap justify-content-center">
         <div className="d-flex flex-column">
         <p>Libros disponibles para venta</p>
@@ -53,7 +43,6 @@ const PagPrincipal =()=>{
         <div className="d-flex gap-3 flex-wrap justify-content-center">
         <ListaBooks cardBooks={books}/>
         </div>
-
         <Footer/>
 
         </>

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { muestraAlerta } from "../services/alertas"
 import "../styles/Registro.css"
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 
 const Registro = () => {
     //Rutas
@@ -103,9 +104,10 @@ const Registro = () => {
         <div className="d-flex flex-column">
             <Botton clase={"botonRegistro"} nombre={'Registrar'} tipo={'Button'} evento={ValidarInputs}/>
             </div>
-            <div className="text-center">
+        <div className="text-center" style={{marginBottom: 200}}>
             <a onClick={()=>navigate("/iniciosesion")} className="enlaceInicio">Ir a inicio de sesión</a>
-            </div>
+        </div>
+        <Footer/>
         </>
     )
 }

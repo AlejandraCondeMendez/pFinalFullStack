@@ -18,9 +18,10 @@ const Footer = () => {
                     </div>
                     <div className="footer-column">
                         <h4>Mi cuenta</h4>
+                        <p>Librería</p>
                         <ul>
                             <li>
-                                <a onClick={()=>{navigate('/micuenta'),window.scrollTo({
+                                <a onClick={()=>{navigate('/librosagregados'),window.scrollTo({
                                 top:0,
                                 behavior: 'smooth'})}}>Mis libros agregados</a>
                             </li>
