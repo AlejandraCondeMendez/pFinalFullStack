@@ -13,23 +13,27 @@ const Footer = () => {
                         <ul>
                             <p onClick={()=>{navigate('/nosotros'),window.scrollTo({
                                 top:0,
-                                behavior: 'smooth'})}} className='nosotros'>Quienes somos</p>
+                                behavior: 'smooth'})}} className='nosotros' style={{"cursor":"pointer"}}>Quienes somos</p>
                         </ul>
                     </div>
                     <div className="footer-column">
                         <h4>Mi cuenta</h4>
-                        <p>Librería</p>
+                        <p style={{"cursor":"pointer"}}>Librería</p>
                         <ul>
                             <li>
                                 <a onClick={()=>{navigate('/librosagregados'),window.scrollTo({
                                 top:0,
-                                behavior: 'smooth'})}}>Mis libros agregados</a>
+                                behavior: 'smooth'})}} style={{"cursor":"pointer"}}>Mis libros agregados</a>
                             </li>
                             <li>
-                                <a>Mis libros deseados</a>
+                                <a onClick={()=>{navigate('/librosdeseados'),window.scrollTo({
+                                top:0,
+                                behavior: 'smooth'})}} style={{"cursor":"pointer"}}>Mis libros deseados</a>
                             </li>
                             <li>
-                                <a>Mis libros prestados</a>
+                                <a onClick={()=>{navigate('/librosprestados'),window.scrollTo({
+                                top:0,
+                                behavior: 'smooth'})}} style={{"cursor":"pointer"}}>Mis libros prestados</a>
                             </li>
                         </ul>
                     </div>

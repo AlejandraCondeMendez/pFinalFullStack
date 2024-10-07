@@ -92,4 +92,7 @@
 .category-item:hover .dropdown-menu {
     display: block;
 }
-    
+.titulo-liberty{
+    margin-left: 200px;
+    color: #002d85;
+}

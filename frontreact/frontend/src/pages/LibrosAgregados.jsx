@@ -7,7 +7,7 @@ const LibrosAgregados=()=>{
     
     return(
         <>
-        <Navbar/>
+        <Navbar />
         <div className="d-flex gap-3">
             <i className="fa-solid fa-plus"></i>
             <h3 className="text-nowrap text-title">Mis libros agregados </h3>
@@ -15,8 +15,9 @@ const LibrosAgregados=()=>{
             <hr/>
         <p>Mis libros: </p>
         <ModalBook/>
-
-        <Footer/>
+        <div style={{marginTop: 300}}>
+            <Footer/>
+        </div>
         </>
     )
 }

@@ -1,30 +1,32 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/PagPrincipal.css';
 
 const Navbar = () => {
+    
+    const navigate = useNavigate()
     return (
         <>
             <nav className="navbar" style={{backgroundColor: "#FFBE2D"}}>
                 <div className="container-fluid d-flex align-items-center">
                     {/* Icono de usuario alineado a la izquierda */}
                     <div className="navbar-icon user-icon">
-                        <a href="/perfil"><i className="fas fa-user"></i></a>
+                        <i className="fas fa-user"></i>
                         <div className="iniciar-sesion">
-                            <a href="/iniciar-sesion" className="session-link">Iniciar sesión</a>
+                            <a onClick={()=>navigate('/iniciosesion')} className="session-link">Iniciar sesión</a>
                         </div>
                     </div>
 
                     {/* Logo centrado */}
-                    <a className="navbar-brand text-light titulo-navbar mx-auto" href="/paginaprincipal">
-                        <strong>LibertyBooks</strong>
+                    <a className="navbar-brand text-light titulo-navbar mx-auto" onClick={()=>navigate('/paginaprincipal')}>
+                        <strong className='titulo-liberty'>LibertyBooks</strong>
                     </a>
 
                     {/* Iconos de carrito y campanita alineados a la derecha */}
                     <div className="navbar-icon cart-icon ms-auto">
-                        <a href="/notificaciones"><i className="fas fa-bell"></i></a>
+                        <i className="fas fa-bell"></i>
                     </div>
                     <div className="navbar-icon cart-icon">
-                        <a href="/carrito"><i className="fas fa-shopping-cart"></i></a>
+                        <i className="fas fa-shopping-cart"></i>
                     </div>
                 </div>
             </nav>
@@ -52,4 +54,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-        

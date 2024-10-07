@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom"
 import Navbar from "../components/Navbar"
 import Search from "../components/Search"
 import "../styles/PagPrincipal.css"
@@ -43,7 +42,9 @@ const PagPrincipal =()=>{
         <div className="d-flex gap-3 flex-wrap justify-content-center">
         <ListaBooks cardBooks={books}/>
         </div>
-        <Footer/>
+        <div style={{marginTop: 200}}>
+            <Footer/>
+        </div>
 
         </>
     )
