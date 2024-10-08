@@ -12,13 +12,15 @@ async function postData(obj, endpoint) {
             },
             body: JSON.stringify(obj)
         })
-        const respuesta = await response.json()
+
+        const data = await response.json()
+
         if(!response.ok){
-            muestraAlerta(respuesta.falso,"error");
+            muestraAlerta(data.falso,"error");
         }else{
-            muestraAlerta(respuesta.success,"success");
+            muestraAlerta(data.success,"success");
         }
-        return respuesta
+        return data
     } catch (error) {
         console.log(error);
     }
@@ -37,11 +39,11 @@ async function postDataForUser(obj, endpoint) {
             },
             body: JSON.stringify(obj)
         })
-        const respuesta = response.json()
+        const data = await response.json()
         if(!response.ok){
-            muestraAlerta(respuesta.falso,"error");
+            muestraAlerta(data.falso,"error");
         }
-        return respuesta
+        return data
     } catch (error) {
         console.log(error);
     }
