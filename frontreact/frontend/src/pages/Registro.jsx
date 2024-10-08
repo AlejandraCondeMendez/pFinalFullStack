@@ -7,6 +7,7 @@ import { muestraAlerta } from "../services/alertas"
 import "../styles/Registro.css"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import HamburgerMenu from "../components/HamburgerMenu"
 
 const Registro = () => {
     //Rutas
@@ -62,6 +63,10 @@ const Registro = () => {
     return (
         <>
         <Navbar/>
+        <div style={{marginTop: -40}}>
+            <HamburgerMenu/>
+        </div>
+
         <h1 className="tituloRegistro">Crear una cuenta</h1> 
         
         <div style={{display:"flex",flexDirection:"column",gap:"10vh"}}>

@@ -6,3 +6,4 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Libros
         fields = ['titulo', 'autor', 'estado', 'categoria', 'ubicacion','usuarioLibro', 'usuarioLibro_nombre']
+

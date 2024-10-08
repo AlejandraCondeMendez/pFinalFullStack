@@ -7,6 +7,7 @@ import { postDataForUser } from "../services/fetch"
 import '../styles/InicioSesion.css'
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import HamburgerMenu from "../components/HamburgerMenu"
 
 
 const InicioSesion=()=>{
@@ -37,6 +38,11 @@ const InicioSesion=()=>{
     return(
         <>
         <Navbar/>
+
+        <div style={{marginTop: -40}}>
+            <HamburgerMenu/>
+        </div>
+
         <div>
             <h1 className="tituloInicio">Inicio de sesión</h1>
             <p className="subtituloInicio">Ingresa tus credenciales</p>

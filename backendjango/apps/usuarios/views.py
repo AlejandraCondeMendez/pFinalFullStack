@@ -25,7 +25,7 @@ class RegistroView(APIView):
         
         usuario_regex= r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{1,10}$'
         contra_regex = r'(?P<password>((?=\S*[A-Z])(?=\S*[a-z])(?=\S*\d)(?=\S*[\!\"\§\$\%\&\/\(\)\=\?\+\*\#\'\^\°\,\;\.\:\<\>\ä\ö\ü\Ä\Ö\Ü\ß\?\|\@\~\´\`\\])\S{8,}))'
-        correo_regex = r'^[a-zA-Z0-9]{1,6}@[a-zA-Z0-9]{1,3}\.com$'
+        correo_regex = r'^[a-zA-Z0-9._%+-]+@gmail\.com$'
         tele_regex = r'^[6789]\d{7}$'
         ubi_regex= r'^[A-Z][a-zA-Z\s,.]{0,19}$'
     

@@ -1,31 +1,21 @@
 import Navbar from "../components/Navbar"
 import '../styles/AcercaDnosotros.css'
 import Footer from "../components/Footer"
-import { useNavigate } from "react-router-dom"
 import '../styles/PagPrincipal.css'
 import Search from "../components/Search"
+import HamburgerMenu from "../components/HamburgerMenu"
 
 const AcercaDnosotros = () => {
 
-    const navigate = useNavigate()
 
     return (
         <>
             <Navbar/>
-
-            <i className="fa-solid fa-user icono-user"></i>
-            <a className="inicio-sesion" onClick={() => navigate('/iniciosesion')}>Iniciar sesión</a>
-
-            <div className="icono d-flex gap-5">
-                <i className="fa-regular fa-bell icono-bell"></i>
-                <i className="fa-solid fa-cart-shopping icono-cart"></i>
+            <div style={{marginTop: -40}}>
+                <HamburgerMenu/>
             </div>
-            <div className="contenedor-enlaces">
-                <a className="enlaces-navbar">Los más vendidos</a>
-                <a className="enlaces-navbar">Novedades</a>
-            </div>
+
             <Search/>
-
             <h1 className="titulo-nosotros">Acerca de LibertyBooks</h1>
             <h2 className="subAcercaA">Historia</h2>
             <hr className="linea" />
@@ -66,7 +56,9 @@ const AcercaDnosotros = () => {
                     ideas y conocimientos.</p>
             </ul>
             <h2 className="comentarios">Comentarios</h2>
-            <Footer />
+            <div style={{marginTop: 200}}>
+                <Footer/>
+            </div>
         </>
     )
 }

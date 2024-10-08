@@ -6,6 +6,7 @@ import { useState,useEffect } from "react"
 import { getData } from "../services/fetch"
 import SelectFiltro from "../components/SelectFiltro"
 import Footer from "../components/Footer"
+import HamburgerMenu from "../components/HamburgerMenu"
 
 const PagPrincipal =()=>{
 
@@ -24,6 +25,9 @@ const PagPrincipal =()=>{
     return(
         <>
         <Navbar/>
+        <div style={{marginTop: -40}}>
+        <HamburgerMenu/>
+        </div>
         <Search/>
         <div className="w-25 mx-auto mt-3">
         <SelectFiltro/>

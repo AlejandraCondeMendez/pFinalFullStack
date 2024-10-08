@@ -14,7 +14,6 @@ async function postData(obj, endpoint) {
         })
 
         const data = await response.json()
-
         if(!response.ok){
             muestraAlerta(data.falso,"error");
         }else{
@@ -39,6 +38,7 @@ async function postDataForUser(obj, endpoint) {
             },
             body: JSON.stringify(obj)
         })
+
         const data = await response.json()
         if(!response.ok){
             muestraAlerta(data.falso,"error");

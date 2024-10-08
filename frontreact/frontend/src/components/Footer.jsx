@@ -18,7 +18,9 @@ const Footer = () => {
                     </div>
                     <div className="footer-column">
                         <h4>Mi cuenta</h4>
-                        <p style={{"cursor":"pointer"}}>Librería</p>
+                        <p style={{"cursor":"pointer"}} onClick={()=>{navigate('/milibreria'),window.scrollTo({
+                                top:0,
+                                behavior: 'smooth'})}}> Librería</p>
                         <ul>
                             <li>
                                 <a onClick={()=>{navigate('/librosagregados'),window.scrollTo({
