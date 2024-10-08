@@ -5,7 +5,6 @@ import PagPrincipal from "../pages/PagPrincipal"
 import PagAdmin from "../pages/LibrosAgregados"
 import AcercaDnosotros from "../pages/AcercaDnosotros"
 import LibrosDeseados from "../pages/LibrosDeseados"
-import LibrosAgregados from "../pages/LibrosAgregados"
 import LibrosPrestados from "../pages/LibrosPrestados"
 
 const PageRoutes=()=>{

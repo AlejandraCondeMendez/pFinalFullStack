@@ -14,7 +14,7 @@ async function postData(obj, endpoint) {
         })
         const respuesta = await response.json()
         if(!response.ok){
-            muestraAlerta(respuesta.error,"error");
+            muestraAlerta(respuesta.falso,"error");
         }else{
             muestraAlerta(respuesta.success,"success");
         }
@@ -39,7 +39,7 @@ async function postDataForUser(obj, endpoint) {
         })
         const respuesta = response.json()
         if(!response.ok){
-            muestraAlerta(respuesta.error,"error");
+            muestraAlerta(respuesta.falso,"error");
         }
         return respuesta
     } catch (error) {

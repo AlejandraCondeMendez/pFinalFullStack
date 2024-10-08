@@ -7,7 +7,7 @@ from apps.usuarios.models import Registro
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
 from apps.libros.models import Libros
-
+import re
 
 # Se crea la view de registro, acá se va a manejar la lógica 
 # La APIView maneja peticiones HTTP (get, post)
@@ -18,13 +18,16 @@ class RegistroView(APIView):
         usuario_registro = request.data.get('username')
         contrasena_registro = request.data.get('password')
         correo_registro = request.data.get('email')
-        
         tel_registro = request.data.get('telefono')
         ubi_registro = request.data.get('ubicacion')
-    
+        
+        contra_regex= r"(?P<password>((?=\S*[A-Z])(?=\S*[a-z])(?=\S*\d)(?=\S*[\!\"\§\$\%\&\/\(\)\=\?\+\*\#\'\^\°\,\;\.\:\<\>\ä\ö\ü\Ä\Ö\Ü\ß\?\|\@\~\´\`\\])\S{8,}))"
+        
+        if not re.match(contra_regex, contrasena_registro):
+            return Response({'falso': 'Contraseña inválida'}, status=status.HTTP_400_BAD_REQUEST)
     # si ambos usuarios son iguales, ya existe, por ende no va a dejar crear un nuevo usuario
         if User.objects.filter(username = usuario_registro).exists():
-            return Response({'error': 'Usuario ya existe'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'falso': 'Usuario ya existe'}, status=status.HTTP_400_BAD_REQUEST)
         else: 
             nuevo_usuario = User.objects.create_user(username=usuario_registro, password=contrasena_registro, email=correo_registro)
             
@@ -48,7 +51,7 @@ class InicioSesionView(APIView):
             token, created = Token.objects.get_or_create(user=userDatos)
             return Response({'success': "Usuario valido"}, status=status.HTTP_200_OK)
         else:
-            return Response({'error': 'Credenciales inválidas'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'falso': 'Credenciales inválidas'}, status=status.HTTP_400_BAD_REQUEST)
     
 # Los Token es la manera en la se autentica un usuario, generando una secuencia de #s únicos 
 # HTTP 200 la petición fue correcta (se logró conectar)
