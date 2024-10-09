@@ -5,5 +5,5 @@ class PostSerializer(serializers.ModelSerializer):
     usuarioLibro_nombre = serializers.CharField(source='usuarioLibro.user.username', read_only=True)
     class Meta:
         model = Libros
-        fields = ['titulo', 'autor', 'estado', 'categoria', 'ubicacion','usuarioLibro', 'usuarioLibro_nombre']
+        fields = ['id','titulo', 'autor', 'estado', 'categoria', 'ubicacion','usuarioLibro', 'usuarioLibro_nombre']
 

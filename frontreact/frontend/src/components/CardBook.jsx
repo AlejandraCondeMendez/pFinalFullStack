@@ -26,8 +26,8 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
                     <Botton nombre={'Más información'} tipo={'button'} evento={btnInfo}/>
                 </div>
                 <div>
-                    <Botton nombre={'Editar'} tipo={'button'} evento={btnEliminar}/>
-                    <Botton nombre={'Eliminar'} tipo={'button'} evento={btnEditar}/>
+                    <Botton nombre={'Eliminar'} tipo={'button'} evento={btnEliminar}/>
+                    <Botton nombre={'Editar'} tipo={'button'} evento={btnEditar}/>
 
                 </div>
             </div>

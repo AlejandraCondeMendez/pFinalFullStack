@@ -63,17 +63,17 @@ async function getData(endpoint, id='') {
 }
 export {getData}
 
-
-
-const postLibro = async(obj)=>{
-    const peticion = await fetch("http://127.0.0.1:8000/api/libros/",{
-        method:"POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body:JSON.stringify(obj)
-    })
-    const data = await peticion.json()
-    console.log(data);
+// DELETE, según su ID
+async function deleteData(endpoint, id='') {
+    try {
+        const response = await fetch(api+endpoint+'/'+id,{
+            method:'DELETE'
+        })
+        const data = await response.json()
+        return data
+    } catch (error) {
+        console.log(error);
+        
+    }
 }
-export {postLibro}
+export {deleteData}

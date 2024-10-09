@@ -15,6 +15,7 @@ const LibrosAgregados=()=>{
             const librosID = await getData('librosID',localStorage.getItem("localUsuarioID")+"/")
             setLibrosID(librosID)
         }
+        console.log(librosID);
         getUserLibros()
     }, [])
 

@@ -1,8 +1,16 @@
 /* eslint-disable react/prop-types */
+import { acceptPopUp } from "../services/alertas"
+import { deleteData } from "../services/fetch"
+
 import CardBook from "./CardBook"
 const ListaBooks=({cardBooks})=>{
-    
-
+    const eliminaLibro=async(id)=>{
+            const alerta = await acceptPopUp("Estás intentando eliminar un libro, ¿Continuar?", "El libro se eliminó con éxito", "La eliminación del libro fue cancelada")
+            if (alerta){
+                console.log(id);
+                await deleteData('librosDelete', id+"/")
+            }
+        }
     return(
         <> 
         {cardBooks.map((iterar, index)=>(
@@ -15,6 +23,7 @@ const ListaBooks=({cardBooks})=>{
                 categoriaCard={iterar.categoria}
                 ubicacionCard={iterar.ubicacion}
                 usuarioCard={iterar.usuarioLibro_nombre}
+                btnEliminar={()=>eliminaLibro(iterar.id)}
                 />
             </div>
         ))}
