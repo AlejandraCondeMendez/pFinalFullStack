@@ -20,6 +20,13 @@ class LibroDeleteView(generics.DestroyAPIView):
     queryset = Libros.objects.all()
     serializer_class = PostSerializer
     lookup_field = 'id' 
+
+class LibroPutView(generics.UpdateAPIView):
+    queryset=Libros.objects.all()
+    serializer_class=PostSerializer
+    lookup_field = 'id' 
+    
+    
     
         
 

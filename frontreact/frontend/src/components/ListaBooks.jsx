@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
 import { acceptPopUp } from "../services/alertas"
 import { deleteData } from "../services/fetch"
-
 import CardBook from "./CardBook"
-const ListaBooks=({cardBooks})=>{
+
+//ListaBooks nos conecta con la base de datos, itera sobre cada propiedad
+
+const ListaBooks=({cardBooks, mostrar, mostrarB})=>{
+    //función para eliminar el libro según el ID
     const eliminaLibro=async(id)=>{
             const alerta = await acceptPopUp("Estás intentando eliminar un libro, ¿Continuar?", "El libro se eliminó con éxito", "La eliminación del libro fue cancelada")
             if (alerta){
@@ -23,6 +26,8 @@ const ListaBooks=({cardBooks})=>{
                 categoriaCard={iterar.categoria}
                 ubicacionCard={iterar.ubicacion}
                 usuarioCard={iterar.usuarioLibro_nombre}
+                mostrarBoton={mostrar}
+                mostrarBotonB={mostrarB}
                 btnEliminar={()=>eliminaLibro(iterar.id)}
                 />
             </div>

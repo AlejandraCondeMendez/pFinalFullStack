@@ -17,7 +17,7 @@ const LibrosAgregados=()=>{
         }
         console.log(librosID);
         getUserLibros()
-    }, [])
+    }, [librosID])
 
     
     return(
@@ -35,7 +35,7 @@ const LibrosAgregados=()=>{
             <hr/>
         <p>Mis libros: </p>
         <ModalBook/>
-        <ListaBooks cardBooks={librosID}/>
+        <ListaBooks cardBooks={librosID} mostrarB={true}/>
         <div style={{marginTop: 300}}>
             <Footer/>
         </div>

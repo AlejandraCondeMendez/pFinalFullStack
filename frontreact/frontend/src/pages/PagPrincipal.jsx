@@ -44,7 +44,7 @@ const PagPrincipal =()=>{
         </div>
       
         <div className="d-flex gap-3 flex-wrap justify-content-center">
-        <ListaBooks cardBooks={books}/>
+        <ListaBooks cardBooks={books} mostrar={true}/>
         </div>
         <div style={{marginTop: 200}}>
             <Footer/>
