@@ -5,10 +5,10 @@ const CategoriaBooks = ({valor='Categoría', cambio}) => {
             <select
                 className="form-select form-select-lg mb-3"
                 aria-label=".form-select-lg example"
-                value={valor}
+                defaultValue={valor}
                 onChange={cambio}
             >
-                <option selected="">Categoría</option>
+                <option defaultValue="">Categoría</option>
                 <option value={'Narrativa'}>Narrativa</option>
                 <option value={'Poesía'}>Poesía</option>
                 <option value={'Drama'}>Drama</option>

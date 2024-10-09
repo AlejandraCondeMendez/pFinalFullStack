@@ -83,6 +83,15 @@ const Registro = () => {
             <i className="fa-solid fa-envelope estilos-iconos-registro"></i>
             <span className="text-center mt-2">Ingresa un correo</span>
             <Input tipo={'email'} nombre={'Correo electrónico'} refvali={correoReg} valor={correo} cambio={(e)=>setCorreo(e.target.value)} clase={"inputFormRegistro"}/>
+            <div>
+                <ul>
+                    <li>Al menos una letra minúscula</li>
+                    <li>Al menos una letra mayúscula</li>
+                    <li>Al menos un número</li>
+                    <li>Al menos una letra minúscula</li>
+                    <li>Al menos un caracter especial</li>
+                </ul>
+            </div>
         </div>
         </div>
  
@@ -97,6 +106,7 @@ const Registro = () => {
             <i className="fa-solid fa-phone estilos-iconos-registro"></i>
             <span className="text-center mt-2">Ingresa un teléfono</span>
             <Input tipo={'number'} nombre={'Número telefónico'} refvali={numeroReg} valor={numero} cambio={(e)=>setNumero(e.target.value)} clase={"inputFormRegistro"}/>
+
         </div>
         </div>
 

@@ -26,11 +26,12 @@ const InicioSesion=()=>{
             return
         }
         const infoInicio ={
-            username: usuarioVal,
-            password: contraVal
+            usernameFront: usuarioVal,
+            passwordFront: contraVal
         }
         const inicioSesion = await postDataForUser(infoInicio, 'iniciosesion/')
         if (inicioSesion.success){
+            localStorage.setItem('localUsuarioID', inicioSesion.id)
             navigate("/paginaprincipal")
         }
     }

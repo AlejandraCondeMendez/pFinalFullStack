@@ -17,12 +17,14 @@ import re
 
 class RegistroView(APIView):
     def post(self, request):
-        usuario_registro = request.data.get('username')
-        contrasena_registro = request.data.get('password')
-        correo_registro = request.data.get('email')
-        tel_registro = request.data.get('telefono')
-        ubi_registro = request.data.get('ubicacion')
+        usuario_registro = request.data.get('username') #path_user
+        contrasena_registro = request.data.get('password') #path_use
+        correo_registro = request.data.get('email') #path_user
+        tel_registro = request.data.get('telefono') #Registro
+        ubi_registro = request.data.get('ubicacion') #Registro
         
+        
+    # Validaciones para el registro
         usuario_regex= r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{1,10}$'
         contra_regex = r'(?P<password>((?=\S*[A-Z])(?=\S*[a-z])(?=\S*\d)(?=\S*[\!\"\§\$\%\&\/\(\)\=\?\+\*\#\'\^\°\,\;\.\:\<\>\ä\ö\ü\Ä\Ö\Ü\ß\?\|\@\~\´\`\\])\S{8,}))'
         correo_regex = r'^[a-zA-Z0-9._%+-]+@gmail\.com$'
@@ -61,14 +63,15 @@ class RegistroView(APIView):
 
 class InicioSesionView(APIView):
     def post(self, request):
-        usuarioLogin = request.data.get('username')
-        contrasenaLogin = request.data.get('password')
+        usuarioLogin = request.data.get('usernameFront') # obtiene el valor de 'username' de los datos enviados del frontend
+        contrasenaLogin = request.data.get('passwordFront')
         
         userDatos = authenticate(request, username=usuarioLogin, password=contrasenaLogin)
         
         if userDatos is not None:
-            token, created = Token.objects.get_or_create(user=userDatos)
-            return Response({'success': "Usuario valido"}, status=status.HTTP_200_OK)
+            token, created = Token.objects.get_or_create(user=userDatos) # user contiene el nuevo_usuario, va a iniciar sesión si coinciden
+            return Response({'success': "Usuario valido", 'id': userDatos.id}, status=status.HTTP_200_OK)
+        #la respuesta a la solicitud HTTP es enviar el menssaje de succes y también en esta respuesta se incluye el ID, esto para almacenar el ID del usuario que inicio sesión.
         else:
             return Response({'falso': 'Credenciales inválidas'}, status=status.HTTP_400_BAD_REQUEST)
     

@@ -28,14 +28,15 @@ const ModalBook = () => {
         if (!tituloValidar || !autorValidar || !ubiValidar) {
             muestraAlerta('Por favor llene los campos vacios', 'error')
         } else{
-            const libro = {
+            const libro = { //las propiedades de la izquierda vienen d la BD
                 titulo: tituloValidar,
                 autor: autorValidar,
-                categoria: categoria,
                 estado: estadoIntercambio ? "Intercambio" : estadoVenta ? "Venta" : "No hay estado",
+                categoria: categoria,
                 ubicacion: ubiValidar,
+                usuarioLibro: localStorage.getItem('localUsuarioID')
             }
-            await postData(libro, 'libros/')
+            await postData(libro, 'libros/') //'libros/' viene de la base de datos, es la urls.py que a la vez contiene la lógica de la view
             setAutor('')
             setCategoria('')
             setEstadoVenta('')

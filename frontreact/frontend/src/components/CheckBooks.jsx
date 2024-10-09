@@ -7,7 +7,6 @@ const CheckBooks = ({ventaMarcado, interMarcado, cambioVenta, cambioInter}) => {
                 <input
                     className="form-check-input"
                     type="checkbox"
-                    defaultValue=""
                     id="flexCheckDefault"
                     checked={ventaMarcado}
                     onChange={cambioVenta}
@@ -20,9 +19,7 @@ const CheckBooks = ({ventaMarcado, interMarcado, cambioVenta, cambioInter}) => {
                 <input
                     className="form-check-input"
                     type="checkbox"
-                    defaultValue=""
                     id="flexCheckChecked"
-                    defaultChecked=""
                     checked={interMarcado}
                     onChange={cambioInter}
                 />

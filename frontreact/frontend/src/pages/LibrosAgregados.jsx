@@ -12,7 +12,7 @@ const LibrosAgregados=()=>{
 
     useEffect(()=>{
         const getUserLibros = async()=>{
-            const librosID = await getData('librosID',"10")
+            const librosID = await getData('librosID',localStorage.getItem("localUsuarioID")+"/")
             setLibrosID(librosID)
         }
         getUserLibros()

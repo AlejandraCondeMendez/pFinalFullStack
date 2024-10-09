@@ -3,7 +3,7 @@ from .views import LibroView
 from .views import LibroGetView
 
 urlpatterns = [
-    path('libros/', LibroView.as_view(), name='libros'),
+    path('libros/', LibroView.as_view(), name='librospost'),
     path("librosID/<int:usuarioLibro>/", LibroGetView.as_view(), name="libroget")
 ]
 
