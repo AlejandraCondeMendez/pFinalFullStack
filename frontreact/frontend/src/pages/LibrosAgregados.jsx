@@ -6,6 +6,7 @@ import HamburgerMenu from "../components/HamburgerMenu"
 import { useEffect, useState } from "react"
 import { getData } from "../services/fetch"
 import ListaBooks from "../components/ListaBooks"
+import ModalPut from '../components/ModalPut'
 
 const LibrosAgregados=()=>{
     const [librosID, setLibrosID] = useState([])
@@ -35,6 +36,7 @@ const LibrosAgregados=()=>{
             <hr/>
         <p>Mis libros: </p>
         <ModalBook/>
+        <ModalPut/>
         <ListaBooks cardBooks={librosID} mostrarB={true}/>
         <div style={{marginTop: 300}}>
             <Footer/>

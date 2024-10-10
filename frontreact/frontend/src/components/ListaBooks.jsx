@@ -5,7 +5,7 @@ import CardBook from "./CardBook"
 
 //ListaBooks nos conecta con la base de datos, itera sobre cada propiedad
 
-const ListaBooks=({cardBooks, mostrar, mostrarB})=>{
+const ListaBooks=({cardBooks, mostrar, mostrarB,editar})=>{
     //función para eliminar el libro según el ID
     const eliminaLibro=async(id)=>{
             const alerta = await acceptPopUp("Estás intentando eliminar un libro, ¿Continuar?", "El libro se eliminó con éxito", "La eliminación del libro fue cancelada")
@@ -29,6 +29,7 @@ const ListaBooks=({cardBooks, mostrar, mostrarB})=>{
                 mostrarBoton={mostrar}
                 mostrarBotonB={mostrarB}
                 btnEliminar={()=>eliminaLibro(iterar.id)}
+                btnEditar={editar}
                 />
             </div>
         ))}
