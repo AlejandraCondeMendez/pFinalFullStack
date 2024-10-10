@@ -9,7 +9,12 @@ import ListaBooks from "../components/ListaBooks"
 import ModalPut from '../components/ModalPut'
 
 const LibrosAgregados=()=>{
+    const [actualizar, setActualizar]=useState(null)
     const [librosID, setLibrosID] = useState([])
+
+
+    const [modalShowUpdate, setModalShowUpdate] = useState(false);
+
 
     useEffect(()=>{
         const getUserLibros = async()=>{
@@ -20,6 +25,10 @@ const LibrosAgregados=()=>{
         getUserLibros()
     }, [librosID])
 
+    const actualizarDatos = (id,titulo,autor,cantidad,direccion,estado,categoria)=>{ //propiedades del libro que queremos editar
+        setActualizar({id,titulo,autor,cantidad,direccion,estado,categoria})//y luego se lo actualizamos al estado
+        setModalShowUpdate(true) //MOSTRAR EL MODAL
+    }
     
     return(
         <>
@@ -36,8 +45,23 @@ const LibrosAgregados=()=>{
             <hr/>
         <p>Mis libros: </p>
         <ModalBook/>
-        <ModalPut/>
-        <ListaBooks cardBooks={librosID} mostrarB={true}/>
+        <ListaBooks cardBooks={librosID} mostrarB={true} btnEditarL={actualizarDatos}/>
+        
+        {actualizar && 
+        <ModalPut
+            mostrar={modalShowUpdate}
+            ocultar={()=>setModalShowUpdate(false)}
+            id={actualizar.id}//accedemos a la propiedad del estado
+            titulo={actualizar.titulo}
+            autor={actualizar.autor}
+            cantidad={actualizar.cantidad}
+            ubicacion={actualizar.direccion}
+            categoria={actualizar.categoria}
+            estado={actualizar.estado}
+            btnEditarProp={actualizarDatos}
+            />
+        }
+        
         <div style={{marginTop: 300}}>
             <Footer/>
         </div>

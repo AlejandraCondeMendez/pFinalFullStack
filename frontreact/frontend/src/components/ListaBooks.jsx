@@ -2,10 +2,9 @@
 import { acceptPopUp } from "../services/alertas"
 import { deleteData } from "../services/fetch"
 import CardBook from "./CardBook"
-
 //ListaBooks nos conecta con la base de datos, itera sobre cada propiedad
 
-const ListaBooks=({cardBooks, mostrar, mostrarB,editar})=>{
+const ListaBooks=({cardBooks, mostrar, mostrarB,btnEditarL})=>{
     //función para eliminar el libro según el ID
     const eliminaLibro=async(id)=>{
             const alerta = await acceptPopUp("Estás intentando eliminar un libro, ¿Continuar?", "El libro se eliminó con éxito", "La eliminación del libro fue cancelada")
@@ -29,10 +28,17 @@ const ListaBooks=({cardBooks, mostrar, mostrarB,editar})=>{
                 mostrarBoton={mostrar}
                 mostrarBotonB={mostrarB}
                 btnEliminar={()=>eliminaLibro(iterar.id)}
-                btnEditar={editar}
+                btnEditar={()=> //btnEditar:
+                    btnEditarL( //agarra todos los valores de la API
+                        iterar.id,
+                        iterar.titulo,
+                        iterar.autor,
+                    )
+                }
                 />
             </div>
         ))}
+
         </>
     )
 }
