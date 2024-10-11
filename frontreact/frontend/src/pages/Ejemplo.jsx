@@ -1,12 +1,4 @@
-import Navbar from "../components/Navbar"
-import '../styles/PagAdmin.css'
-import ModalBook from "../components/ModalBook"
-import Footer from "../components/Footer"
-import HamburgerMenu from "../components/HamburgerMenu"
-import { useEffect, useState } from "react"
-import { getData } from "../services/fetch"
-import ListaBooks from "../components/ListaBooks"
-import ModalPut from '../components/ModalPut'
+
 
 const LibrosAgregados=()=>{
     const [actualizar, setActualizar]=useState(null)
@@ -14,27 +6,41 @@ const LibrosAgregados=()=>{
 
 
     const [modalShowUpdate, setModalShowUpdate] = useState(false);
-
+ 
 
     useEffect(()=>{
         const getUserLibros = async()=>{
             const librosID = await getData('librosID',localStorage.getItem("localUsuarioID")+"/")
+            console.log(librosID);
             setLibrosID(librosID)
+
         }
         getUserLibros()
-    }, [librosID])
-
-    const respuesta = await
-
-
-
-    const actualizarDatos = (id,titulo,autor,cantidad,direccion,estado,categoria)=>{ //propiedades del libro que queremos editar
-        setActualizar({id,titulo,autor,cantidad,direccion,estado,categoria})//y luego se lo actualizamos al estado
+    }, [])
+    
+    const actualizarLibro = async (id, titulo, autor, estado, categoria, ubicacion) => {
+        let libroActualizado = {
+            titulo: titulo,
+            autor: autor,
+            estado: estado ? "Venta" : "Intercambio", 
+            categoria: categoria,
+            ubicacion: ubicacion,
+        };
+    
+        const response = await putData(libroActualizado, 'librosPut', id); 
+        if (response) {
+            console.log('Libro actualizado:', response);
+        } else {
+            console.error('Error al actualizar el libro');
+        }
+        setModalShowUpdate(false); // OCULTAR EL MODAL
+    };
+    
+    const actualizarDatos = (id,titulo,autor,estado,categoria,ubicacion)=>{ //propiedades del libro que queremos editar
+        setActualizar({id,titulo,autor,estado,categoria,ubicacion})//y luego se lo actualizamos al estado
         setModalShowUpdate(true) //MOSTRAR EL MODAL
     }
     
-
-
     return(
         <>
         <Navbar />
@@ -57,13 +63,12 @@ const LibrosAgregados=()=>{
             mostrar={modalShowUpdate}
             ocultar={()=>setModalShowUpdate(false)}
             id={actualizar.id}//accedemos a la propiedad del estado
-            titulo={actualizar.titulo}
-            autor={actualizar.autor}
-            cantidad={actualizar.cantidad}
-            ubicacion={actualizar.direccion}
-            categoria={actualizar.categoria}
-            estado={actualizar.estado}
-            btnEditarProp={actualizarDatos}
+            tituloProp={actualizar.titulo}
+            autorProp={actualizar.autor}
+            estadoProp={actualizar.estado}
+            categoriaProp={actualizar.categoria}
+            ubicaProp={actualizar.ubicacion}
+            btnEditarProp={actualizarLibro}
             />
         }
         

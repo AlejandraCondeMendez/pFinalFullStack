@@ -1,3 +1,4 @@
+import { json } from "react-router-dom";
 import { muestraAlerta } from "./alertas";
 
 const api = ('http://127.0.0.1:8000/api/')
@@ -77,3 +78,24 @@ async function deleteData(endpoint, id='') {
     }
 }
 export {deleteData}
+
+const function putData(obj, endpoint){
+    try {
+        const response = await fetch(api+endpoint+'/'+obj.id, {
+            method: 'PUT',
+            mode: 'cors',
+            credentials: 'same-origin',
+            headers: {
+                'Content type': 'application/json',
+            },
+            body: JSON.stringify(obj)
+        });
+        const data = await response.json();
+        return data
+        
+    } catch (e) {
+        console.log(e);
+        return null;
+    }
+}
+export default {putData}
