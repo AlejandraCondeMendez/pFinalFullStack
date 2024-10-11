@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
-import Botton from "./Botton"
 import Input from "./Input"
 import CheckBooks from "./CheckBooks"
 import CategoriaBooks from "./CategoriaBooks"
 import { useRef, useState } from "react"
 import { useEffect } from "react"
 import { muestraAlerta } from "../services/alertas"
-import { Modal } from "react-bootstrap"
+import { Button, Modal } from "react-bootstrap"
 
 const ModalPut = ({ mostrar,ocultar,id, tituloProp, autorProp, ventaProp, interProp, categoriaProp, ubicaProp, btnEditarProp }) => {
     const [titulop, setTitulop] = useState(tituloProp)
@@ -44,54 +43,86 @@ const ModalPut = ({ mostrar,ocultar,id, tituloProp, autorProp, ventaProp, interP
 
     return (
         <>
-            <Modal show={mostrar} onHide={ocultar} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-                <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-vcenter">My books</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <h4>Books information</h4>
-                    <div className='d-flex flex-column mx-auto justify-content-center align-items-center'>
-                        {/* Title input */}
-                        <Input
-                            tipo={"text"}
-                            nombre={"Titulo"}
-                            clase={"w-25 mb-3 p-1"}
-                            refVali={tituloR}
-                            valor={tituloProp}
-                            cambio={(e) => setTitulop(e.target.value)}
-                        />
-
-                        {/* Author input */}
-                        <Input
-                            tipo={"text"}
-                            nombre={"Autor"}
-                            clase={"w-25 mb-3 p-1"}
-                            valor={autorp}
-                            cambio={(e) => setAutorp(e.target.value)}
-                        />
-
-                        {/* Estado input */}
-                    
-
-                        {/* Opciones input */}
-
-                        {/* Ubicación input */}
-                        <Input
-                            tipo={"text"}
-                            nombre={"Ubicación"}
-                            valor={ubicacionp}
-                            cambio={(e) => setUbicacionp(e.target.value)}
-                            clase={"w-25 mb-3 p-1"}
-                        />
-                    </div>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Botton nombre={"Subir cambios"} evento={validarInputs}>Editar información</Botton>
-                </Modal.Footer>
-            </Modal>
-
-
-        </>
+        {/* Button to open the modal */}
+        {/* Modal component */}
+        <Modal show={mostrar} onHide={ocultar} centered>
+          <Modal.Header closeButton>
+            <Modal.Title>Libro nuevo</Modal.Title>
+          </Modal.Header>
+          
+          <Modal.Body>
+            <form>
+              <div className="mb-3">
+                <label htmlFor="titulo" className="col-form-label">
+                  Titulo
+                </label>
+                <Input
+                  tipo="text"
+                  nombre="Ingrese el título"
+                  valor={titulop}
+                  cambio={(e) => setTitulop(e.target.value)}
+                />
+              </div>
+  
+              <div className="mb-3">
+                <label htmlFor="autor" className="col-form-label">
+                  Autor
+                </label>
+                <Input
+                  tipo="text"
+                  nombre="Ingrese el autor"
+                  valor={autorp}
+                  cambio={(e) => setAutorp(e.target.value)}
+                />
+              </div>
+  
+              <div className="mb-3">
+                <label htmlFor="estado" className="col-form-label">
+                  Estado
+                </label>
+                <CheckBooks
+                  ventaMarcado={estadoVentap}
+                  interMarcado={estadoInterp}
+                  cambioInter={(e) => setEstadoInterp(e.target.value)}
+                  cambioVenta={(e) => setEstadoVentap(e.target.value)}
+                />
+              </div>
+  
+              <div className="mb-3">
+                <label htmlFor="categoria" className="col-form-label">
+                  Categoría
+                </label>
+                <CategoriaBooks
+                  valor={categoriap}
+                  cambio={(e) => setCategoriap(e.target.value)}
+                />
+              </div>
+  
+              <div className="mb-3">
+                <label htmlFor="ubicacion" className="col-form-label">
+                  Ubicación
+                </label>
+                <Input
+                  tipo="text"
+                  nombre="Ingrese la ubicación"
+                  valor={ubicacionp}
+                  cambio={(e) => setUbicacionp(e.target.value)}
+                />
+              </div>
+            </form>
+          </Modal.Body>
+          
+          <Modal.Footer>
+            <Button variant="secondary" onClick={ocultar}>
+              Cerrar
+            </Button>
+            <Button variant="primary" onClick={() => { validarInputs()}}>
+              Subir cambios
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+  
     )
 }
 export default ModalPut
