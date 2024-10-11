@@ -29,10 +29,13 @@ const ListaBooks=({cardBooks, mostrar, mostrarB,btnEditarL})=>{
                 mostrarBotonB={mostrarB}
                 btnEliminar={()=>eliminaLibro(iterar.id)}
                 btnEditar={()=> //btnEditar:
-                    btnEditarL( //agarra todos los valores de la API
+                    btnEditarL( //agarra todos los valores del backend
                         iterar.id,
                         iterar.titulo,
                         iterar.autor,
+                        iterar.estado,
+                        iterar.categoria,
+                        iterar.ubicacion
                     )
                 }
                 />

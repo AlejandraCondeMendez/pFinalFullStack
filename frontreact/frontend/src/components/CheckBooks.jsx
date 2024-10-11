@@ -1,6 +1,6 @@
 // eslint-disable-next-line react/prop-types
 const CheckBooks = ({ventaMarcado, interMarcado, cambioVenta, cambioInter}) => {
-
+    
     return (
         <>
             <div className="form-check">
@@ -9,7 +9,8 @@ const CheckBooks = ({ventaMarcado, interMarcado, cambioVenta, cambioInter}) => {
                     type="checkbox"
                     id="flexCheckDefault"
                     checked={ventaMarcado}
-                    onChange={cambioVenta}
+                    onChange={(e)=>cambioVenta(e.target.checked)}
+
                 />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
                     Venta
@@ -21,7 +22,7 @@ const CheckBooks = ({ventaMarcado, interMarcado, cambioVenta, cambioInter}) => {
                     type="checkbox"
                     id="flexCheckChecked"
                     checked={interMarcado}
-                    onChange={cambioInter}
+                    onChange={(e)=>cambioInter(e.target.checked)}
                 />
                 <label className="form-check-label" htmlFor="flexCheckChecked">
                     Intercambio

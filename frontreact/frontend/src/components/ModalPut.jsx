@@ -7,14 +7,13 @@ import { useEffect } from "react"
 import { muestraAlerta } from "../services/alertas"
 import { Button, Modal } from "react-bootstrap"
 
-const ModalPut = ({ mostrar,ocultar,id, tituloProp, autorProp, ventaProp, interProp, categoriaProp, ubicaProp, btnEditarProp }) => {
+const ModalPut = ({ mostrar, ocultar, id, tituloProp, autorProp, ventaProp, interProp, categoriaProp, ubicaProp, btnEditarProp }) => {
     const [titulop, setTitulop] = useState(tituloProp)
     const [autorp, setAutorp] = useState(autorProp)
-    const [estadoVentap, setEstadoVentap] = useState(ventaProp)
-    const [estadoInterp, setEstadoInterp] = useState(interProp)
-    const [categoriap, setCategoriap] = useState(categoriaProp)
+    const [estadoVentap, setEstadoVentap] = useState(ventaProp === 'Venta') //venta viene de la base de datos
+    const [estadoInterp, setEstadoInterp] = useState(interProp === 'Intercambio') //inter viene de la base de datos
+    const [categoriap, setCategoriap] = useState(categoriaProp || 'Categoria')
     const [ubicacionp, setUbicacionp] = useState(ubicaProp)
-
     const tituloR = useRef('')
     const autorR = useRef('')
     const ubicacionR = useRef('')
@@ -23,8 +22,8 @@ const ModalPut = ({ mostrar,ocultar,id, tituloProp, autorProp, ventaProp, interP
     useEffect(() => {
         setTitulop(tituloProp)
         setAutorp(autorProp)
-        setEstadoVentap(ventaProp)
-        setEstadoInterp(interProp)
+        setEstadoVentap(ventaProp === 'Venta')
+        setEstadoInterp(interProp === 'Intercambio')
         setCategoriap(categoriaProp)
         setUbicacionp(ubicaProp)
     }, [tituloProp, autorProp, ventaProp, interProp, categoriaProp, ubicaProp])
@@ -34,7 +33,7 @@ const ModalPut = ({ mostrar,ocultar,id, tituloProp, autorProp, ventaProp, interP
         const autorModal = autorR.current.value.trim()
         const ubicaModal = ubicacionR.current.value.trim()
         if (!tituloModal || !autorModal || !ubicaModal) {
-            muestraAlerta('Llenas los espacios vacios', 'error')
+            muestraAlerta('Llenar los espacios vacios', 'error')
         } else {
             btnEditarProp(id,titulop, autorp, estadoVentap, estadoInterp, categoriap, ubicacionp)
             ocultar()
@@ -83,8 +82,9 @@ const ModalPut = ({ mostrar,ocultar,id, tituloProp, autorProp, ventaProp, interP
                 <CheckBooks
                   ventaMarcado={estadoVentap}
                   interMarcado={estadoInterp}
-                  cambioInter={(e) => setEstadoInterp(e.target.value)}
-                  cambioVenta={(e) => setEstadoVentap(e.target.value)}
+                  cambioInter={(checked) => {setEstadoInterp(checked); if(checked) setEstadoVentap(false)}}
+                  cambioVenta={(checked) => {setEstadoVentap(checked); if(checked) setEstadoInterp(false)}}
+
                 />
               </div>
   

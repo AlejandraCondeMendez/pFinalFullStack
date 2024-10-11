@@ -7,6 +7,7 @@ import LibrosDeseados from "../pages/LibrosDeseados"
 import LibrosPrestados from "../pages/LibrosPrestados"
 import MiLibreria from "../pages/MiLibreria"
 import LibrosAgregados from "../pages/LibrosAgregados"
+import InfoLibro from "../pages/InfoLibro"
 
 const PageRoutes=()=>{
     return(
@@ -20,6 +21,7 @@ const PageRoutes=()=>{
             <Route path="/librosprestados" element={<LibrosPrestados/>}/>
             <Route path="/nosotros" element={<AcercaDnosotros/>}/>
             <Route path="/milibreria" element={<MiLibreria/>}/>
+            <Route path="/informacionlibro" element={<InfoLibro/>}/>
 
         </Routes>
     )    
