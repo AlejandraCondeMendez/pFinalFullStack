@@ -78,22 +78,21 @@ async function deleteData(endpoint, id='') {
 }
 export {deleteData}
 
-async function putData(obj, endpoint) {
+async function putData(obj, id) {
     try {
-        const response = await fetch(api+endpoint+'/'+obj.id, {
+        const response = await fetch(`http://127.0.0.1:8000/api/librosPut/${id}/`, { // Cambiado para que obj no esté en la URL
             method: 'PUT',
-            mode: 'cors',
-            credentials: 'same-origin',
             headers: {
-                'Content type': 'application/json',
+                'Content-Type': 'application/json', // Corregido el nombre del encabezado
             },
             body: JSON.stringify(obj)
         });
         const data = await response.json();
-        return data   
+        return data;   
     } catch (e) {
         console.log(e);
         return null;
     }  
 } 
-export default {putData}
+
+export { putData };
