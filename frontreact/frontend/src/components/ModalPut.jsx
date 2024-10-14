@@ -2,28 +2,16 @@
 import Input from "./Input";
 import CheckBooks from "./CheckBooks";
 import CategoriaBooks from "./CategoriaBooks";
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { muestraAlerta } from "../services/alertas";
 import { Button, Modal } from "react-bootstrap";
 
-const ModalPut = ({
-    mostrar,
-    ocultar,
-    id,
-    tituloProp,
-    autorProp,
-    estadoProp,
-    categoriaProp,
-    ubicaProp,
-    btnEditarProp
-}) => {
+const ModalPut = ({mostrar, ocultar, id, tituloProp, autorProp, estadoProp, categoriaProp, ubicaProp, btnEditarProp}) => {
+    
     const [titulop, setTitulop] = useState(tituloProp);
     const [autorp, setAutorp] = useState(autorProp);
-    
-    // Convertir el estado en booleanos
     const [estadoVentap, setEstadoVentap] = useState(estadoProp === "Venta");
     const [estadoInterp, setEstadoInterp] = useState(estadoProp === "Intercambio");
-
     const [categoriap, setCategoriap] = useState(categoriaProp || "Categoría");
     const [ubicacionp, setUbicacionp] = useState(ubicaProp);
 

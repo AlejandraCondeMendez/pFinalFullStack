@@ -33,7 +33,9 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL }) => {
                                 iterar.autor,
                                 iterar.estado,
                                 iterar.categoria,
-                                iterar.ubicacion
+                                
+                                iterar.ubicacion,
+                                iterar.usuarioLibro
                             )
                         }
                     />

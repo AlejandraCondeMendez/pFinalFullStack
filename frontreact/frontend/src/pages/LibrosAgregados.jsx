@@ -4,7 +4,7 @@ import ModalBook from "../components/ModalBook"
 import Footer from "../components/Footer"
 import HamburgerMenu from "../components/HamburgerMenu"
 import { useEffect, useState } from "react"
-import { getData, putData } from "../services/fetch"
+import { getData } from "../services/fetch"
 import ListaBooks from "../components/ListaBooks"
 import ModalPut from '../components/ModalPut'
 
@@ -15,22 +15,7 @@ const LibrosAgregados=()=>{
 
     const [modalShowUpdate, setModalShowUpdate] = useState(false);
 
-    async function putData(obj, id) {
-        try {
-            const response = await fetch(`http://127.0.0.1:8000/api/librosPut/${id}/`, { // Cambiado para que obj no esté en la URL
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json', // Corregido el nombre del encabezado
-                },
-                body: JSON.stringify(obj)
-            });
-            const data = await response.json();
-            return data;   
-        } catch (e) {
-            console.log(e);
-            return null;
-        }  
-    } 
+    
 
     useEffect(()=>{
         const getUserLibros = async()=>{
@@ -41,13 +26,14 @@ const LibrosAgregados=()=>{
         }
         getUserLibros()
     }, [])
+    
     const actualizarLibro = async (id, titulo, autor, estado, categoria, ubicacion) => {
         let libroActualizado = {
             id:id,
             titulo: titulo,
             autor: autor,
             estado: estado ? "Venta" : "Intercambio", 
-            categoria: "categoria",
+            categoria: categoria,
             ubicacion: ubicacion,
             usuarioLibro: localStorage.getItem("localUsuarioID")
         };
