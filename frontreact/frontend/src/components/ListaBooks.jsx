@@ -11,6 +11,7 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL }) => {
             await deleteData('librosDelete', id + "/");
         }
     }
+
     return (
         <>
             {cardBooks.map((iterar, index) => (
@@ -26,8 +27,7 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL }) => {
                         mostrarBoton={mostrar}
                         mostrarBotonB={mostrarB}
                         btnEliminar={() => eliminaLibro(iterar.id)}
-                        btnEditar={() => btnEditarL(iterar)
-                        }
+                        btnEditar={() => btnEditarL(iterar)} 
                     />
                 </div>
             ))}
