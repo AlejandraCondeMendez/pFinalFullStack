@@ -26,17 +26,7 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL }) => {
                         mostrarBoton={mostrar}
                         mostrarBotonB={mostrarB}
                         btnEliminar={() => eliminaLibro(iterar.id)}
-                        btnEditar={() =>
-                            btnEditarL(
-                                iterar.id,
-                                iterar.titulo,
-                                iterar.autor,
-                                iterar.estado,
-                                iterar.categoria,
-                                
-                                iterar.ubicacion,
-                                iterar.usuarioLibro
-                            )
+                        btnEditar={() => btnEditarL(iterar)
                         }
                     />
                 </div>

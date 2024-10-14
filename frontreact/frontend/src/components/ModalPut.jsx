@@ -32,7 +32,7 @@ const ModalPut = ({libroModal, seleccionarLibroModal}) => {
                 id: libroModal.id, // id del libro
                 titulo: tituloput,
                 autor: autorput,
-                estado: estadoInterput ? 'Intercambio': estadoVentaentaput ? 'Venta' : 'No hay estado',
+                estado: estadoInterput ? 'Intercambio': estadoVentaput ? 'Venta' : 'No hay estado',
                 categria: categoriaput,
                 ubicacion: ubicacionput,
                 usuarioLibro: localStorage.getItem('localUsuarioID') //trae al usuario que inció sesión
