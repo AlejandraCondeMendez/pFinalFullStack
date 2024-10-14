@@ -8,7 +8,7 @@ const CheckBooks = ({ ventaMarcado, interMarcado, cambioVenta, cambioInter }) =>
                     type="checkbox"
                     id="flexCheckDefault"
                     checked={ventaMarcado} 
-                    onChange={(e) => cambioVenta(e.target.checked)}
+                    onChange={cambioVenta}
                 />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
                     Venta
@@ -20,7 +20,7 @@ const CheckBooks = ({ ventaMarcado, interMarcado, cambioVenta, cambioInter }) =>
                     type="checkbox"
                     id="flexCheckChecked"
                     checked={interMarcado} 
-                    onChange={(e) => cambioInter(e.target.checked)} 
+                    onChange={cambioInter} 
                 />
                 <label className="form-check-label" htmlFor="flexCheckChecked">
                     Intercambio
