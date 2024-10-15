@@ -3,6 +3,10 @@ from rest_framework import generics
 from .serializer import PostSerializer
 from .models import Libros
 # Create your views here.
+# hacer el token y guardarlo en cookie (definir cuanto dura o sesiones), en el backend buscar que las views
+# todo el resto de views verifiquen que exista el token. sección de seguridad, los endpoints no pueden ser utilizados sin un token de usuario
+# sirve para mantener la sesión iniciada
+# 21 de octubre (avance II - autenticaciones)
 
 class LibroView(generics.ListCreateAPIView):
     queryset = Libros.objects.all()

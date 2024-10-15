@@ -1,4 +1,3 @@
-
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
@@ -6,13 +5,13 @@ import '../styles/PagAdmin.css';
 import ModalBook from "../components/ModalBook";
 import Footer from "../components/Footer";
 import HamburgerMenu from "../components/HamburgerMenu";
-import { getData, putData } from "../services/fetch";
+import { getData } from "../services/fetch";
 import ListaBooks from "../components/ListaBooks";
 import ModalPut from '../components/ModalPut';
 
 const LibrosAgregados = () => {
     const [librosID, setLibrosID] = useState([]);
-    const [libroSelec, setLibroSelec] = useState(null); 
+    const [libroSelec, setLibroSelec] = useState(false); 
 
     useEffect(() => {
         const getUserLibros = async () => {
@@ -23,8 +22,8 @@ const LibrosAgregados = () => {
         getUserLibros();
     }, [librosID]);
 
-    const handleEditarLibro = (libro) => {
-        setLibroSelec(libro); 
+    const handleEditarLibro = (infoLibro) => {
+        setLibroSelec(infoLibro); 
     };
 
     return (
@@ -45,7 +44,7 @@ const LibrosAgregados = () => {
 
             {/* Modal de edición */}
             {libroSelec && (
-                <ModalPut libroModal={libroSelec} setLibroModal={setLibroSelec} />
+                <ModalPut libroModal={libroSelec} setLibroModal={setLibroSelec} /> //cerrar y mostrar el modal
             )}
 
             <div style={{ marginTop: 300 }}>

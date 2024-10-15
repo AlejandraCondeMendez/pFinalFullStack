@@ -7,6 +7,7 @@ import Botton from "./Botton";
 import Input from "./Input";
 import { putData } from "../services/fetch";
 
+
 const ModalPut = ({ libroModal, setLibroModal }) => {
   const [tituloPut, setTituloPut] = useState(libroModal.titulo);
   const [autorPut, setAutorPut] = useState(libroModal.autor);
@@ -44,11 +45,10 @@ const ModalPut = ({ libroModal, setLibroModal }) => {
       };
 
       try {
-        const response = await putData(libroActualizado, libroModal.id); 
-        console.log(response.usuarioLibro);
-        if (response.usuarioLibro) {
+          const response = await putData(libroActualizado, libroModal.id); 
+          if (response.usuarioLibro) {
           muestraAlerta("Libro actualizado con éxito", "success");
-          setLibroModal(null); 
+          setLibroModal(false); 
         }
       } catch (error) {
         console.error("Error en la solicitud:", error);
