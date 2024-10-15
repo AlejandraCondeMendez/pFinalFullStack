@@ -3,7 +3,7 @@ import { acceptPopUp } from "../services/alertas";
 import { deleteData } from "../services/fetch";
 import CardBook from "./CardBook";
 
-const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL }) => {
+const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL }) => {
     const eliminaLibro = async (id) => {
         const alerta = await acceptPopUp("Estás intentando eliminar un libro, ¿Continuar?", "El libro se eliminó con éxito", "La eliminación del libro fue cancelada");
         if (alerta) {
@@ -26,6 +26,7 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL }) => {
                         usuarioCard={iterar.usuarioLibro_nombre}
                         mostrarBoton={mostrar}
                         mostrarBotonB={mostrarB}
+                        btnInfo={()=>btnInfoL(localStorage.setItem('LibrolocalID', iterar.id))}
                         btnEliminar={() => eliminaLibro(iterar.id)}
                         btnEditar={() => btnEditarL(iterar)} // En lista books está la función
                         // Iterar trae todos los datos 

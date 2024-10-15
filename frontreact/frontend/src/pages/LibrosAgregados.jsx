@@ -8,14 +8,15 @@ import HamburgerMenu from "../components/HamburgerMenu";
 import { getData } from "../services/fetch";
 import ListaBooks from "../components/ListaBooks";
 import ModalPut from '../components/ModalPut';
+import { traerCookie } from "../services/cookies";
 
 const LibrosAgregados = () => {
     const [librosID, setLibrosID] = useState([]);
     const [libroSelec, setLibroSelec] = useState(false); 
-
+    const idCookie = traerCookie("localUsuarioID")
     useEffect(() => {
         const getUserLibros = async () => {
-            const librosID = await getData('librosID', localStorage.getItem("localUsuarioID") + "/");
+            const librosID = await getData('librosID', idCookie + "/");
             console.log(librosID);
             setLibrosID(librosID);
         };
@@ -44,7 +45,7 @@ const LibrosAgregados = () => {
 
             {/* Modal de edición */}
             {libroSelec && (
-                <ModalPut libroModal={libroSelec} setLibroModal={setLibroSelec} /> //cerrar y mostrar el modal
+                <ModalPut libroModal={libroSelec} setLibroModal={setLibroSelec}/> //cerrar y mostrar el modal
             )}
 
             <div style={{ marginTop: 300 }}>
