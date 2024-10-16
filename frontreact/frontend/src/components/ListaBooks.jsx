@@ -3,7 +3,7 @@ import { acceptPopUp } from "../services/alertas";
 import { deleteData } from "../services/fetch";
 import CardBook from "./CardBook";
 
-const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL }) => {
+const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL}) => {
     const eliminaLibro = async (id) => {
         const alerta = await acceptPopUp("Estás intentando eliminar un libro, ¿Continuar?", "El libro se eliminó con éxito", "La eliminación del libro fue cancelada");
         if (alerta) {

@@ -71,7 +71,7 @@ class InicioSesionView(APIView):
         userDatos = authenticate(request, username=usuarioLogin, password=contrasenaLogin)
         
         if userDatos is not None:
-            refresh = RefreshToken.for_user(userDatos) # crea el token
+            refresh = RefreshToken.for_user(userDatos) # crea el token para el usuario
             token, created = Token.objects.get_or_create(user=userDatos) # user contiene el nuevo_usuario, va a iniciar sesión si coinciden
             return Response({'success': "Usuario valido", 'id': userDatos.id,'token_acceso':str(refresh.access_token),'token_refresco':str(refresh)}, status=status.HTTP_200_OK)
         #la respuesta a la solicitud HTTP es enviar el menssaje de succes y también en esta respuesta se incluye el ID, esto para almacenar el ID del usuario que inicio sesión.
@@ -80,5 +80,5 @@ class InicioSesionView(APIView):
     
 # Los Token es la manera en la se autentica un usuario, generando una secuencia de #s únicos 
 # HTTP 200 la petición fue correcta (se logró conectar)
-# access_token : da el token de acceso del usuario - es la autenticación
-# refresh_token : da el token de refresco
+# access_token : da el token de acceso del usuario - es la autenticación, permite el acceso
+# refresh_token : da el token de refresco, utilizado para obtener nuevos tokens de acceso

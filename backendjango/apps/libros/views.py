@@ -11,7 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 # 21 de octubre (avance II - autenticaciones)
 
 class LibroView(generics.ListCreateAPIView):
-    permission_classes=[IsAuthenticated] #para que se muestren los libros una vez el usuario se autenticó iniciando sesión
+    permission_classes=[IsAuthenticated] #para que se muestren los libros una vez el usuario se autenticó iniciando sesión, es decir requiere que el usuario este auntenticado para acceder
     queryset = Libros.objects.all()
     serializer_class = PostSerializer
 
@@ -23,15 +23,6 @@ class LibroGetView(generics.ListAPIView): # hace un get según el ID
         usuario_libro = self.kwargs.get(self.lookup_field) #kwargs: el campo usuarioLibro sea igual a lo que tiene la URL (urls.py) // traéme el campo lookupfield
         return Libros.objects.filter(usuarioLibro=usuario_libro)
 
-class LibroIDView(generics.ListAPIView):
-    serializer_class = PostSerializer
-    lookup_field = 'id' # lookup va a buscar el campo id en la BD
-    
-    def get_queryset(self): #método de django
-        id = self.kwargs.get(self.lookup_field) #kwargs: el campo id sea igual a lo que tiene la URL (urls.py) // traéme el campo lookupfield
-        return Libros.objects.filter(id=id)
-
-
 class LibroDeleteView(generics.DestroyAPIView):
     queryset = Libros.objects.all()
     serializer_class = PostSerializer
@@ -41,6 +32,15 @@ class LibroPutView(generics.UpdateAPIView):
     queryset=Libros.objects.all()
     serializer_class=PostSerializer
     lookup_field = 'id' 
+    
+
+class LibroIDView(generics.ListAPIView):
+    serializer_class = PostSerializer
+    lookup_field = 'id' # lookup va a buscar el campo id en la BD
+    
+    def get_queryset(self): #método de django
+        id = self.kwargs.get(self.lookup_field) #kwargs: el campo id sea igual a lo que tiene la URL (urls.py) // traéme el campo lookupfield
+        return Libros.objects.filter(id=id)
     
     
     
