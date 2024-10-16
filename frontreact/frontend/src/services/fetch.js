@@ -1,4 +1,5 @@
 import { muestraAlerta } from "./alertas";
+import { traerCookie } from "./cookies";
 
 const api = ('http://127.0.0.1:8000/api/')
 
@@ -50,10 +51,14 @@ async function postDataForUser(obj, endpoint) {
 }
 export {postDataForUser}
 
+const cookie = traerCookie('token_inicio')
+
 //GET
 async function getData(endpoint, id='') {
     try {
-        const response = await fetch(api+endpoint+'/'+id)
+        const response = await fetch(api+endpoint+'/'+id, {
+            headers: {'Authorization': `Bearer ${cookie}`}
+        })
         const data = await response.json()
         return data        
     } catch (error) {

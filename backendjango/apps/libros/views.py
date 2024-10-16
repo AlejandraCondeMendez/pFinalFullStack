@@ -2,6 +2,8 @@ from django.shortcuts import render
 from rest_framework import generics
 from .serializer import PostSerializer
 from .models import Libros
+from rest_framework.permissions import IsAuthenticated
+
 # Create your views here.
 # hacer el token y guardarlo en cookie (definir cuanto dura o sesiones), en el backend buscar que las views
 # todo el resto de views verifiquen que exista el token. sección de seguridad, los endpoints no pueden ser utilizados sin un token de usuario
@@ -9,6 +11,7 @@ from .models import Libros
 # 21 de octubre (avance II - autenticaciones)
 
 class LibroView(generics.ListCreateAPIView):
+    permission_classes=[IsAuthenticated] #para que se muestren los libros una vez el usuario se autenticó iniciando sesión
     queryset = Libros.objects.all()
     serializer_class = PostSerializer
 

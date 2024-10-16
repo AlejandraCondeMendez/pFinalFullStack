@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,8 +43,21 @@ INSTALLED_APPS = [
     'apps.libros',
     'rest_framework',
     'corsheaders',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'rest_framework_simplejwt', # jsonwebtoken(en lugar que los auth token, los cuales son menos seguros) - usar el token
 ]
+
+#
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=3), # acceso a la página es de 3 días
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1), # volver a crear un token
+}
+
+REST_FRAMEWORK = { # permite autenticar (privatizar)las vistas
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
