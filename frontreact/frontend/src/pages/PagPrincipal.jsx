@@ -7,9 +7,11 @@ import { getData } from "../services/fetch"
 import SelectFiltro from "../components/SelectFiltro"
 import Footer from "../components/Footer"
 import HamburgerMenu from "../components/HamburgerMenu"
+import { useNavigate } from "react-router-dom"
 
 const PagPrincipal =()=>{
-
+    
+    const navigate = useNavigate('')
     const [books, setBooks] = useState ([])
 
     useEffect(()=>{ //get que trae todo los libros de la API
@@ -48,7 +50,7 @@ const PagPrincipal =()=>{
         </div>
       
         <div className="d-flex gap-3 flex-wrap justify-content-center">
-        <ListaBooks cardBooks={books} mostrar={true}/>
+        <ListaBooks cardBooks={books} mostrar={true} btnInfoL={()=>navigate('/informacionlibro')}/>
         </div>
         <div style={{marginTop: 200}}>
             <Footer/>

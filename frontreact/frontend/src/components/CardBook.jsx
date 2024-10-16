@@ -30,8 +30,8 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
                 }
                 {mostrarBotonB &&
                 <div>
-                    <Botton nombre={'Eliminar'} tipo={'button'} evento={btnEliminar}/>
-                    <Botton nombre={'Editar'} tipo={'button'} evento={btnEditar}/> 
+                    <Botton nombre={'Eliminar'} tipo={'button'} evento={btnEliminar} clase={'btn btn-danger'}/>
+                    <Botton nombre={'Editar'} tipo={'button'} evento={btnEditar} clase={'btn btn-info'}/> 
                     {/* En card book está la acción.  */}
                 </div>
                 }

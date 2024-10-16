@@ -33,7 +33,9 @@ const InicioSesion=()=>{
         const inicioSesion = await postDataForUser(infoInicio, 'iniciosesion/')
         if (inicioSesion.success){
             localStorage.setItem('localUsuarioID', inicioSesion.id)
+
             crearCookie("localUsuarioID",inicioSesion.id,1)
+            
             navigate("/paginaprincipal")
         }
     }
