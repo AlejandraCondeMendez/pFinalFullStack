@@ -4,20 +4,29 @@ import { getData } from "../services/fetch"
 import { useEffect, useState } from "react"
 import ListaBooks from "../components/ListaBooks"
 import CarruselLibro from "../components/CarruselLibro"
-
+import "../styles/Carrusel.css" 
 const InfoLibro =()=>{
 
     const LibrolocalD = localStorage.getItem('LibrolocalID')
-
     const [libroInfo, setLibroInfo] = useState([])
+    const [libros, setLibros] = useState([])
 
     useEffect(()=>{
     const libroInfoPag = async ()=>{
             const getLibros = await getData('libroID', LibrolocalD + "/" )
             setLibroInfo(getLibros)
     }
+
+    const traerLibros = async()=>{
+        const librosget = await getData('libros')
+        setLibros(librosget)
+    }
         libroInfoPag()
+        traerLibros()
+
     },[])
+
+    
 
     return(
         <>
@@ -31,9 +40,12 @@ const InfoLibro =()=>{
         <div>
             <a>Recomendaciones</a>
         </div>
-
-        <CarruselLibro/>
-        <Footer/>
+        <div className="carrusel">
+        <CarruselLibro cardLibro={libros} mostrar={true}/>
+        </div>
+        <div style={{marginTop: 200}}>
+            <Footer/>
+        </div>
         </>
     )
 }

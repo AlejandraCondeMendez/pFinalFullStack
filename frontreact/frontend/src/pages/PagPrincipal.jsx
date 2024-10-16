@@ -16,12 +16,9 @@ const PagPrincipal =()=>{
 
     useEffect(()=>{ //get que trae todo los libros de la API
         const traerLibros = async()=>{
-            const getLbros = await getData('libros')
-            console.log(getLbros);
-            
-            setBooks(getLbros)
+            const getLibros = await getData('libros')
+            setBooks(getLibros)
         }
-        console.log(books);
         traerLibros()
     },[books])
 
