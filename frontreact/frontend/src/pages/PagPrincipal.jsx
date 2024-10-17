@@ -13,6 +13,8 @@ const PagPrincipal =()=>{
     
     const navigate = useNavigate('')
     const [books, setBooks] = useState ([])
+    // estado para los contadores de libro venta e intercambio
+
 
     useEffect(()=>{ //get que trae todo los libros de la API
         const traerLibros = async()=>{
@@ -21,8 +23,6 @@ const PagPrincipal =()=>{
         }
         traerLibros()
     },[books])
-
-
 
 
     return(
