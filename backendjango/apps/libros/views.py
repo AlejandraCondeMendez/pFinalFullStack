@@ -33,7 +33,7 @@ class LibroPutView(generics.UpdateAPIView):
     serializer_class=PostSerializer
     lookup_field = 'id' 
     
-
+# View que sirve en el frontend para traer los libros según su ID
 class LibroIDView(generics.ListAPIView):
     serializer_class = PostSerializer
     lookup_field = 'id' # lookup va a buscar el campo id en la BD
@@ -42,7 +42,15 @@ class LibroIDView(generics.ListAPIView):
         id = self.kwargs.get(self.lookup_field) #kwargs: el campo id sea igual a lo que tiene la URL (urls.py) // traéme el campo lookupfield
         return Libros.objects.filter(id=id)
     
+class LibroCateView(generics.ListAPIView):
+    serializer_class = PostSerializer
+    lookup_field = 'estado' # lookup va a buscar el campo id en la BD
     
+    def get_queryset(self): #método de django
+        categoria = self.kwargs.get(self.lookup_field) #kwargs: el campo id sea igual a lo que tiene la URL (urls.py) // traéme el campo lookupfield
+        return Libros.objects.filter(categoria=categoria)    
+
+
     
         
 
