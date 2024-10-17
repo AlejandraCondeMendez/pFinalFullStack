@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import Navbar from "../components/Navbar"
 import Search from "../components/Search"
 import "../styles/PagPrincipal.css"
 import ListaBooks from "../components/ListaBooks"
 import { useState,useEffect } from "react"
-import { getData } from "../services/fetch"
+import { getBusqueda, getData } from "../services/fetch"
 import SelectFiltro from "../components/SelectFiltro"
 import Footer from "../components/Footer"
 import HamburgerMenu from "../components/HamburgerMenu"
@@ -13,18 +14,39 @@ const PagPrincipal =()=>{
     
     const navigate = useNavigate('')
     const [books, setBooks] = useState ([])
-    // estado para los contadores de libro venta e intercambio
-
+    const [filtroCate, setFiltroCate] = useState('')
+    const [contadorVenta, setContadorVenta ] = useState(0)
+    const [contadorPrestamo, setContadorPrestamo] = useState(0)
 
     useEffect(()=>{ //get que trae todo los libros de la API
         const traerLibros = async()=>{
             const getLibros = await getData('libros')
             setBooks(getLibros)
         }
+        const contadores =async()=>{
+            const venta = await getBusqueda('estado', 'Venta')
+            const prestamo = await getBusqueda('estado', 'Intercambio')
+            setContadorVenta(venta.length)
+            setContadorPrestamo(prestamo.length)
+            console.log(contadorVenta);
+            console.log(contadorPrestamo);
+            
+        }
+        contadores()
         traerLibros()
-    },[books])
+    },[])
 
-
+    const filtros = async (tipo)=>{
+        setFiltroCate(tipo)
+        if (tipo) {
+            const librosFiltro = await getBusqueda('categoria', tipo)
+            setBooks(librosFiltro)
+        } else {
+            const librosFiltro = await getData('libros')
+            setBooks(librosFiltro)
+        }
+    }
+    
     return(
         <>
         <Navbar/>
@@ -33,16 +55,16 @@ const PagPrincipal =()=>{
         </div>
         <Search/>
         <div className="w-25 mx-auto mt-3">
-        <SelectFiltro/>
+        <SelectFiltro tipoFiltro={filtros}/>
         </div>
         <div className="d-flex gap-3 flex-wrap justify-content-center">
         <div className="d-flex flex-column">
         <p>Libros disponibles para venta</p>
-        <p className="text-center">0</p>
+        <p className="text-center">{contadorVenta}</p>
         </div>
         <div className="d-flex flex-column">
         <p>Libros disponibles para préstamo</p>
-        <p className="text-center">0</p>
+        <p className="text-center">{contadorPrestamo}</p>
         </div>
         </div>
       

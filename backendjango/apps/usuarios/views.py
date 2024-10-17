@@ -82,3 +82,10 @@ class InicioSesionView(APIView):
 # HTTP 200 la petición fue correcta (se logró conectar)
 # access_token : da el token de acceso del usuario - es la autenticación, permite el acceso
 # refresh_token : da el token de refresco, utilizado para obtener nuevos tokens de acceso
+
+
+# guardar en una cookie los tokens (acceso y refresco)
+# que se expire rápido el token de acceso y el de refresco no
+
+# el más seguro: en lugar de guardarlas en una cookie, las de refreso se guardan en el backend (cookie)
+# views privatizadas, que ocupen el token para ser usadas

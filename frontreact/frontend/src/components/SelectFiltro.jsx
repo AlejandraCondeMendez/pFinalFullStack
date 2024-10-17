@@ -1,11 +1,12 @@
 // eslint-disable-next-line react/prop-types
-const SelectFiltro = () => {
+const SelectFiltro = ({tipoFiltro}) => {
     return (
         <>
         <div className="select-filtro">
             <select
                 className="form-select form-select-md mb-3"
                 aria-label="Large select example"
+                onChange={(e)=>tipoFiltro(e.target.value)}
             >
                 <option selected="">Categorías de la biblioteca</option>
                 <option value={'Narrativa'}>Narrativa</option>

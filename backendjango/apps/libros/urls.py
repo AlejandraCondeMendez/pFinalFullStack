@@ -11,10 +11,8 @@ urlpatterns = [
     path("libroID/<int:id>/", LibroIDView.as_view(), name="libroIDget"), 
     path("librosDelete/<int:id>/", LibroDeleteView.as_view(), name="librodelete"),
     path("librosPut/<int:id>/", LibroPutView.as_view(), name='libroput'),
-    path("libros/categoria/<int:categoria>/", LibroCateView.as_view(), name='categoria'),
-    path("libros/estado/<int:estado>/", LibroEstadoView.as_view(), name='estado'),
-    
-    
+    path("libros/categoria/<str:categoria>/", LibroCateView.as_view(), name='categoria'),
+    path("libros/estado/<str:estado>/", LibroEstadoView.as_view(), name='estado'),   
 ]
 
 # int:usuarioLibro es la kwargs de la view

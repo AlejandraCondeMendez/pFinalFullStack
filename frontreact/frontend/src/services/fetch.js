@@ -68,6 +68,20 @@ async function getData(endpoint, id='') {
 }
 export {getData}
 
+// GET para usarlo en filtro y estado
+async function getBusqueda(termino, busqueda) {
+    try {
+        const response = await fetch(`${api}libros/${termino}/${busqueda}`)
+        const data = await response.json()
+        return data        
+    } catch (error) {
+        console.log(error);
+        return null
+    }
+}
+export {getBusqueda}
+
+
 // DELETE, según su ID
 async function deleteData(endpoint, id='') {
     try {
