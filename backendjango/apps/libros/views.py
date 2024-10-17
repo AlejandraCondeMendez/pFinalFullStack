@@ -50,9 +50,9 @@ class LibroCateView(generics.ListAPIView):
         categoria = self.kwargs.get(self.lookup_field) #kwargs: el campo categoria sea igual a lo que tiene la URL (urls.py) // traéme el campo lookupfield
         return Libros.objects.filter(categoria=categoria) 
 
-class LibroCateView(generics.ListAPIView):
+class LibroEstadoView(generics.ListAPIView):
     serializer_class = PostSerializer
-    lookup_field = 'estado' # lookup va a buscar el campo estado en la BD
+    lookup_field = 'estado' # lookup va a buscar el campo estado en la BD (vente - intercambio)
     
     def get_queryset(self): #método de django
         estado = self.kwargs.get(self.lookup_field) #kwargs: el campo categoria sea igual a lo que tiene la URL (urls.py) // traéme el campo lookupfield
