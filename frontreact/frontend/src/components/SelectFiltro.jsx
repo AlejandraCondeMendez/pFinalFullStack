@@ -8,7 +8,8 @@ const SelectFiltro = ({tipoFiltro}) => {
                 aria-label="Large select example"
                 onChange={(e)=>tipoFiltro(e.target.value)}
             >
-                <option selected="">Categorías de la biblioteca</option>
+                <option disabled>Categorías de la biblioteca</option>
+                <option selected="" value={""}>Todos</option>
                 <option value={'Narrativa'}>Narrativa</option>
                 <option value={'Poesía'}>Poesía</option>
                 <option value={'Drama'}>Drama</option>

@@ -11,8 +11,7 @@ import HamburgerMenu from "../components/HamburgerMenu"
 import { useNavigate } from "react-router-dom"
 
 const PagPrincipal =()=>{
-    
-    const navigate = useNavigate('')
+    const navigate = useNavigate()
     const [books, setBooks] = useState ([])
     const [filtroCate, setFiltroCate] = useState('')
     const [contadorVenta, setContadorVenta ] = useState(0)
@@ -28,8 +27,6 @@ const PagPrincipal =()=>{
             const prestamo = await getBusqueda('estado', 'Intercambio')
             setContadorVenta(venta.length)
             setContadorPrestamo(prestamo.length)
-            console.log(contadorVenta);
-            console.log(contadorPrestamo);
             
         }
         contadores()
@@ -41,12 +38,11 @@ const PagPrincipal =()=>{
         if (tipo) {
             const librosFiltro = await getBusqueda('categoria', tipo)
             setBooks(librosFiltro)
-        } else {
+        } else if(tipo === "") {
             const librosFiltro = await getData('libros')
             setBooks(librosFiltro)
         }
     }
-    
     return(
         <>
         <Navbar/>
