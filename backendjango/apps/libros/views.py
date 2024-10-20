@@ -11,7 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 # 21 de octubre (avance II - autenticaciones)
 
 class LibroView(generics.ListCreateAPIView):
-    permission_classes=[IsAuthenticated] #para que se muestren los libros una vez el usuario se autenticó iniciando sesión, es decir requiere que el usuario este auntenticado para acceder
+    #permission_classes=[IsAuthenticated] #para que se muestren los libros una vez el usuario se autenticó iniciando sesión, es decir requiere que el usuario este auntenticado para acceder
     queryset = Libros.objects.all()
     serializer_class = PostSerializer
 

@@ -8,3 +8,4 @@ class Libros(models.Model):
     estado = models.CharField(max_length=30)
     categoria = models.CharField(max_length=30)
     ubicacion = models.CharField(max_length=30)
+    precio = models.FloatField(default=0.0)

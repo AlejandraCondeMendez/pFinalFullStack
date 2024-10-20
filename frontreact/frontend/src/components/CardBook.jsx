@@ -4,7 +4,7 @@ import '../styles/Card.css'
 import '../styles/BotonCard.css'
 
 
-const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCard, usuarioCard, btnAgregar, btnInfo, btnEliminar, btnEditar, mostrarBoton, mostrarBotonB}) => {
+const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCard, precioCard, usuarioCard, btnAgregar, btnInfo, btnEliminar, btnEditar, mostrarBoton, mostrarBotonB}) => {
 
     return (
         <>
@@ -21,6 +21,8 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
                     <p>Estado: {estadoCard}</p>
                     <p>Categoría: {categoriaCard}</p>
                     <p>Ubicación: {ubicacionCard}</p>
+                    <p>Precio: {precioCard ? `₡ ${precioCard}`: 'Gratis'}</p> 
+
                 </div>
                 {mostrarBoton && 
                 <div className="card-body">

@@ -9,40 +9,38 @@ import { putData } from "../services/fetch";
 
 
 const ModalPut = ({ libroModal, setLibroModal }) => {
-  const [tituloPut, setTituloPut] = useState(libroModal.titulo);
-  const [autorPut, setAutorPut] = useState(libroModal.autor);
-  const [estadoVentaPut, setEstadoVentaPut] = useState(libroModal.estado === "Venta");
-  const [estadoIntercambioPut, setIntercabmioPut] = useState(
-    libroModal.estado === "Intercambio"
-  );
-  const [categoriaPut, setCategoriaPut] = useState(libroModal.categoria);
-  const [ubicacionPut, setUbicacionPut] = useState(libroModal.ubicacion);
+  const [tituloPut, setTituloPut] = useState(libroModal.titulo)
+  const [autorPut, setAutorPut] = useState(libroModal.autor)
+  const [estadoVentaPut, setEstadoVentaPut] = useState(libroModal.estado === "Venta")
+  const [estadoIntercambioPut, setIntercabmioPut] = useState(libroModal.estado === "Intercambio")
+  const [categoriaPut, setCategoriaPut] = useState(libroModal.categoria)
+  const [ubicacionPut, setUbicacionPut] = useState(libroModal.ubicacion)
+  const [precioPut, setPrecioPut] = useState(libroModal.precio)
 
-  const tituloRef = useRef("");
-  const autorRef = useRef("");
-  const ubicacionRef = useRef("");
+  const tituloRef = useRef('')
+  const autorRef = useRef('')
+  const ubicacionRef = useRef('')
+  const precioRef = useRef('')
 
   const validacionModalBook = async () => {
-    const tituloValidar = tituloRef.current.value.trim();
-    const autorValidar = autorRef.current.value.trim();
-    const ubiValidar = ubicacionRef.current.value.trim();
+    const tituloValidar = tituloRef.current.value.trim()
+    const autorValidar = autorRef.current.value.trim()
+    const ubiValidar = ubicacionRef.current.value.trim()
+    const precioValidar = precioRef.current.value.trim()
 
-    if (!tituloValidar || !autorValidar || !ubiValidar) {
-      muestraAlerta("Por favor llene los campos vacíos", "error");
+    if (!tituloValidar || !autorValidar || !ubiValidar || !precioValidar || !estadoVentaPut && !estadoIntercambioPut) {
+      muestraAlerta("Por favor llene los campos vacíos", "error")
     } else {
       const libroActualizado = {
         id: libroModal.id,
         titulo: tituloPut,
         autor: autorPut,
-        estado: estadoIntercambioPut
-          ? "Intercambio"
-          : estadoVentaPut
-          ? "Venta"
-          : "No hay estado",
+        estado: estadoIntercambioPut ? "Intercambio" : estadoVentaPut ? "Venta" : "No hay estado",
         categoria: categoriaPut || null, 
         ubicacion: ubicacionPut,
+        precio: precioPut || 0,
         usuarioLibro: localStorage.getItem("localUsuarioID"), 
-      };
+      }
 
       try {
           const response = await putData(libroActualizado, libroModal.id); 
@@ -112,8 +110,11 @@ const ModalPut = ({ libroModal, setLibroModal }) => {
                 <CheckBooks
                   ventaMarcado={estadoVentaPut}
                   interMarcado={estadoIntercambioPut}
-                  cambioVenta={(e) => setEstadoVentaPut(e.target.checked)}
-                  cambioInter={(e) => setIntercabmioPut(e.target.checked)}
+                  cambioVenta={(e) => {setEstadoVentaPut(e.target.checked); e.target.checked && setIntercabmioPut(false)}}
+                  cambioInter={(e) => {setIntercabmioPut(e.target.checked); 
+                    e.target.checked && setEstadoVentaPut(false)
+                    e.target.checked && setPrecioPut(0)
+                  }}
                 />
               </div>
 
@@ -139,6 +140,21 @@ const ModalPut = ({ libroModal, setLibroModal }) => {
                   clase={"form-control"}
                 />
               </div>
+
+              <div className="mb-3">
+                <label htmlFor="recipient-name" className="col-form-label">
+                  Precio
+                </label>
+                <Input
+                  tipo={'number'}
+                  habilitado={!estadoVentaPut}
+                  refvali={precioRef}
+                  valor={estadoIntercambioPut ? 0 : precioPut}
+                  cambio={(e) => setPrecioPut(e.target.value)}
+                  clase={"form-control"}
+                />
+              </div>
+
             </form>
           </div>
           <div className="modal-footer">

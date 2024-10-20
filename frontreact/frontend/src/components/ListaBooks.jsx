@@ -18,11 +18,12 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL}) => {
                 <div key={index}>
                     <CardBook
                         key={iterar.id}
-                        tituloCard={iterar.titulo}
+                        tituloCard={iterar.titulo} //BD
                         autorCard={iterar.autor}
                         estadoCard={iterar.estado}
                         categoriaCard={iterar.categoria}
                         ubicacionCard={iterar.ubicacion}
+                        precioCard={iterar.precio}
                         usuarioCard={iterar.usuarioLibro_nombre}
                         mostrarBoton={mostrar}
                         mostrarBotonB={mostrarB}

@@ -15,17 +15,21 @@ const ModalBook = () => {
     const [estadoIntercambio, setIntercabmio] = useState(false)
     const [categoria, setCategoria] = useState('')
     const [ubicacion, setUbicacion] = useState('')
+    const [precio, setPrecio] = useState('')
+
 
     const tituloRef = useRef('')
     const autorRef = useRef('')
     const ubicacionRef = useRef('')
+    const precioRef = useRef('')
 
     const validacionModalBook =async ()=>{
         const tituloValidar = tituloRef.current.value.trim()
         const autorValidar = autorRef.current.value.trim()
         const ubiValidar = ubicacionRef.current.value.trim()
+        const precioValidar = precioRef.current.value.trim() 
 
-        if (!tituloValidar || !autorValidar || !ubiValidar) {
+        if (!tituloValidar || !autorValidar || !ubiValidar || !precioValidar || !estadoVenta && !estadoIntercambio) {
             muestraAlerta('Por favor llene los campos vacios', 'error')
         } else{
             const libro = { //las propiedades de la izquierda vienen d la BD
@@ -34,6 +38,7 @@ const ModalBook = () => {
                 estado: estadoIntercambio ? "Intercambio" : estadoVenta ? "Venta" : "No hay estado",
                 categoria: categoria,
                 ubicacion: ubiValidar,
+                precio: precioValidar,
                 usuarioLibro: localStorage.getItem('localUsuarioID')
             }
             await postData(libro, 'libros/') //'libros/' viene de la base de datos, es la urls.py que a la vez contiene la lógica de la view
@@ -43,6 +48,7 @@ const ModalBook = () => {
             setIntercabmio('')
             setTitulo('')
             setUbicacion('')
+            setPrecio('')
             }
 
     }
@@ -99,7 +105,11 @@ const ModalBook = () => {
                                         Estado
                                     </label>
                                     <div>
-                                        <CheckBooks ventaMarcado={estadoVenta} interMarcado={estadoIntercambio} cambioVenta={(e)=>setEstadoVenta(e.target.checked)} cambioInter={(e)=>setIntercabmio(e.target.checked)}/>
+                                        <CheckBooks 
+                                        ventaMarcado={estadoVenta} 
+                                        interMarcado={estadoIntercambio} 
+                                        cambioVenta={(e)=>{setEstadoVenta(e.target.checked); e.target.checked && setIntercabmio(false)}} 
+                                        cambioInter={(e)=>{setIntercabmio(e.target.checked); e.target.checked && setEstadoVenta(false)}}/>
                                     </div>
                                 </div>
                                 <div className="mb-3">
@@ -114,6 +124,14 @@ const ModalBook = () => {
                                     </label>
                                     <Input tipo={'text'} nombre={'Ingrese la ubicación'} refvali={ubicacionRef} valor={ubicacion} cambio={(e)=>setUbicacion(e.target.value)} clase={'form-control'}/>
                                 </div>
+
+                                <div className="mb-3">
+                                    <label htmlFor="recipient-name" className="col-form-label">
+                                        Precio
+                                    </label>
+                                    <Input tipo={'number'} nombre={'Ingrese el precio'} refvali={precioRef} habilitado={!estadoVenta} valor={estadoIntercambio ? 0 : precio} cambio={(e)=>setPrecio(e.target.value)} clase={'form-control'}/>
+                                </div>
+                                {/* va a estar deshabilitado cuando el estado no sea venta */}
 
                             </form>
                         </div>
