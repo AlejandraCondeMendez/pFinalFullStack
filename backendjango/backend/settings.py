@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'apps.usuarios',
     'apps.adminstrador',
     'apps.libros',
+    'apps.carrito',
     'rest_framework',
     'corsheaders',
     'rest_framework.authtoken',

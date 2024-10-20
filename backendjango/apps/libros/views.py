@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .serializer import PostSerializer
+from .serializer import LibroSerializer
 from .models import Libros
 from rest_framework.permissions import IsAuthenticated
 
@@ -13,10 +13,10 @@ from rest_framework.permissions import IsAuthenticated
 class LibroView(generics.ListCreateAPIView):
     #permission_classes=[IsAuthenticated] #para que se muestren los libros una vez el usuario se autenticó iniciando sesión, es decir requiere que el usuario este auntenticado para acceder
     queryset = Libros.objects.all()
-    serializer_class = PostSerializer
+    serializer_class = LibroSerializer
 
 class LibroGetView(generics.ListAPIView): # hace un get según el ID
-    serializer_class = PostSerializer
+    serializer_class = LibroSerializer
     lookup_field = 'usuarioLibro' # lookup va a buscar el campo usuarioLibro en la BD
     
     def get_queryset(self): #método de django
@@ -25,17 +25,17 @@ class LibroGetView(generics.ListAPIView): # hace un get según el ID
 
 class LibroDeleteView(generics.DestroyAPIView):
     queryset = Libros.objects.all()
-    serializer_class = PostSerializer
+    serializer_class = LibroSerializer
     lookup_field = 'id' 
 
 class LibroPutView(generics.UpdateAPIView):
-    queryset=Libros.objects.all()
-    serializer_class=PostSerializer
+    queryset = Libros.objects.all()
+    serializer_class = LibroSerializer
     lookup_field = 'id' 
     
 # View que sirve en el frontend para traer los libros según su ID
 class LibroIDView(generics.ListAPIView):
-    serializer_class = PostSerializer
+    serializer_class = LibroSerializer
     lookup_field = 'id' # lookup va a buscar el campo id en la BD
     
     def get_queryset(self): #método de django
@@ -43,7 +43,7 @@ class LibroIDView(generics.ListAPIView):
         return Libros.objects.filter(id=id)
     
 class LibroCateView(generics.ListAPIView):
-    serializer_class = PostSerializer
+    serializer_class = LibroSerializer
     lookup_field = 'categoria' # lookup va a buscar el campo categoria en la BD
     
     def get_queryset(self): #método de django
@@ -51,7 +51,7 @@ class LibroCateView(generics.ListAPIView):
         return Libros.objects.filter(categoria=categoria) 
 
 class LibroEstadoView(generics.ListAPIView):
-    serializer_class = PostSerializer
+    serializer_class = LibroSerializer
     lookup_field = 'estado' # lookup va a buscar el campo estado en la BD (vente - intercambio)
     
     def get_queryset(self): #método de django
