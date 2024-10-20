@@ -9,3 +9,6 @@ class Libros(models.Model):
     categoria = models.CharField(max_length=30)
     ubicacion = models.CharField(max_length=30)
     precio = models.FloatField(default=0.0)
+    
+    def __str__(self):
+        return self.titulo
