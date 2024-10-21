@@ -8,7 +8,7 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
 
     return (
         <>
-            <div className="card " style={{ width: "18rem", padding:'20px', margin:'20px', maxWidth:"18rem", minWidth:"18rem", maxHeight:"200vh", minHeight:"100vh" }}>
+            <div className="card " style={{ width: "48vh", padding:'20px', margin:'20px', height:'100vh'}}>
                 <h5 className="card-title">Libro: {tituloCard}</h5>
                 <p className="text-muted">Usuario: {usuarioCard}</p>
                 <img
@@ -25,15 +25,23 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
 
                 </div>
                 {mostrarBoton && 
-                <div className="card-body">
-                    <Botton nombre={'Agregar al carrito'} tipo={'button'} evento={btnAgregar} clase={'add-to-cart-button'}/>
-                    <Botton nombre={'Más información'} tipo={'button'} evento={btnInfo} clase={'informacion-button'}/>
+                <div className="card-body" style={{display:'grid', gap:'8px', margin:'center', marginTop:'-30px'}}>
+                    <div>
+                        <Botton nombre={'Agregar al carrito'} tipo={'button'} evento={btnAgregar} clase={'add-to-cart-button'}/>
+                    </div>
+                    <div>
+                        <Botton nombre={'Más información'} tipo={'button'} evento={btnInfo} clase={'informacion-button'}/>
+                    </div>
                 </div>
                 }
                 {mostrarBotonB &&
-                <div>
-                    <Botton nombre={'Eliminar'} tipo={'button'} evento={btnEliminar} clase={'btn btn-danger'}/>
-                    <Botton nombre={'Editar'} tipo={'button'} evento={btnEditar} clase={'btn btn-info'}/> 
+                <div  style={{display:'grid', gap:'10px'}}>
+                    <div>
+                        <Botton nombre={'Eliminar'} tipo={'button'} evento={btnEliminar} clase={'btn btn-danger w-50'}/>
+                    </div>
+                    <div style={{marginLeft:'30px', position:'relative'}}>
+                        <Botton nombre={'Editar'} tipo={'button'} evento={btnEditar} clase={'btn btn-info w-50'}/> 
+                    </div>
                     {/* En card book está la acción.  */}
                 </div>
                 }

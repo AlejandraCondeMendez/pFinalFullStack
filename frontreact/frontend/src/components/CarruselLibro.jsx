@@ -4,7 +4,6 @@ import CardBook from './CardBook';
 import { deleteData } from '../services/fetch';
 import { acceptPopUp } from '../services/alertas';
 import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 // Componente para la flecha izquierda
 const LeftArrow = ({ onClick }) => (
@@ -34,16 +33,16 @@ const CarruselLibro = ({ cardLibro, mostrar, mostrarB, btnEditarL, btnInfoL }) =
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 3.5,
+        slidesToShow: 3,
         slidesToScroll: 1,
         arrows: true, // Habilitar flechas
         prevArrow: <LeftArrow />, // Usar el componente de flecha izquierda
         nextArrow: <RightArrow />, // Usar el componente de flecha derecha
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 824,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
                     dots: true
@@ -52,7 +51,7 @@ const CarruselLibro = ({ cardLibro, mostrar, mostrarB, btnEditarL, btnInfoL }) =
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 3,
                     slidesToScroll: 1,
                     initialSlide: 2
                 }

@@ -12,21 +12,21 @@ const Navbar = () => {
                     <div className="navbar-icon user-icon">
                         <i className="fas fa-user"></i>
                         <div className="iniciar-sesion">
-                            <a onClick={()=>navigate('/iniciosesion')} className="session-link">Iniciar sesión</a>
+                            <a style={{"cursor":"pointer"}} onClick={()=>navigate('/iniciosesion')} className="session-link">Iniciar sesión</a>
                         </div>
                     </div>
 
                     {/* Logo centrado */}
-                    <a className="navbar-brand text-light titulo-navbar mx-auto" onClick={()=>navigate('/paginaprincipal')}>
+                    <a className="navbar-brand text-light titulo-navbar mx-auto" style={{"cursor":"pointer"}} onClick={()=>navigate('/paginaprincipal')}>
                         <strong className='titulo-liberty'>LibertyBooks</strong>
                     </a>
 
                     {/* Iconos de carrito y campanita alineados a la derecha */}
                     <div className="navbar-icon cart-icon ms-auto">
-                        <i className="fas fa-bell"></i>
+                        <i style={{"cursor":"pointer"}} className="fas fa-bell"></i>
                     </div>
                     <div className="navbar-icon cart-icon">
-                        <i className="fas fa-shopping-cart" onClick={()=>navigate('/paginacarro')}></i>
+                        <i style={{"cursor":"pointer"}} className="fas fa-shopping-cart" onClick={()=>navigate('/paginacarro')}></i>
                     </div>
                 </div>
             </nav>

@@ -63,7 +63,7 @@ const InfoLibro =()=>{
             <CardResenia/>
         </div> */}
 
-        <div className="carrusel">
+        <div className="carrusel"style={{width:'90%',left:40}}>
         <CarruselLibro cardLibro={libros} mostrar={true} btnInfoL={()=>{navigate('/informacionlibro'), window.scrollTo({
             top:0,
             behavior: 'smooth'

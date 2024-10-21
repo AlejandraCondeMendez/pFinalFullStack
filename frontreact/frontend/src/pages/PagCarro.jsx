@@ -3,6 +3,8 @@ import {getData} from '../services/fetch'
 import ListaCarros from "../components/ListaCarros"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import HamburgerMenu from "../components/HamburgerMenu"
+import Search from "../components/Search"
 
 
 const PagCarro =()=>{
@@ -39,7 +41,11 @@ const PagCarro =()=>{
     return(
         <>
         <Navbar/>
-        <h1>ASDSAD</h1>
+        <div style={{marginTop: -40}}>
+        <HamburgerMenu/>
+        </div>
+        <Search/>
+        <h3>Mis pedidos</h3>
         <ListaCarros cardCarro={agruparLibroID}/>
         <div style={{marginTop: 200}}>
             <Footer/>

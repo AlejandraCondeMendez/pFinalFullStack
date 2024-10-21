@@ -18,14 +18,14 @@ const HamburgerMenu = () => {
             </div>
             <nav className={`menu ${isOpen ? 'open' : ''}`}>
                 <ul>
-                    <li><a onClick={()=>navigate('/paginaprincipal')}>Página principal</a></li>
-                    <li><a onClick={()=>navigate('/nosotros')}>Acerca de nosotros</a></li>
+                    <li><a style={{"cursor":"pointer"}} onClick={()=>navigate('/paginaprincipal')}>Página principal</a></li>
+                    <li><a style={{"cursor":"pointer"}} onClick={()=>navigate('/nosotros')}>Acerca de nosotros</a></li>
                     <li className="library-dropdown">
-                        <a onClick={()=>navigate('/milibreria')}>Librería</a>
+                        <a style={{"cursor":"pointer"}} onClick={()=>navigate('/milibreria')}>Librería</a>
                         <ul className="dropdown">
-                            <li><a onClick={()=>navigate('/librosagregados')}>Mis libros agregados</a></li>
-                            <li><a onClick={()=>navigate('/librosdeseados')}>Mis libros deseados</a></li>
-                            <li><a onClick={()=>navigate('/librosprestados')}>Mis libros prestados</a></li>
+                            <li><a style={{"cursor":"pointer"}} onClick={()=>navigate('/librosagregados')}>Mis libros agregados</a></li>
+                            <li><a style={{"cursor":"pointer"}} onClick={()=>navigate('/librosdeseados')}>Mis libros deseados</a></li>
+                            <li><a style={{"cursor":"pointer"}} onClick={()=>navigate('/librosprestados')}>Mis libros prestados</a></li>
                         </ul>
                     </li>
                 </ul>

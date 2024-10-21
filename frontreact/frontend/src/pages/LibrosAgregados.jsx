@@ -41,7 +41,9 @@ const LibrosAgregados = () => {
             <hr />
             <p>Mis libros: </p>
             <ModalBook /> {/* Modal de agregar */}
-            <ListaBooks cardBooks={librosID} mostrarB={true} btnEditarL={handleEditarLibro} /> {/* Pasamos la función */}
+            <div className="d-flex gap-3 flex-wrap justify-content-center">
+                <ListaBooks cardBooks={librosID} mostrarB={true} btnEditarL={handleEditarLibro} /> {/* Pasamos la función */}
+            </div>
 
             {/* Modal de edición */}
             {libroSelec && (
