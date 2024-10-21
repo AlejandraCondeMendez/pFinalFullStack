@@ -33,14 +33,14 @@ const LibrosAgregados = () => {
             <div style={{ marginTop: -40 }}>
                 <HamburgerMenu />
             </div>
-
-            <div className="d-flex gap-3">
-                <i className="fa-solid fa-plus"></i>
-                <h3 className="text-nowrap text-title">Mis libros agregados </h3>
+            <div className="libros-agregados">
+            <i className="fa-solid fa-plus"></i>
+                    <span>Mis libros agregados</span>
             </div>
-            <hr />
-            <p>Mis libros: </p>
-            <ModalBook /> {/* Modal de agregar */}
+            <div style={{marginTop:'10%', marginBottom:'5%', display:'flex', gap:'35%', justifyContent:'center'}}>
+                <ModalBook /> {/* botón 'agregar libro'- abre el Modal de agregar */}
+                <p>Mis libros: </p>
+            </div>
             <div className="d-flex gap-3 flex-wrap justify-content-center">
                 <ListaBooks cardBooks={librosID} mostrarB={true} btnEditarL={handleEditarLibro} /> {/* Pasamos la función */}
             </div>

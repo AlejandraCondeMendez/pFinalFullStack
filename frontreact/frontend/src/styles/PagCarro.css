@@ -1,0 +1,17 @@
+.libros-carro {
+    display: flex;
+    width: 85%;
+    position: absolute;
+    align-items: center;
+    border-bottom: 2px solid #ccc; /* Línea inferior */
+    margin-top: 3%;
+    margin-left: 35px;
+    gap: 10px;
+    padding-bottom: 10px;
+    font-size: 32px;
+    font-family: Arial, sans-serif; /* Ajusta según tu fuente preferida */
+  }
+  .libros-carro {
+    font-size: 22px;
+    color: #333;
+  }

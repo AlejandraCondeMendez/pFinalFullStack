@@ -59,3 +59,43 @@
   position: relative;
   margin-top: 30%;
 }
+
+/*hr de Mas libros*/
+.libro-con-texto {
+  display: flex;
+  width: 85%;
+  position: absolute;
+  margin-top: 26%;
+  align-items: center;
+  border-bottom: 2px solid #ccc; /* Línea inferior */
+  margin-left: 35px;
+  gap: 10px;
+  padding-bottom: 10px;
+  font-size: 32px;
+  font-family: Arial, sans-serif; /* Ajusta según tu fuente preferida */
+}
+
+.libro-con-texto span {
+  font-size: 22px;
+  color: #333;
+}
+
+
+/*hr de libros agregados*/
+.libros-agregados{
+  display: flex;
+  width: 85%;
+  position: absolute;
+  align-items: center;
+  border-bottom: 2px solid #ccc; /* Línea inferior */
+  margin-top: 3%;
+  margin-left: 35px;
+  gap: 10px;
+  padding-bottom: 10px;
+  font-size: 32px;
+  font-family: Arial, sans-serif; /* Ajusta según tu fuente preferida */
+}
+.libros-agregados {
+  font-size: 22px;
+  color: #333;
+}

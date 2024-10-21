@@ -27,7 +27,7 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
                 {mostrarBoton && 
                 <div className="card-body" style={{display:'grid', gap:'8px', margin:'center', marginTop:'-30px'}}>
                     <div>
-                        <Botton nombre={'Agregar al carrito'} tipo={'button'} evento={btnAgregar} clase={'add-to-cart-button'}/>
+                        <Botton nombre={'Agregar al carrito'} tipo={'button'} evento={btnAgregar} clase={'add-to-cart-button'} />
                     </div>
                     <div>
                         <Botton nombre={'Más información'} tipo={'button'} evento={btnInfo} clase={'informacion-button'}/>
