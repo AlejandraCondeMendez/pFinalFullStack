@@ -7,8 +7,9 @@ import CarruselLibro from "../components/CarruselLibro"
 import "../styles/Carrusel.css" 
 import { useNavigate } from "react-router-dom"
 import '../styles/InfoLibro.css'
-import CardResenia from "../components/CardResenia"
 import Form from "../components/Form"
+import Search from "../components/Search"
+import HamburgerMenu from "../components/HamburgerMenu"
 
 
 const InfoLibro =()=>{
@@ -36,9 +37,14 @@ const InfoLibro =()=>{
     return(
         <>
         <Navbar/>
+        <div style={{marginTop: -40}}>
+        <HamburgerMenu/>
+        </div>
+        <Search/>
         <div className="libro-info">
             <ListaBooks cardBooks={libroInfo}  mostrar={true}/>
         </div>
+
 
         <div className="form-contacto">
             <Form/>
@@ -53,9 +59,9 @@ const InfoLibro =()=>{
         </div>
         </section>
 
-        <div className="comentarios-box"> 
+        {/* <div className="comentarios-box"> 
             <CardResenia/>
-        </div>
+        </div> */}
 
         <div className="carrusel">
         <CarruselLibro cardLibro={libros} mostrar={true} btnInfoL={()=>{navigate('/informacionlibro'), window.scrollTo({

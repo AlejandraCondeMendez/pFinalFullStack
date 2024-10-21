@@ -79,6 +79,7 @@ const CarruselLibro = ({ cardLibro, mostrar, mostrarB, btnEditarL, btnInfoL }) =
                         categoriaCard={iterar.categoria}
                         ubicacionCard={iterar.ubicacion}
                         usuarioCard={iterar.usuarioLibro_nombre}
+                        precioCard={iterar.precio}
                         mostrarBoton={mostrar}
                         mostrarBotonB={mostrarB}
                         btnInfo={() => btnInfoL(localStorage.setItem('LibrolocalID', iterar.id))}

@@ -24,7 +24,7 @@ const PagPrincipal =()=>{
         }
         const contadores =async()=>{
             const venta = await getBusqueda('estado', 'Venta')
-            const prestamo = await getBusqueda('estado', 'Intercambio')
+            const prestamo = await getBusqueda('estado', 'Préstamo')
             setContadorVenta(venta.length)
             setContadorPrestamo(prestamo.length)
             

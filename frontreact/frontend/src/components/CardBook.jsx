@@ -8,7 +8,7 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
 
     return (
         <>
-            <div className="card " style={{ width: "18rem", padding:'20px',margin:'20px',maxWidth:"18rem",minWidth:"18rem",maxHeight:"100vh",minHeight:"100vh" }}>
+            <div className="card " style={{ width: "18rem", padding:'20px', margin:'20px', maxWidth:"18rem", minWidth:"18rem", maxHeight:"200vh", minHeight:"100vh" }}>
                 <h5 className="card-title">Libro: {tituloCard}</h5>
                 <p className="text-muted">Usuario: {usuarioCard}</p>
                 <img

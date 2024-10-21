@@ -5,6 +5,7 @@ import { muestraAlerta } from "../services/alertas"
 import Botton from "./Botton"
 import Input from "./Input"
 import { postData } from "../services/fetch"
+import { traerCookie } from "../services/cookies"
 
 
 const ModalBook = () => {
@@ -35,13 +36,14 @@ const ModalBook = () => {
             const libro = { //las propiedades de la izquierda vienen d la BD
                 titulo: tituloValidar,
                 autor: autorValidar,
-                estado: estadoIntercambio ? "Intercambio" : estadoVenta ? "Venta" : "No hay estado",
+                estado: estadoIntercambio ? "Préstamo" : estadoVenta ? "Venta" : "No hay estado",
                 categoria: categoria,
                 ubicacion: ubiValidar,
                 precio: precioValidar,
-                usuarioLibro: localStorage.getItem('localUsuarioID')
+                usuarioLibro: traerCookie('localUsuarioID')
             }
-            await postData(libro, 'libros/') //'libros/' viene de la base de datos, es la urls.py que a la vez contiene la lógica de la view
+            const response = await postData(libro, 'libros/') //'libros/' viene de la base de datos, es la urls.py que a la vez contiene la lógica de la view
+            console.log(response);
             setAutor('')
             setCategoria('')
             setEstadoVenta('')

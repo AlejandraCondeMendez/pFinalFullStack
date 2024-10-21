@@ -4,10 +4,10 @@ const Form = ({ number, email, evento }) => {
       <>
         <form>
           <fieldset disabled="">
-            <legend>Contact information</legend>
-            <div className="mb-3">
+            <legend>Information del contacto</legend>
+            <div className="mb-3 w-50">
               <label htmlFor="disabledTextInput" className="form-label">
-                Phone number
+                Número de teléfono
               </label>
               <div className="inputCardPag">
                 <input
@@ -20,9 +20,9 @@ const Form = ({ number, email, evento }) => {
                 />
               </div>
             </div>
-            <div className="mb-3">
+            <div className="mb-3 w-50">
               <label htmlFor="disabledTextInput" className="form-label">
-                Email
+                Correo
               </label>
               <div className="inputCardPag">
                 <input
@@ -37,62 +37,9 @@ const Form = ({ number, email, evento }) => {
             </div>
           </fieldset>
         </form>
-        <hr></hr>
         <br /><br />
-        <div className="mb-3">
-          <label htmlFor="disabledTextInput" className="form-label">
-            Name
-          </label>
-          <div className="inputCardPag">
-            <input
-              type="text"
-              id="disabledTextInput"
-              className="form-control"
-              placeholder="Name"
-            />
-          </div>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="disabledTextInput" className="form-label">
-            Phone number
-          </label>
-          <div className="inputCardPag">
-            <input
-              type="text"
-              id="disabledTextInput"
-              className="form-control"
-              placeholder="Phone number"
-            />
-          </div>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="disabledTextInput" className="form-label">
-            Email adress
-          </label>
-          <div className="inputCardPag">
-            <input
-              type="text"
-              id="disabledTextInput"
-              className="form-control"
-              placeholder="Email adress"
-            />
-          </div>
-        </div>
-        <div className="mb-3">
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              id="disabledFieldsetCheck"
-              disabled=""
-            />
-            <label className="form-check-label" htmlFor="disabledFieldsetCheck">
-              Im not a robot
-            </label>
-          </div>
-        </div>
         <button onClick={evento} type="submit" className="btn btn-primary">
-          Solicitar información
+          Formulario de préstamo
         </button>
       </>
     )

@@ -23,7 +23,7 @@ const CheckBooks = ({ ventaMarcado, interMarcado, cambioVenta, cambioInter }) =>
                     onChange={cambioInter} 
                 />
                 <label className="form-check-label" htmlFor="flexCheckChecked">
-                    Intercambio
+                    Préstamo
                 </label>
             </div>
         </>

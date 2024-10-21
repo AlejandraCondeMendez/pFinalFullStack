@@ -26,7 +26,7 @@ const Navbar = () => {
                         <i className="fas fa-bell"></i>
                     </div>
                     <div className="navbar-icon cart-icon">
-                        <i className="fas fa-shopping-cart"></i>
+                        <i className="fas fa-shopping-cart" onClick={()=>navigate('/paginacarro')}></i>
                     </div>
                 </div>
             </nav>

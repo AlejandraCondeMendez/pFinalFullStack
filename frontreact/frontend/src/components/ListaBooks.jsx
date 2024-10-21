@@ -37,12 +37,12 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL}) => {
                     <CardBook
                         key = {iterar.id}
                         tituloCard = {iterar.titulo} //BD
+                        usuarioCard = {iterar.usuarioLibro_nombre}
                         autorCard = {iterar.autor}
                         estadoCard = {iterar.estado}
                         categoriaCard = {iterar.categoria}
                         ubicacionCard = {iterar.ubicacion}
                         precioCard = {iterar.precio}
-                        usuarioCard = {iterar.usuarioLibro_nombre}
                         mostrarBoton = {mostrar}
                         mostrarBotonB = {mostrarB}
                         btnInfo={()=>btnInfoL(localStorage.setItem('LibrolocalID', iterar.id))}
