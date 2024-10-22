@@ -42,10 +42,12 @@ INSTALLED_APPS = [
     'apps.adminstrador',
     'apps.libros',
     'apps.carrito',
+    'apps.comentarios',
     'rest_framework',
     'corsheaders',
     'rest_framework.authtoken',
     'rest_framework_simplejwt', # jsonwebtoken(en lugar que los auth token, los cuales son menos seguros) - usar el token
+    
 ]
 
 #
