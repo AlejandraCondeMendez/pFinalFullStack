@@ -10,6 +10,7 @@ import '../styles/InfoLibro.css'
 import Form from "../components/Form"
 import Search from "../components/Search"
 import HamburgerMenu from "../components/HamburgerMenu"
+import CardComentarios from "../components/CardComentarios"
 
 
 const InfoLibro = () => {
@@ -49,7 +50,7 @@ const InfoLibro = () => {
                 <Form />
             </div>
 
-            <section className="seccion-enlaces" style={{ gap: 300 }}>
+            <section className="seccion-enlaces" style={{ gap: 300}}>
                 <div className="enlaceReseña">
                     <a>Reseñas</a>
                 </div>
@@ -57,10 +58,9 @@ const InfoLibro = () => {
                     <a>Recomendaciones</a>
                 </div>
             </section>
-
-            {/* <div className="comentarios-box"> 
-            <CardResenia/>
-        </div> */}
+            <div className="comentarios-box">
+                <CardComentarios/>
+            </div>
 
         {/* hr de titulo */}
             <div className="libro-con-texto">

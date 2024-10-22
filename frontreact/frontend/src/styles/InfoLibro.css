@@ -36,8 +36,7 @@
 .comentarios-box{
   display: flex;
   position: relative;
-  margin-top: 40%;
-  margin-bottom: 7%;
+  margin-top: 25%;
 }
 
 /*formulario de contacto**/
@@ -51,7 +50,7 @@
 .seccion-enlaces{
   display: flex;
   position: absolute;
-  margin-top: 20%;
+  margin-top: 22%;
   margin-left: 30%;
 }
 
