@@ -50,10 +50,9 @@ const PagCarro =()=>{
             <i className="fas fa-book"></i>
             <span>Tus pedidos</span>
         </div>
-        <div style={{marginTop:'11%', marginLeft:'15%'}}>
+        <div style={{marginTop:'11%', marginLeft:'8%'}}>
             <ListaCarros cardCarro={agruparLibroID}/>
         </div>
-
         <div style={{marginTop: 200}}>
             <Footer/>
         </div>

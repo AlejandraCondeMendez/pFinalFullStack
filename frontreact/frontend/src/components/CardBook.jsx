@@ -8,7 +8,7 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
 
     return (
         <>
-            <div className="card " style={{ width: "48vh", padding:'20px', margin:'20px', height:'100vh'}}>
+            <div className="card" style={{ width: "52vh", margin:'20px', height:'110vh', padding:'8px'}}>
                 <h5 className="card-title">Libro: {tituloCard}</h5>
                 <p className="text-muted">Usuario: {usuarioCard}</p>
                 <img
@@ -25,7 +25,7 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
 
                 </div>
                 {mostrarBoton && 
-                <div className="card-body" style={{display:'grid', gap:'8px', margin:'center', marginTop:'-30px'}}>
+                <div className="card-body" style={{position:'relative', marginTop:'-40px', textAlign:'center', justifyContent:'center'}}>
                     <div>
                         <Botton nombre={'Agregar al carrito'} tipo={'button'} evento={btnAgregar} clase={'add-to-cart-button'} />
                     </div>

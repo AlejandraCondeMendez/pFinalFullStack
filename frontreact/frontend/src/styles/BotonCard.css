@@ -2,9 +2,8 @@
 .add-to-cart-button {
     background-color: #FFBE2D; /* Yellow background color */
     color:#000; /* Blue text color */
-    font-weight: bold; /* Bold text */
-    font-size: 16px; /* Adjust font size as necessary */
-    padding: 12px 24px; /* Padding for height and width */
+    font-size: 15px; /* Adjust font size as necessary */
+    padding: 10px 15px; /* Padding for height and width */
     border: none; /* No border */
     border-radius: 8px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
@@ -20,9 +19,8 @@
 .informacion-button {
     background-color: #44BBA4; /* Yellow background color */
     color:#000; /* Blue text color */
-    font-weight: bold; /* Bold text */
-    font-size: 16px; /* Adjust font size as necessary */
-    padding: 12px 24px; /* Padding for height and width */
+    font-size: 15px; /* Adjust font size as necessary */
+    padding: 10px 15px; /* Padding for height and width */
     border: none; /* No border */
     border-radius: 8px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */

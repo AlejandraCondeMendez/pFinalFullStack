@@ -1,0 +1,19 @@
+.precio-carro-total {
+    display: flex;
+    width: 90%;
+    position: absolute;
+    align-items: center;
+    border-bottom: 2px solid #ccc; /* Línea inferior */
+    margin-top: 100%;
+    margin-left: 200%;
+    gap: 40px;
+    padding-bottom: 10px;
+    font-family: Arial, sans-serif; /* Ajusta según tu fuente preferida */
+}
+.precio-carro-total {
+    font-size: 20px;
+    color: #333;
+  }
+
+
+
