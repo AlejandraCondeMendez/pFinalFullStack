@@ -10,7 +10,7 @@ import '../styles/InfoLibro.css'
 import Form from "../components/Form"
 import Search from "../components/Search"
 import HamburgerMenu from "../components/HamburgerMenu"
-import CardComentarios from "../components/CardComentarios"
+import Comentarios from "../components/Comentarios"
 
 
 const InfoLibro = () => {
@@ -59,7 +59,7 @@ const InfoLibro = () => {
                 </div>
             </section>
             <div className="comentarios-box">
-                <CardComentarios/>
+                <Comentarios/>
             </div>
 
         {/* hr de titulo */}

@@ -15,10 +15,15 @@ const LibrosAgregados = () => {
     const [librosID, setLibrosID] = useState([]);
     const [libroSelec, setLibroSelec] = useState(false); 
     const idCookie = traerCookie("localUsuarioID")
+
+    //Estado para contar la cantidad total de libros agregados
+    const [contadorLibro, setContadorLibro] = useState(0)
+
     useEffect(() => {
         const getUserLibros = async () => {
-            const librosID = await getData('librosUserID', idCookie + "/");
-            setLibrosID(librosID);
+            const librosID = await getData('librosUserID', idCookie + "/")
+            setLibrosID(librosID)
+            setContadorLibro(librosID.length)
         };
         getUserLibros();
     }, [librosID]);
@@ -39,7 +44,7 @@ const LibrosAgregados = () => {
             </div>
             <div style={{marginTop:'10%', marginBottom:'5%', display:'flex', gap:'35%', justifyContent:'center'}}>
                 <ModalBook /> {/* botón 'agregar libro'- abre el Modal de agregar */}
-                <p>Mis libros: </p>
+                <p>Mis libros: {contadorLibro}</p>
             </div>
             <div className="d-flex gap-3 flex-wrap justify-content-center">
                 <ListaBooks cardBooks={librosID} mostrarB={true} btnEditarL={handleEditarLibro} /> {/* Pasamos la función */}
