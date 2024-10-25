@@ -13,6 +13,7 @@ const ListaCarros = ({cardCarro})=>{
 
     return(
         <>
+        <h3>Hay {cardCarro.length} producto(s) en tu carrito</h3>
         {cardCarro.map((iterar, index)=>{
                 return(
             <div key={index}>

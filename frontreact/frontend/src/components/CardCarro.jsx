@@ -26,9 +26,12 @@ const CardCarro = ({ tituloCard, usuarioCard, autorCard, estadoCard, categoriaCa
                     <div style={{marginLeft:'90%', fontSize:'15px', marginTop:'-25%', textAlign:'center'}}>
                         <p>Cantidad: {cantidadCard}</p>
                     </div>
-                    <div style={{marginLeft:'30%', marginTop:'-25%'}}>
-                        <span>{precioCard ? `₡ ${precioCard}` : 'Gratis'}</span>
-                    </div>
+                    <div style={{ marginLeft: '30%', marginTop: '-25%' }}>
+    <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+        {precioCard ? `₡ ${precioCard}` : 'Gratis'}
+    </span>
+</div>
+
                 </div>
 
                 <div style={{width:'15%', marginTop:'-10%', padding:'15px', position:'relative', marginLeft:'20%'}}>

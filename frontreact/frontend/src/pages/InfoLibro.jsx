@@ -10,15 +10,17 @@ import '../styles/InfoLibro.css'
 import Form from "../components/Form"
 import Search from "../components/Search"
 import HamburgerMenu from "../components/HamburgerMenu"
-import Comentarios from "../components/Comentarios"
-
-
+import ListaComentarios from "../components/ListaComentarios"
+import CardComentario from "../components/CardComentario"
 const InfoLibro = () => {
 
     const LibrolocalD = localStorage.getItem('LibrolocalID')
     const [libroInfo, setLibroInfo] = useState([])
     const [libros, setLibros] = useState([])
     const navigate = useNavigate('')
+    //ocupo un estado que me permita guardar los datos de los comentarios traídos desde el backend
+    const [comentariosLibros, setComentariosLibros] = useState([])
+
 
     useEffect(() => {
         const libroInfoPag = async () => {
@@ -30,9 +32,15 @@ const InfoLibro = () => {
             const librosget = await getData('libros')
             setLibros(librosget)
         }
+
+        const traerComentarios = async ()=>{
+            const comentariosget = await getData('libros/comentarios', localStorage.getItem('LibrolocalID'))
+            setComentariosLibros(comentariosget)
+        }
         libroInfoPag()
         traerLibros()
-    }, [LibrolocalD])
+        traerComentarios()
+    }, [LibrolocalD, comentariosLibros])
 
 
     return (
@@ -58,14 +66,14 @@ const InfoLibro = () => {
                     <a>Recomendaciones</a>
                 </div>
             </section>
-            <div className="comentarios-box">
-                <Comentarios/>
+            <div className="contenedor-comentarios" style={{marginTop:'28%', display:'flex', flexDirection:'column', gap:'22px'}}>
+                <CardComentario/>
+                <ListaComentarios comentarLista={comentariosLibros}/>
             </div>
-
         {/* hr de titulo */}
             <div className="libro-con-texto">
-            <i className="fas fa-book"></i>
-                    <span style={{"cursor":"pointer"}} onClick={()=>navigate('/paginaprincipal')}>Todos los libros</span>
+                <i className="fas fa-book"></i>
+                <span style={{"cursor":"pointer"}} onClick={()=>navigate('/paginaprincipal')}>Todos los libros</span>
             </div>
 
             <div className="carrusel" style={{ width: '90%', left: 40 }}>

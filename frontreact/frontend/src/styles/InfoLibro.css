@@ -98,3 +98,17 @@
   font-size: 22px;
   color: #333;
 }
+
+  /* Contenedor principal de los comentarios */
+.contenedor-comentarios {
+  max-width: 660px; /* Ancho máximo para que no ocupe todo el ancho de la página */
+  max-height: auto;
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  padding: 20px; /* Espaciado interno */
+  background-color: #f9f9f9; /* Fondo ligeramente gris */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+
+

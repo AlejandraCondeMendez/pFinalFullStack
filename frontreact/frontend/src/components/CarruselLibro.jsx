@@ -7,15 +7,15 @@ import "slick-carousel/slick/slick.css";
 
 // Componente para la flecha izquierda
 const LeftArrow = ({ onClick }) => (
-    <button className="slick-prev custom-arrow" onClick={onClick}>
-        &#9664; {/* Puedes reemplazar esto con un ícono o imagen */}
+    <button className="slick-prev custom-arrow" style={{backgroundColor:"#ffbe2d"}} onClick={onClick}>
+        &#9664; 
     </button>
 );
 
 // Componente para la flecha derecha
 const RightArrow = ({ onClick }) => (
-    <button className="slick-next custom-arrow" onClick={onClick}>
-        &#9654; {/* Puedes reemplazar esto con un ícono o imagen */}
+    <button className="slick-next custom-arrow" style={{backgroundColor:"#ffbe2d"}}  onClick={onClick}>
+        &#9654; 
     </button>
 );
 
@@ -30,7 +30,6 @@ const CarruselLibro = ({ cardLibro, mostrar, mostrarB, btnEditarL, btnInfoL }) =
     }
 
     const settings = {
-        dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 3,

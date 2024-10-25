@@ -6,6 +6,7 @@ import Footer from "../components/Footer"
 import HamburgerMenu from "../components/HamburgerMenu"
 import Search from "../components/Search"
 import '../styles/PagCarro.css'
+import CardPago from "../components/CardPago"
 
 
 const PagCarro =()=>{
@@ -46,13 +47,15 @@ const PagCarro =()=>{
         <HamburgerMenu/>
         </div>
         <Search/>
+        
         <div className="libros-carro">
             <i className="fas fa-book"></i>
             <span>Tus pedidos</span>
         </div>
-        <div style={{marginTop:'11%', marginLeft:'8%'}}>
+        <div style={{marginTop:'11%', marginLeft:'8%',display:"flex",flexDirection:"column",gap:"20px"}}>
             <ListaCarros cardCarro={agruparLibroID}/>
         </div>
+            <CardPago/>
         <div style={{marginTop: 200}}>
             <Footer/>
         </div>
