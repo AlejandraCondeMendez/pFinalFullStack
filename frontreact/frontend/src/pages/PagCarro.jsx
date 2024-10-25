@@ -13,6 +13,7 @@ const PagCarro =()=>{
     
     const localStorageID = JSON.parse(localStorage.getItem('carrito') || '[]')
     const [librosCarro, setLibrosCarro] = useState([]) //guardar libros en el estado
+    const [totalCompra,setTotalCompra] = useState(0)
 //se van a mostrar los libros que estan en el local
 
     useEffect(()=>{
@@ -27,7 +28,7 @@ const PagCarro =()=>{
         mostrarLibros()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[librosCarro])
-
+    
     //juntar los libros (card) que tengan el mismo ID
     const agruparLibroID = librosCarro.reduce((acumulador, libros)=> { // valor anterior a la iteración, valor actual
         const buscarLibroAgregado = acumulador.find(iterar => iterar.id === libros.id)
@@ -37,8 +38,15 @@ const PagCarro =()=>{
         } else{
             acumulador.push({...libros, precioCard:libros.precio, cantidad:1})
         }
+        console.log(acumulador);
+        
         return acumulador
     }, []) //inicializa como un arreglo vacío
+
+    useEffect(() => {
+        const total = agruparLibroID.reduce((acc, libro) => acc + libro.precioCard, 0)
+        setTotalCompra(total)
+    }, [agruparLibroID])
 
     return(
         <>
@@ -55,7 +63,7 @@ const PagCarro =()=>{
         <div style={{marginTop:'11%', marginLeft:'8%',display:"flex",flexDirection:"column",gap:"20px"}}>
             <ListaCarros cardCarro={agruparLibroID}/>
         </div>
-            <CardPago/>
+            <CardPago total={totalCompra}/>
         <div style={{marginTop: 200}}>
             <Footer/>
         </div>

@@ -25,7 +25,7 @@ const ListaCarros = ({cardCarro})=>{
                 estadoCard={iterar.estado}
                 categoriaCard={iterar.categoria}
                 ubicacionCard={iterar.ubicacion}
-                precioLibro={iterar.precio}   //pagCarro
+                precioLibro={iterar.precio}   
                 precioCard={iterar.precioCard} //pagCarro
                 cantidadCard={iterar.cantidad} //pagCarro
                 btnEliminar={()=>eliminarCard(iterar.id)}             
