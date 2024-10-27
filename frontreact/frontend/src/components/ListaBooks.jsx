@@ -4,11 +4,15 @@ import { acceptPopUp, muestraAlerta } from "../services/alertas";
 import { deleteData } from "../services/fetch";
 import CardBook from "./CardBook";
 
+// JSON.stringfy (objeto js en una cadena de texto en formato JSON.)
+// JSON.parse (formato JSON a un objeto js)
+
 const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL}) => {
     
-    const localStorageLibro = localStorage.getItem('carrito')
-    const [carro, setCarro] = useState(localStorageLibro ? JSON.parse(localStorageLibro) : [])
+    const localStorageLibro = localStorage.getItem('localCompras') // obtener los ID de los libros  
+    const [compras, setCompras] = useState(localStorageLibro ? JSON.parse(localStorageLibro) : []) // si el local no tiene datos va a iniciar en un array vacío
     
+    //Elimina el libro según su ID
     const eliminaLibro = async (id) => {
         const alerta = await acceptPopUp("Estás intentando eliminar un libro, ¿Continuar?", "El libro se eliminó con éxito", "La eliminación del libro fue cancelada");
         if (alerta) {
@@ -17,18 +21,22 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL}) => {
         }
     }
 
-    const btnAgregarL = async(iterar) =>{
-        const libroCarrito = carro.filter(libroIterar => libroIterar === iterar.id).length
-        if(libroCarrito >= 10){
+    //Agregar los libros al carrito
+    const agregarLibro = async(id) =>{ // muestrame la longitud de ID's que son iguales si superan los 10, se muestra la alerta
+        const librosCarrito = compras.filter(libro => libro === id).length // compras va a tener los libros del local
+        if (librosCarrito >= 10) {
             muestraAlerta('La cantidad solicitada no está disponible', 'error')
-        } else{
-            setCarro([...carro, iterar.id])
+        } else {
+            setCompras([...compras, id]) // agarra el valor anterior, valor a agregar
         }
     }
+    
+    useEffect(()=>{ // en cada agregar carrito se actualiza el local
+        localStorage.setItem('localCompras', JSON.stringify(compras))
+    }, [compras])
 
-    useEffect(()=>{
-        localStorage.setItem('carrito', JSON.stringify(carro))
-    },[carro])
+// useEffect(...): Cada vez que el estado carro cambia (es decir, cuando se agrega o elimina un libro), esta función se ejecuta.
+// localStorage.setItem(...): Guarda el estado actualizado del carrito en localStorage bajo la clave carrito, almacenándolo en formato JSON.
 
     return (
         <>
@@ -48,7 +56,7 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL}) => {
                         btnInfo={()=>btnInfoL(localStorage.setItem('LibrolocalID', iterar.id))}
                         btnEliminar = {() => eliminaLibro(iterar.id)}
                         btnEditar = {() => btnEditarL(iterar)} // En lista books está la función
-                        btnAgregar = {()=> btnAgregarL(iterar)}
+                        btnAgregar = {()=> agregarLibro(iterar.id)}
 
                         // Iterar trae todos los datos 
                     />

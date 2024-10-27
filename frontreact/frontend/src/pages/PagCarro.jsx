@@ -37,9 +37,7 @@ const PagCarro =()=>{
             buscarLibroAgregado.cantidad += 1
         } else{
             acumulador.push({...libros, precioCard:libros.precio, cantidad:1})
-        }
-        console.log(acumulador);
-        
+        }        
         return acumulador
     }, []) //inicializa como un arreglo vacío
 

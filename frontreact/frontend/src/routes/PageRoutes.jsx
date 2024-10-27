@@ -8,7 +8,7 @@ import LibrosPrestados from "../pages/LibrosPrestados"
 import MiLibreria from "../pages/MiLibreria"
 import LibrosAgregados from "../pages/LibrosAgregados"
 import InfoLibro from "../pages/InfoLibro"
-import PagCarro from "../pages/PagCarro"
+import PagCompra from "../pages/PagCompra"
 
 const PageRoutes=()=>{
     return(
@@ -23,7 +23,7 @@ const PageRoutes=()=>{
             <Route path="/nosotros" element={<AcercaDnosotros/>}/>
             <Route path="/milibreria" element={<MiLibreria/>}/>
             <Route path="/informacionlibro" element={<InfoLibro/>}/>
-            <Route path="/paginacarro" element={<PagCarro/>}/>
+            <Route path="/paginacarro" element={<PagCompra/>}/>
 
 
         </Routes>
