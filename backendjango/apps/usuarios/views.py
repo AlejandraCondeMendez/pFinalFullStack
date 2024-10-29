@@ -9,7 +9,7 @@ from rest_framework.authtoken.models import Token
 from apps.libros.models import Libros
 import re
 from rest_framework_simplejwt.tokens import RefreshToken
-
+from rest_framework.permissions import AllowAny
 
 # Se crea la view de registro, acá se va a manejar la lógica 
 # La APIView maneja peticiones HTTP (get, post)
@@ -18,6 +18,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 # una coincidencia, devuelve un objeto Match. Si no encuentra coincidencia al inicio de la cadena, devuelve None.
 
 class RegistroView(APIView):
+    permission_classes = [AllowAny] # AllowAny permite acceso abierto a una vista sin requerir autenticación
     def post(self, request):
         usuario_registro = request.data.get('username') #path_user
         contrasena_registro = request.data.get('password') #path_use
@@ -64,6 +65,8 @@ class RegistroView(APIView):
                
 
 class InicioSesionView(APIView):
+    permission_classes = [AllowAny]
+
     def post(self, request):
         usuarioLogin = request.data.get('usernameFront') # obtiene el valor de 'username' de los datos enviados del frontend
         contrasenaLogin = request.data.get('passwordFront')
