@@ -47,7 +47,7 @@ const PagPrincipal =()=>{
         <>
         <Navbar/>
         <div style={{marginTop: -40}}>
-        <HamburgerMenu/>
+            <HamburgerMenu/>
         </div>
         <Search/>
         <div className="w-25 mx-auto mt-3">

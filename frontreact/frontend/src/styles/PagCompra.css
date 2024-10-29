@@ -1,4 +1,4 @@
-.libros-carro {
+.libros-compra {
     display: flex;
     width: 85%;
     position: absolute;
@@ -11,7 +11,7 @@
     font-size: 32px;
     font-family: Arial, sans-serif; /* Ajusta según tu fuente preferida */
   }
-  .libros-carro {
+  .libros-compra {
     font-size: 22px;
     color: #333;
   }

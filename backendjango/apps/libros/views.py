@@ -56,10 +56,4 @@ class LibroEstadoView(generics.ListAPIView):
     
     def get_queryset(self): #método de django
         estado = self.kwargs.get(self.lookup_field) #kwargs: el campo categoria sea igual a lo que tiene la URL (urls.py) // traéme el campo lookupfield
-        return Libros.objects.filter(estado=estado)    
-   
-
-
-    
-        
-
+        return Libros.objects.filter(estado=estado)

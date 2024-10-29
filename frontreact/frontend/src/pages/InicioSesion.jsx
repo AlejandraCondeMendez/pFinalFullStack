@@ -34,8 +34,8 @@ const InicioSesion=()=>{
         if (inicioSesion.success){
             localStorage.setItem('localUsuarioID', inicioSesion.id)
 
-            crearCookie("localUsuarioID",inicioSesion.id,1)
-            crearCookie('token_inicio', inicioSesion.token_acceso,1) // nombre de la cookie - valor - expiración 
+            crearCookie("localUsuarioID", inicioSesion.id,1)
+            crearCookie('token_inicio', inicioSesion.token_acceso, 1) // nombre de la cookie - valor - expiración 
             navigate("/paginaprincipal")
         }
     }

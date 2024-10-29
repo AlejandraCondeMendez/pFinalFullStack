@@ -4,7 +4,7 @@ import '../styles/Card.css'
 import '../styles/BotonCard.css'
 
 
-const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCard, precioCard, usuarioCard, btnAgregar, btnInfo, btnEliminar, btnEditar, mostrarBoton, mostrarBotonB}) => {
+const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCard, precioCard, usuarioCard, btnAgregar, btnInfo, btnEliminar, btnEditar, btnPrestamo, mostrarBoton, mostrarBotonB}) => {
 
     return (
         <>
@@ -31,6 +31,9 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
                     </div>
                     <div>
                         <Botton nombre={'Más información'} tipo={'button'} evento={btnInfo} clase={'informacion-button'}/>
+                    </div>
+                    <div>
+                        <Botton nombre={'Formulario de réstamo'} tipo={'button'} evento={btnPrestamo} clase={'btn btn-primary'}/>
                     </div>
                 </div>
                 }

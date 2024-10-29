@@ -1,4 +1,5 @@
 import Botton from "./Botton"
+import '../styles/CardCompra.css'
 
 // eslint-disable-next-line react/prop-types
 const CardCompra = ({ libroCompra, usuarioCompra, autorCompra, estadoCompra, categoriaCompra, precioCompra, btnEliminarCompra, precioTotal, cantidadCompra }) => {

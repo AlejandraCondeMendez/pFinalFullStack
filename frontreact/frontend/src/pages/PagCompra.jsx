@@ -6,6 +6,7 @@ import Footer from "../components/Footer"
 import HamburgerMenu from "../components/HamburgerMenu"
 import Search from "../components/Search"
 import CardPago from "../components/CardPago"
+import '../styles/PagCompra.css'
 
 // Se crea PagComopra con el objetivo de gestionar el carrito de compras. Trae libros del localStorage, 
 // los agrupa por su ID para sumar cantidades y precios, y finalmente, calcula el precio total.
@@ -57,7 +58,9 @@ const PagCompra = ()=>{
     return(
         <>
         <Navbar/>
-        <HamburgerMenu/>
+        <div style={{marginTop: -40}}>
+             <HamburgerMenu/>
+        </div>
         <Search/>
         <ListaCompra compraCard={agruparLibro}/> 
         <CardPago total={totalCompra}/> 
