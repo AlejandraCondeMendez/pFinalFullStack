@@ -4,7 +4,9 @@ import "../styles/CardPago.css"
 import { traerCookie } from "../services/cookies"
 import { postData } from "../services/fetch"
 import { muestraAlerta } from "../services/alertas"
+
 const CardPago = ({total=0})=>{
+  
   
   const [numTarjeta,setNumTarjeta] = useState("")
   const [fechaVencimiento,setFechaVencimiento] = useState("")
@@ -20,15 +22,16 @@ const CardPago = ({total=0})=>{
       if(americanRegex.test(numTarjeta) || visaRegex.test(numTarjeta) || 
       masterRegex.test(numTarjeta) && 
       fechaRegex.test(fechaVencimiento) && cvvRgex.test(cvv)){
-           const infoCompra = {
-             precio_total:total,
-             comprador:traerCookie("localUsuarioID"),
-             libro: JSON.parse(localStorage.getItem("carrito"))
-           }
-
-           const peticion = await postData(infoCompra,"libros/carrito")
-           console.log(peticion);
-           muestraAlerta("Compra éxitosa","success")
+        const infoCompra = { 
+          libro_precio_total: total,
+          usuario_compra: traerCookie("localUsuarioID"),
+          libros_compra: JSON.parse(localStorage.getItem("localCompras"))
+        }
+        
+        const peticion = await postData(infoCompra,"libros/compras")
+        console.log(peticion);
+        
+        muestraAlerta("Compra éxitosa","success")
       }
 
     }
@@ -64,3 +67,18 @@ const CardPago = ({total=0})=>{
     )
 }
 export default CardPago
+
+
+
+
+
+
+
+// const infoCompra = {
+//   precio_total:total,
+//   comprador:traerCookie("localUsuarioID"),
+//   libro: JSON.parse(localStorage.getItem("localCompras"))
+// }
+
+
+// }

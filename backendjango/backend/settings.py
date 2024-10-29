@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'apps.usuarios',
     'apps.adminstrador',
     'apps.libros',
-    'apps.carrito',
     'apps.comentarios',
     'apps.compras',
     'rest_framework',

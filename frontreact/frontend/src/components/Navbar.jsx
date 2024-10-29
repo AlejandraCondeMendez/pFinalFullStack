@@ -26,7 +26,7 @@ const Navbar = () => {
                         <i style={{"cursor":"pointer"}} className="fas fa-bell"></i>
                     </div>
                     <div className="navbar-icon cart-icon">
-                        <i style={{"cursor":"pointer"}} className="fas fa-shopping-cart" onClick={()=>navigate('/paginacarro')}></i>
+                        <i style={{"cursor":"pointer"}} className="fas fa-shopping-cart" onClick={()=>navigate('/paginacompra')}></i>
                     </div>
                 </div>
             </nav>

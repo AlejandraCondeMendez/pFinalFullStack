@@ -23,7 +23,7 @@ const PageRoutes=()=>{
             <Route path="/nosotros" element={<AcercaDnosotros/>}/>
             <Route path="/milibreria" element={<MiLibreria/>}/>
             <Route path="/informacionlibro" element={<InfoLibro/>}/>
-            <Route path="/paginacarro" element={<PagCompra/>}/>
+            <Route path="/paginacompra" element={<PagCompra/>}/>
 
 
         </Routes>

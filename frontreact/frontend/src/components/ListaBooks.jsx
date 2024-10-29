@@ -11,7 +11,29 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL}) => {
     
     const localStorageLibro = localStorage.getItem('localCompras') // obtener los ID de los libros  
     const [compras, setCompras] = useState(localStorageLibro ? JSON.parse(localStorageLibro) : []) // si el local no tiene datos va a iniciar en un array vacío
+  
+    const [modalPrestamo, setModalPrestamo] = useState(false);
+    const [libro, setLibro] = useState({});
+    const [fechaInicio, setFechaInicio] = useState('');
+    const [fechaFinal, setFechaFinal] = useState('');
     
+    const abrirPrestamo = (libroIterar) => {
+          setModalPrestamo(true);
+          const {id, titulo, autor, estado, categoria, ubicacion, precio} = libroIterar // TOMO POR SEPARADO CADA UNA DE LAS PROPS DEL LIBRO. Para luego pasarselas al estado
+          setLibro({id, titulo, autor, estado, categoria, ubicacion, precio})
+      }
+    
+      const solicitarPrestamo =  () => {
+          const prestamo = {
+              libro: libro.id,
+              fecha_prestamo: fechaInicio,
+              fecha_fin: fechaFinal,
+              solicitante: traerCookie('localUsuarioID')
+          }
+          crearCookie('prestamo', JSON.stringify(prestamo))
+          localStorage.setItem('localCompras',JSON.stringify([...compras, libro.id]));
+          console.log(prestamo);
+      }
     //Elimina el libro según su ID
     const eliminaLibro = async (id) => {
         const alerta = await acceptPopUp("Estás intentando eliminar un libro, ¿Continuar?", "El libro se eliminó con éxito", "La eliminación del libro fue cancelada");
@@ -57,12 +79,40 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL}) => {
                         btnEliminar = {() => eliminaLibro(iterar.id)}
                         btnEditar = {() => btnEditarL(iterar)} // En lista books está la función
                         btnAgregar = {()=> agregarLibro(iterar.id)}
-
+                        btnPrestamo = {()=>abrirPrestamo(iterar)}
                         // Iterar trae todos los datos 
                     />
                 </div>
             ))}
+                {modalPrestamo && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <h3>Solicitar préstamo</h3>
+                        <p>Libro: {libro.titulo}</p>
+                        <p>Autor: {libro.autor}</p>
+                        <p>Estado: {libro.estado}</p>
+                        <p>Categoría: {libro.categoria}</p>
+                        <p>Ubicación: {libro.ubicacion}</p>
+                        <p>Precio: {libro.precio ? `₡ ${libro.precio}` : 'Gratis'}</p>
+                        <input type="date" value={fechaInicio} onChange={(e) => setFechaInicio(e.target.value)} />
+                        <input type="date" value={fechaFinal} onChange={(e) => setFechaFinal(e.target.value)} />
+                        <button onClick={solicitarPrestamo}>Solicitar préstamo</button>
+
+                        <button onClick={""}>Cerrar Modal</button>
+                    </div>
+                </div>
+            )}
         </>
     );
+
 }
 export default ListaBooks;
+
+
+
+
+
+
+
+
+
