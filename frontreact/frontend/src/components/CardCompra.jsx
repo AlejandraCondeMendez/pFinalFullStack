@@ -34,7 +34,7 @@ const CardCompra = ({ libroCompra, usuarioCompra, autorCompra, estadoCompra, cat
                     </div>
                 </div>
                 <div style={{width:'15%', marginTop:'-10%', padding:'15px', position:'relative', marginLeft:'20%'}}>
-                    <Botton nombre={'Agregar al carrito'} tipo={'button'} evento={btnEliminarCompra} clase={'add-to-cart-button'} />
+                    <Botton nombre={'Eliminar'} tipo={'button'} evento={btnEliminarCompra} clase={'add-to-cart-button'} />
                 </div>
             </div>
         </>

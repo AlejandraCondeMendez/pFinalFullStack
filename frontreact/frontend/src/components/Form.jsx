@@ -1,5 +1,5 @@
 // eslint-disable-next-line react/prop-types
-const Form = ({ number, email, evento }) => {
+const Form = ({ number, email}) => {
     return (
       <>
         <form>
@@ -38,9 +38,6 @@ const Form = ({ number, email, evento }) => {
           </fieldset>
         </form>
         <br /><br />
-        <button onClick={evento} type="submit" className="btn btn-primary">
-          Formulario de préstamo
-        </button>
       </>
     )
   }

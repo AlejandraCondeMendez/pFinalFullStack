@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'apps.libros',
     'apps.comentarios',
     'apps.compras',
+    'apps.destacados',
     'rest_framework',
     'corsheaders',
     'rest_framework.authtoken',

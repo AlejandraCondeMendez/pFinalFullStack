@@ -12,3 +12,6 @@ class Libros(models.Model):
     
     def __str__(self):
         return self.titulo
+    
+    class Meta:
+        db_table = 'libro_libros'

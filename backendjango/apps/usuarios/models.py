@@ -8,6 +8,9 @@ class Registro(models.Model):
     ubicacion = models.CharField(max_length=100)
     
     def __str__(self):
-        return self.user.username    
+        return self.user.username
+    
+    class Meta:
+        db_table = 'libro_usuarios'
     
 

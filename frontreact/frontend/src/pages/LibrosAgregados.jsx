@@ -14,7 +14,7 @@ import { traerCookie } from "../services/cookies";
 const LibrosAgregados = () => {
     const [librosID, setLibrosID] = useState([]);
     const [libroSelec, setLibroSelec] = useState(false); 
-    const idCookie = traerCookie("localUsuarioID")
+    const idCookie = traerCookie("localUsuarioID") || 0
 
     //Estado para contar la cantidad total de libros agregados
     const [contadorLibro, setContadorLibro] = useState(0)
@@ -38,6 +38,9 @@ const LibrosAgregados = () => {
             <div style={{ marginTop: -40 }}>
                 <HamburgerMenu />
             </div>
+
+            {librosID.length === 0 && <h1>Acá no hay libros</h1>}
+
             <div className="libros-agregados">
             <i className="fa-solid fa-plus"></i>
                     <span>Mis libros agregados</span>

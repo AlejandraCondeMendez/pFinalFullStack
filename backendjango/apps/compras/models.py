@@ -8,7 +8,7 @@ class Compras(models.Model):
     libro_precio_total = models.IntegerField(default=0.0)
     
     class Meta:
-        db_table = 'compra_compracarrito'
+        db_table = 'libro_compras'
         
         
 class Prestamo(models.Model):
@@ -17,3 +17,6 @@ class Prestamo(models.Model):
     fecha_prestamo_inicio = models.DateField()
     fecha_prestamo_final = models.DateField()
     estado = models.BooleanField('Estado prestamo', default=False)
+    
+    class Meta:
+        db_table = 'libro_prestamos'

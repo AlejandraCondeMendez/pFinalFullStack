@@ -15,6 +15,7 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
                     src="https://mdbcdn.b-cdn.net/img/new/standard/city/062.webp"
                     className="card-img-top"
                     alt="Chicago Skyscrapers"
+
                 />
                 <div className="card-body">
                     <p>Autor: {autorCard}</p>
@@ -24,7 +25,7 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
                     <p>Precio: {precioCard ? `₡ ${precioCard}`: 'Gratis'}</p> 
 
                 </div>
-                {mostrarBoton && 
+                {mostrarBoton &&  precioCard > 0 &&
                 <div className="card-body" style={{position:'relative', marginTop:'-40px', textAlign:'center', justifyContent:'center'}}>
                     <div>
                         <Botton nombre={'Agregar al carrito'} tipo={'button'} evento={btnAgregar} clase={'add-to-cart-button'} />
@@ -32,12 +33,21 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
                     <div>
                         <Botton nombre={'Más información'} tipo={'button'} evento={btnInfo} clase={'informacion-button'}/>
                     </div>
-                    <div>
-                        <Botton nombre={'Formulario de réstamo'} tipo={'button'} evento={btnPrestamo} clase={'btn btn-primary'}/>
-                    </div>
+
                 </div>
                 }
-                {mostrarBotonB &&
+                {precioCard === 0 &&
+                <div className="card-body" style={{position:'relative', marginTop:'-40px', textAlign:'center', justifyContent:'center'}}>
+
+                                    <div>
+                                    <Botton nombre={'Formulario de préstamo'} tipo={'button'} evento={btnPrestamo} clase={'btn btn-primary'}/>
+                                </div>
+                                <div>
+                                <Botton nombre={'Más información'} tipo={'button'} evento={btnInfo} clase={'informacion-button'}/>
+                            </div>
+                            </div>
+                }
+                {mostrarBotonB && precioCard > 0 &&
                 <div  style={{display:'grid', gap:'10px'}}>
                     <div>
                         <Botton nombre={'Eliminar'} tipo={'button'} evento={btnEliminar} clase={'btn btn-danger w-50'}/>

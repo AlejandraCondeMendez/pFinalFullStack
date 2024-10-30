@@ -67,8 +67,8 @@ const InfoLibro = () => {
                 </div>
             </section>
             <div className="contenedor-comentarios" style={{marginTop:'28%', display:'flex', flexDirection:'column', gap:'22px'}}>
-                <CardComentario/>
-                <ListaComentarios comentarLista={comentariosLibros}/>
+                <CardComentario habilitados={true}/>
+                <ListaComentarios comentarLista={comentariosLibros} habilitadosLista={false} />
             </div>
         {/* hr de titulo */}
             <div className="libro-con-texto">

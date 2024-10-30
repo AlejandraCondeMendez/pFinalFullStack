@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from .serializer import LibroSerializer
 from .models import Libros
-from rest_framework.permissions import IsAuthenticated
+
 
 # Create your views here.
 # hacer el token y guardarlo en cookie (definir cuanto dura o sesiones), en el backend buscar que las views

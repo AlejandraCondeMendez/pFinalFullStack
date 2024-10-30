@@ -9,7 +9,7 @@ import { traerCookie } from "../services/cookies";
 import { postData } from "../services/fetch";
 
 // ¿qué propiedades tiene comentario?
-const CardComentario = ({comentario, usuarioComentario, valoracionEstrella = 0}) => {
+const CardComentario = ({comentario, usuarioComentario, valoracionEstrella = 0,habilitados}) => {
     //cada que haya un cambio usamos el useState, en este caso comentario y valoración de cada usuario
     const [estadoComentario, setEstadoComentario] = useState('')
     const [estadoValoracion, setEstadoValoracion] = useState(0)
@@ -40,13 +40,16 @@ const CardComentario = ({comentario, usuarioComentario, valoracionEstrella = 0})
                     size={24}
                     value={valoracionEstrella}
                     activeColor="#ffd700"
+                    edit={habilitados}
                 />
                 <div style={{marginTop:'2%', marginLeft:'12%'}}>
-                    <Input tipo={'text'} clase={'input-comentario'} valor={comentario} cambio={(e)=>setEstadoComentario(e.target.value)}/>
+                    <Input tipo={'text'} clase={'input-comentario'} habilitado={!habilitados} valor={comentario} cambio={(e)=>setEstadoComentario(e.target.value)}/>
                 </div>
+                {habilitados &&
                 <div style={{marginTop:'3%', textAlign:'right'}}>
                     <Botton nombre={'Añadir comentario'} evento={postComentario}/>
                 </div>
+                }
             </div>
         </>
     )

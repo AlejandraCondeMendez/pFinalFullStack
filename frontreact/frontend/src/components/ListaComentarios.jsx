@@ -1,7 +1,7 @@
 import CardComentario from "./CardComentario"
 
 /* eslint-disable react/prop-types */
-const ListaComentarios = ({ comentarLista }) => {
+const ListaComentarios = ({ comentarLista,habilitadosLista }) => {
     return (
         <>
             {comentarLista.map((iterar) => (
@@ -10,6 +10,7 @@ const ListaComentarios = ({ comentarLista }) => {
                     comentario={iterar.texto_comentario}
                     usuarioComentario={iterar.usuario_comentario}
                     valoracionEstrella={iterar.estrellas_comentario}
+                    habilitados={habilitadosLista}
                 />
             ))}
         </>
