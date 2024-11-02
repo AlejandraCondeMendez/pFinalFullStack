@@ -51,7 +51,7 @@ const PagPrincipal =()=>{
         </div>
         <Search/>
         <div className="w-25 mx-auto mt-3">
-        <SelectFiltro tipoFiltro={filtros}/>
+            <SelectFiltro tipoFiltro={filtros}/>
         </div>
         <div className="d-flex gap-5 flex-wrap justify-content-center" style={{marginTop:'5%', marginBottom:'5%'}}>
             <div className="d-flex flex-column">

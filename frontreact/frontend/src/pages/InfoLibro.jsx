@@ -57,7 +57,6 @@ const InfoLibro = () => {
             <div className="form-contacto">
                 <Form />
             </div>
-
             <section className="seccion-enlaces" style={{ gap: 300}}>
                 <div className="enlaceReseña">
                     <a>Reseñas</a>

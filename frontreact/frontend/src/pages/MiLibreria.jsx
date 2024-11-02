@@ -16,10 +16,13 @@ const MiLibreria=()=>{
         </div>
     
         <Search/>
-
-        <div style={{justifyContent:'center', textAlign:'center', marginTop:'4%'}}>
-            <i className="fa-solid fa-book-open" style={{fontSize:'40px'}}></i>
-            <h3>Librería</h3>
+        <div style={{textAlign:'center', marginTop:'4%'}}>
+            <div style={{fontSize:'35px'}}>
+                <i className="fa-solid fa-book-open"></i>
+            </div>
+            <div>
+                <h4>Librería</h4>
+            </div>
         </div>
 
         <div className="libros-agregados">
@@ -35,7 +38,6 @@ const MiLibreria=()=>{
             <i className="fa-solid fa-plus" style={{fontSize:'30px'}}></i>
             <span style={{"cursor":"pointer"}} onClick={()=>navigate('/librosagregados')}>Mis libros agregados</span>
         </div>
-
 
         <div style={{marginTop: 700}}>
             <Footer/>

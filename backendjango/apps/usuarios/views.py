@@ -75,8 +75,7 @@ class InicioSesionView(APIView):
         
         if userDatos is not None:
             refresh = RefreshToken.for_user(userDatos) # crea el token para el usuario
-            token, created = Token.objects.get_or_create(user=userDatos) # user contiene el nuevo_usuario, va a iniciar sesión si coinciden
-            return Response({'success': "Usuario valido", 'id': userDatos.id,'token_acceso':str(refresh.access_token),'token_refresco':str(refresh)}, status=status.HTTP_200_OK)
+            return Response({'success': "Usuario valido",'correo':userDatos.email,'telefono':"",'nombre':userDatos.username ,'id': userDatos.id,'token_acceso':str(refresh.access_token),'token_refresco':str(refresh)}, status=status.HTTP_200_OK)
         #la respuesta a la solicitud HTTP es enviar el menssaje de succes y también en esta respuesta se incluye el ID, esto para almacenar el ID del usuario que inicio sesión.
         else:
             return Response({'falso': 'Credenciales inválidas'}, status=status.HTTP_400_BAD_REQUEST)
