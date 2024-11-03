@@ -74,8 +74,11 @@ class InicioSesionView(APIView):
         userDatos = authenticate(request, username=usuarioLogin, password=contrasenaLogin)
         
         if userDatos is not None:
+            telefono = Registro.objects.get(user=userDatos).telefono
+            ubicacion = Registro.objects.get(user=userDatos).ubicacion
+            
             refresh = RefreshToken.for_user(userDatos) # crea el token para el usuario
-            return Response({'success': "Usuario valido",'correo':userDatos.email,'telefono':"",'nombre':userDatos.username ,'id': userDatos.id,'token_acceso':str(refresh.access_token),'token_refresco':str(refresh)}, status=status.HTTP_200_OK)
+            return Response({'success': "Usuario valido",'correo':userDatos.email,'telefono': telefono, 'ubicacion': ubicacion,'nombre':userDatos.username ,'id': userDatos.id,'token_acceso':str(refresh.access_token),'token_refresco':str(refresh)}, status=status.HTTP_200_OK)
         #la respuesta a la solicitud HTTP es enviar el menssaje de succes y también en esta respuesta se incluye el ID, esto para almacenar el ID del usuario que inicio sesión.
         else:
             return Response({'falso': 'Credenciales inválidas'}, status=status.HTTP_400_BAD_REQUEST)

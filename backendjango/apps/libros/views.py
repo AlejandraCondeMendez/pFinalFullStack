@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from .serializer import LibroSerializer
 from .models import Libros
+from django.db.models import Q
 
 
 # Create your views here.
@@ -56,3 +57,20 @@ class LibroEstadoView(generics.ListAPIView):
     def get_queryset(self): #método de django
         estado = self.kwargs.get(self.lookup_field) #kwargs: el campo categoria sea igual a lo que tiene la URL (urls.py) // traéme el campo lookupfield
         return Libros.objects.filter(estado=estado)
+
+
+# View para la barra de búsqueda
+class LibroBusquedaView(generics.ListAPIView):
+    serializer_class = LibroSerializer
+    
+    def get_queryset(self):
+        query = self.request.query_params.get('q')
+        if query:
+            return Libros.objects.filter(
+                Q(autor__icontains=query)|
+                Q(titulo__icontains=query)|
+                Q(usuarioLibro__user__username__icontains=query)|
+                Q(estado__icontains=query)|
+                Q(categoria__icontains=query)|
+                Q(ubicacion__icontains=query)
+            )

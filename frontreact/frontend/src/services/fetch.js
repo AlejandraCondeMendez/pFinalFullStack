@@ -109,4 +109,23 @@ async function putData(obj, id) {
         return null;
     }  
 } 
-export { putData };
+export { putData }
+
+async function patchData(obj, endpoint) {
+    try {
+        const response = await fetch(`http://127.0.0.1:8000/api/${endpoint}`, { 
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${cookie}`
+            },
+            body: JSON.stringify(obj)
+        });
+        const data = await response.json();
+        return data;   
+    } catch (e) {
+        console.log(e);
+        return null;
+    }  
+} 
+export { patchData }
