@@ -98,7 +98,7 @@ async function putData(obj, id) {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                headers: {'Authorization': `Bearer ${cookie}`}
+                'Authorization': `Bearer ${cookie}`
             },
             body: JSON.stringify(obj)
         });

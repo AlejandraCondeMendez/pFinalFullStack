@@ -9,7 +9,7 @@ from rest_framework.authtoken.models import Token
 from apps.libros.models import Libros
 import re
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 
 # Se crea la view de registro, acá se va a manejar la lógica 
 # La APIView maneja peticiones HTTP (get, post)
@@ -91,3 +91,55 @@ class InicioSesionView(APIView):
 
 # el más seguro: en lugar de guardarlas en una cookie, las de refreso se guardan en el backend (cookie)
 # views privatizadas, que ocupen el token para ser usadas
+
+
+class CambioContraView(APIView):
+    permission_classes = [IsAuthenticated]
+    queryset = User.objects.all()
+    
+    def get_object(self):
+        return self.request.user 
+    
+    def patch(self, request): #referencia, petición - petición de la referencia
+        usuarioIniciado = self.get_object() # el usuario de la función get_object
+        
+        clave_actual = request.data.get('contra_actual')
+        clave_nueva = request.data.get('contra_nueva')
+        
+        usuarioDatos = authenticate(request, username=usuarioIniciado.username, password=clave_actual)
+        
+        if usuarioDatos is None:
+            return Response({'falso': 'No es la contraseña correcta'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        contra_regex = r'(?P<password>((?=\S*[A-Z])(?=\S*[a-z])(?=\S*\d)(?=\S*[\!\"\§\$\%\&\/\(\)\=\?\+\*\#\'\^\°\,\;\.\:\<\>\ä\ö\ü\Ä\Ö\Ü\ß\?\|\@\~\´\`\\])\S{8,}))' 
+        if not re.match(contra_regex, clave_nueva):
+            return Response({'falso':'La contraseña no cumple con lo requerido'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        usuarioIniciado.set_password(clave_nueva)
+        usuarioIniciado.save()
+        return Response({'verdadero': 'La contraseña se actualizada'}, status=status.HTTP_200_OK)
+    
+    
+class CambioNombreView(APIView):
+    permission_classes = [IsAuthenticated]
+    queryset = User.objects.all()
+    
+    def get_object(self):
+        return self.request.user
+    
+    def patch(self, request):
+        usuarioIniciado = self.get_object()
+        
+        nombre_actual = request.data.get('nombreUsuario_actual')
+        nombre_nuevo = request.data.get('nombreUsuario_nuevo')
+                
+        if nombre_actual != usuarioIniciado.username:
+            return Response({'Falso':'El nombre de usuario no es el correcto'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        if User.objects.filter(username=nombre_nuevo).exists():
+            return Response({'Falso': 'El nombre de usuario ya existe'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        usuarioIniciado.username = nombre_nuevo
+        usuarioIniciado.save()
+        
+        return Response({'verdadero': 'El usuario se actualizó'})

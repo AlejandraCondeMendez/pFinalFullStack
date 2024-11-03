@@ -31,7 +31,9 @@ const FormCuenta = () => {
                                     type="text"
                                     id="disabledTextInput"
                                     className="form-control"
+                                    disabled
                                     placeholder="Correo electrónico"
+                                    value={traerCookie("correoUsuario")}
                                 />
                             </div>
                         </div>
@@ -44,7 +46,9 @@ const FormCuenta = () => {
                                     type="text"
                                     id="disabledTextInput"
                                     className="form-control"
+                                    disabled
                                     placeholder="Teléfono"
+                                    value={traerCookie("telefonoUsuario")}
                                 />
                             </div>
                         </div>

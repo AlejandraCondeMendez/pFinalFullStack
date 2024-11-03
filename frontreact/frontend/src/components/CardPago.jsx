@@ -71,23 +71,3 @@ const CardPago = ({ total = 0 }) => {
   )
 }
 export default CardPago
-
-
-
-
-
-
-
-// const infoCompra = {
-//   precio_total:total,
-//   comprador:traerCookie("localUsuarioID"),
-//   libro: JSON.parse(localStorage.getItem("localCompras"))
-// }
-// const solicitudPrestamo = JSON.parse(traerCookie("prestamo"));
-// const peticion = await postData(infoCompra,"libros/carrito")
-// const peticionPrestamo = await postData(solicitudPrestamo,"libros/prestamo")
-// if (peticion && peticionPrestamo) {
-//  localStorage.clear()
-//  muestraAlerta("Compra éxitosa","success")
-
-// }

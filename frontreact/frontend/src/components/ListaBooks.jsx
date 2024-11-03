@@ -4,6 +4,7 @@ import { acceptPopUp, muestraAlerta } from "../services/alertas";
 import { deleteData } from "../services/fetch";
 import CardBook from "./CardBook";
 import { crearCookie, traerCookie } from "../services/cookies";
+import '../styles/ListaBooks.css'
 
 // JSON.stringfy (objeto js en una cadena de texto en formato JSON.)
 // JSON.parse (formato JSON a un objeto js)
@@ -117,37 +118,3 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL}) => {
         );
 }
 export default ListaBooks;
-
-
-
-
-
-
-
-
-// const [modalPrestamo, setModalPrestamo] = useState(false);
-// const [libro, setLibro] = useState({});
-// const [fechaInicio, setFechaInicio] = useState('');
-// const [fechaFinal, setFechaFinal] = useState('');
-
-
-//   const abrirPrestamo = (libro) => {
-//         setModalPrestamo(true);
-//         const {id, titulo, autor, estado, categoria, ubicacion, precio} = libro;
-//         setLibro({id, titulo, autor, estado, categoria, ubicacion, precio});
-//     }
-
-//     const solicitarPrestamo =  () => {
-//         const prestamo = {
-//             libro: libro.id,
-//             fecha_prestamo: fechaInicio,
-//             fecha_fin: fechaFinal,
-//             solicitante: traerCookie('localUsuarioID')
-//         }
-//         crearCookie('prestamo', JSON.stringify(prestamo));
-//         localStorage.setItem('localCompras',JSON.stringify([...compras, libro.id]));
-//         console.log(prestamo);
-//     }
-
-
-
