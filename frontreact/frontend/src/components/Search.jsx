@@ -9,7 +9,7 @@ const Search = () => {
     }
     return (
         <>
-            <div className="input-group rounded search-box">
+            <div className="input-group rounded search-box" style={{width:'50%', marginTop:'5%', marginLeft:'25%'}}>
                 <input
                     type="search"
                     className="form-control rounded input-busqueda"

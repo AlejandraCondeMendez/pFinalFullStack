@@ -163,7 +163,7 @@ const FormCuenta = () => {
             </div>
             }
             {mostrarContra && 
-            <form>
+            <form style={{width:'30%'}}>
                 <Input tipo={'password'} nombre={'Contraseña actual'} cambio={(e)=>setContraAct(e.target.value)}/>
                 <Input tipo={'password'} nombre={'Contraseña nueva'} cambio={(e)=>setContraNueva(e.target.value)}/>
                 <Input tipo={'password'} nombre={'Confirmar contraseña'} cambio={(e)=>setContraConfirmar(e.target.value)}/>
@@ -171,7 +171,7 @@ const FormCuenta = () => {
             }
 
             {monstrarUser && 
-            <form>
+            <form style={{width:'30%'}}>
                 <Input tipo={'username'} nombre={'Nombre de usuario actual'} cambio={(e)=>setUsuarioAct(e.target.value)}/>
                 <Input tipo={'username'} nombre={'Nuevo nombre de usuario'} cambio={(e)=>setUsuarioNuevo(e.target.value)}/>
             </form>
