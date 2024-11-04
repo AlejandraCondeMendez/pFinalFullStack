@@ -27,8 +27,8 @@ const Navbar = () => {
                         <strong className='titulo-liberty'>LibertyBooks</strong>
                     </a>
                     {traerCookie("localUsuarioID") &&
-                    <div>
-                        <p>HOLA {traerCookie("nombreUsuario")}</p>
+                    <div style={{position:'absolute', marginLeft:'78%', marginTop:'1%'}}>
+                        <p>¡HOLA {traerCookie("nombreUsuario")}!</p>
                     </div>
                     }
                     {/* Iconos de carrito y campanita alineados a la derecha */}
