@@ -39,7 +39,7 @@ const LibrosAgregados = () => {
             <HamburgerMenu/>
         </div>
 
-            {librosID.length === 0 && <h1>Acá no hay libros</h1>}
+            {librosID.length === 0 && <p className="titulo-agregados">No hay libros agregados</p>}
 
             <div className="libros-agregados">
             <i className="fa-solid fa-plus"></i>
@@ -58,7 +58,7 @@ const LibrosAgregados = () => {
                 <ModalPut libroModal={libroSelec} setLibroModal={setLibroSelec}/> //cerrar y mostrar el modal
             )}
 
-            <div style={{ marginTop: 300 }}>
+            <div style={{ marginTop: 400 }}>
                 <Footer />
             </div>
         </>

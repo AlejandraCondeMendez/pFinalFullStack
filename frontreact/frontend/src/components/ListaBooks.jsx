@@ -71,6 +71,8 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL}) => {
         }
         crearCookie('localPrestamo', JSON.stringify(infoPrestamo), 1)
         localStorage.setItem('localCompras', JSON.stringify([...compras, libro.id]))
+        muestraAlerta("Agregado a prestamo con exito","success")
+        setModal(false)
     }
 
     return (
@@ -99,10 +101,10 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL}) => {
             ))}
             {/* Modal de prestamo */}
             {modal && (
-                <div className="modal-overlay">
+                <div className="modal-container">
                     <div className="modal-content">
                         <h2>Solicitar préstamo</h2>
-                        <h5 className="text-center">Dueño: {libro.usuarioLibro_nombre}</h5>
+                        <h5>Dueño: {libro.usuarioLibro_nombre}</h5>
                         {/* Mi estado libro va a iterar por cada una de las propiedades de la BD */}
                         <p>Libro: {libro.titulo}</p>
                         <p>Autor: {libro.autor}</p>

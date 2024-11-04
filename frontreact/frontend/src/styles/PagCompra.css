@@ -15,3 +15,13 @@
     font-size: 22px;
     color: #333;
   }
+
+  .contenedor-compras-libros {
+    padding: 50px;
+    max-width: 80%;
+    margin: 0 auto;
+    border: 1px solid #1a3a8e;
+    border-radius: 10px;
+    background-color: #ffffff;
+    position: absolute;
+  }

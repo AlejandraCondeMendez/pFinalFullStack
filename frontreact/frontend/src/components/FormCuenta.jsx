@@ -5,6 +5,9 @@ import { getData, patchData } from "../services/fetch"
 import ListaComentarios from "./ListaComentarios"
 
 const FormCuenta = () => {
+    const [infoCuenta,setInfoCuenta] = useState(true)
+    const [infoComentarios,setInfoComentarios] = useState(false)
+
     const [mostrarContra, setMostrarContra] = useState(false)
     const [contraAct, setContraAct] = useState('')
     const [contraNueva, setContraNueva] = useState('')
@@ -51,6 +54,16 @@ const FormCuenta = () => {
     }
     return (
         <>
+        <section style={{ display: 'flex', gap: 210, justifyContent:'center', marginTop:'3%'}}>
+                <div className="enlace-cuenta" >
+                    <a onClick={()=>{setInfoCuenta(!infoCuenta)}}>Información de la cuenta</a>
+                </div>
+                <div className="enlace-cuenta" style={{marginRight:'90px', position:'relative'}}>
+                    <a onClick={()=>setInfoComentarios(!infoComentarios)}>Mis reseñas</a>
+                </div>            
+        </section>
+
+        {infoCuenta &&
             <div style={{ textAlign: 'center', justifyContent: 'center' }}>
                 <form>
                     <fieldset disabled="">
@@ -148,6 +161,7 @@ const FormCuenta = () => {
                     </fieldset>
                 </form>
             </div>
+            }
             {mostrarContra && 
             <form>
                 <Input tipo={'password'} nombre={'Contraseña actual'} cambio={(e)=>setContraAct(e.target.value)}/>
@@ -162,9 +176,10 @@ const FormCuenta = () => {
                 <Input tipo={'username'} nombre={'Nuevo nombre de usuario'} cambio={(e)=>setUsuarioNuevo(e.target.value)}/>
             </form>
             }
-
-            <ListaComentarios comentarLista={comentarios}/>
-        </>
+            {infoComentarios && 
+            <ListaComentarios habilitadosLista={false} comentarLista={comentarios}/>
+        }
+            </>
     )
 }
 export default FormCuenta

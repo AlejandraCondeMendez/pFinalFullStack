@@ -28,4 +28,11 @@ hr {
     border: none;
     margin: 20px auto;
 }
+
+.titulo-agregados{
+  position: absolute;
+  margin-top: 25%;
+  margin-left: 39%;
+  font-size: 20px;
+}
       

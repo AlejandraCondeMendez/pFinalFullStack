@@ -47,7 +47,7 @@ const InfoLibro = () => {
             <div style={{ marginTop: 1 }}>
                 <HamburgerMenu />
             </div>
-            <div style={{position:'absolute', marginLeft:'45%', marginTop:'6%'}}>
+            <div style={{position:'absolute', marginLeft:'46%', marginTop:'10%'}}>
                 <h5>Comentarios</h5>
             </div>
             <div className="contenedor-libro-comentario">
@@ -55,7 +55,7 @@ const InfoLibro = () => {
                     <ListaBooks cardBooks={libroInfo} mostrar={true} />
                 </div>
                 <div className="comentarios">
-                    <div className="contenedor-comentarios" style={{marginTop: '28%', display: 'flex',flexDirection: 'column',gap: '22px',maxHeight: '550px',overflowY: 'auto',padding: '10px',border: '1px solid #ccc',borderRadius: '5px'}}>
+                    <div className="contenedor-comentarios" style={{marginTop: '30%', display: 'flex',flexDirection: 'column',gap: '22px',maxHeight: '550px',overflowY: 'auto',padding: '10px',border: '1px solid #ccc',borderRadius: '5px'}}>
                         <CardComentario habilitados={true}/>
                         <ListaComentarios comentarLista={comentariosLibros} habilitadosLista={false} />
                     </div>

@@ -20,14 +20,7 @@ const PagCuenta = () =>{
                 <h4>Mi cuenta</h4>
             </div>
         </div>
-        <section style={{ display: 'flex', gap: 210, justifyContent:'center', marginTop:'3%'}}>
-                <div className="enlace-cuenta" >
-                    <a>Información de la cuenta</a>
-                </div>
-                <div className="enlace-cuenta" style={{marginRight:'90px', position:'relative'}}>
-                    <a>Mis reseñas</a>
-                </div>            
-        </section>
+        
         <div>
             <FormCuenta/>
         </div>

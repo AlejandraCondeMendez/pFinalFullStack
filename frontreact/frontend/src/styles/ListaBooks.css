@@ -1,23 +1,83 @@
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); 
+/* Modal container */
+.modal-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 1000;
 }
 
+/* Modal del formulario de préstamo */
 .modal-content {
-    background-color: #fff;
+    background-color: #ffffff;
+    width: 80%;
+    max-width: 500px;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 500px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    color: #1a3a8e;
+}
+
+/* Title styles */
+.modal-content h2 {
+    color: #1a3a8e;
+    font-size: 24px;
     text-align: center;
-    z-index: 1001;
+    margin-bottom: 15px;
+}
+
+/* Subtitle styles */
+.modal-content h5 {
+    color: #1a3a8e;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Text styles */
+.modal-content p {
+    color: #1a3a8e;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Input date fields */
+.modal-content input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #1a3a8e;
+    border-radius: 4px;
+    color: #1a3a8e;
+    background-color: #f3f4f8;
+}
+
+/* Button styles */
+.modal-content button {
+    width: 50%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 25%;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Primary action button */
+.modal-content button:first-of-type {
+    background-color: #ffc107;
+    color: #1a3a8e;
+}
+
+/* Close button */
+.modal-content button:last-of-type {
+    background-color: #1a3a8e;
+    color: #ffffff;
 }

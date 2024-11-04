@@ -26,6 +26,11 @@ const Navbar = () => {
                     <a className="navbar-brand text-light titulo-navbar mx-auto" style={{"cursor":"pointer"}} onClick={()=>navigate('/paginaprincipal')}>
                         <strong className='titulo-liberty'>LibertyBooks</strong>
                     </a>
+                    {traerCookie("localUsuarioID") &&
+                    <div>
+                        <p>HOLA {traerCookie("nombreUsuario")}</p>
+                    </div>
+                    }
                     {/* Iconos de carrito y campanita alineados a la derecha */}
                     <div className="navbar-icon cart-icon">
                         <i style={{"cursor":"pointer"}} className="fas fa-shopping-cart" onClick={()=>navigate('/paginacompra')}></i>

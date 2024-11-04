@@ -52,8 +52,7 @@ const AcercaDnosotros = () => {
                 <p className="divComu">Fomentamos una comunidad inclusiva y solidaria donde los lectores puedan intercambiar
                     ideas y conocimientos.</p>
             </ul>
-            <h2 className="comentarios">Comentarios</h2>
-            <div style={{marginTop: 200}}>
+            <div style={{marginTop: 300}}>
                 <Footer/>
             </div>
         </>

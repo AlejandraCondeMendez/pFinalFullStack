@@ -57,8 +57,8 @@ const InicioSesion=()=>{
         </div> 
         
         <div className="d-flex flex-column mx-auto InputInicioS">
-            <Input tipo={'text'} nombre={'Usuario'} refvali={usuarioRef} valor={usuario} cambio={(e)=>setUsuario(e.target.value)}  clase={"inputForm"} />
-            <Input tipo={'password'} nombre={'Contraseña'} refvali={contraRef} valor={contra} cambio={(e)=>setContra(e.target.value)}  clase={"inputForm"}/>
+            <Input tipo={'text'} nombre={'Usuario'} refvali={usuarioRef} valor={usuario} cambio={(e)=>setUsuario(e.target.value)}/>
+            <Input tipo={'password'} nombre={'Contraseña'} refvali={contraRef} valor={contra} cambio={(e)=>setContra(e.target.value)}/>
             <Botton clase={"botonInicio"} nombre={'Iniciar sesión'} tipo={'button'} evento={validarInicio}/>
         </div>
         <div className="text-center" style={{marginBottom: 200}}>

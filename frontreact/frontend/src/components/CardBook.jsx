@@ -2,6 +2,7 @@
 import Botton from "./Botton"
 import '../styles/Card.css'
 import '../styles/BotonCard.css'
+import { traerCookie } from "../services/cookies"
 
 
 const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCard, precioCard, usuarioCard, btnAgregar, btnInfo, btnEliminar, btnEditar, btnPrestamo, mostrarBoton, mostrarBotonB}) => {
@@ -25,24 +26,25 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
                     <p>Precio: {precioCard ? `₡ ${precioCard}`: 'Gratis'}</p> 
 
                 </div>
-                {mostrarBoton &&  precioCard > 0 &&
                 <div className="card-body" style={{position:'relative', marginTop:'-40px', textAlign:'center', justifyContent:'center'}}>
-                    <div>
-                        <Botton nombre={'Agregar al carrito'} tipo={'button'} evento={btnAgregar} clase={'add-to-cart-button'} />
+                    <div style={{marginBottom:'5px'}}>
+                        <Botton nombre={'Más información'} tipo={'button'} evento={btnInfo} clase={'informacion-button'}/>
+                    </div>
+                </div>
+                {mostrarBoton &&  precioCard > 0 && traerCookie("localUsuarioID") &&
+                <div className="card-body" style={{position:'relative', marginTop:'-40px', textAlign:'center', justifyContent:'center'}}>
+                    <div style={{marginBottom:'5px'}}>
                     </div>
                     <div>
-                        <Botton nombre={'Más información'} tipo={'button'} evento={btnInfo} clase={'informacion-button'}/>
+                        <Botton nombre={'Agregar al carrito'} tipo={'button'} evento={btnAgregar} clase={'add-to-cart-button'} />
                     </div>
 
                 </div>
                 }
-                {precioCard === 0 && !mostrarBotonB &&
+                {precioCard === 0 && !mostrarBotonB &&   traerCookie("localUsuarioID") &&
                 <div className="card-body" style={{position:'relative', marginTop:'-40px', textAlign:'center', justifyContent:'center'}}>
                     <div>
-                        <Botton nombre={'Formulario de préstamo'} tipo={'button'} evento={btnPrestamo} clase={'btn btn-primary'}/>
-                    </div>
-                    <div>
-                        <Botton nombre={'Más información'} tipo={'button'} evento={btnInfo} clase={'informacion-button'}/>
+                        <Botton nombre={'Solicitar préstamo'} tipo={'button'} evento={btnPrestamo} clase={'btn btn-primary'}/>
                     </div>
                 </div>
                 }

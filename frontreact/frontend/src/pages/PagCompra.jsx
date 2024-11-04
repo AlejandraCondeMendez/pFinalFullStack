@@ -11,7 +11,6 @@ import { useSearch } from "../components/BusquedaContext"
 
 // Se crea PagComopra con el objetivo de gestionar el carrito de compras. Trae libros del localStorage, 
 // los agrupa por su ID para sumar cantidades y precios, y finalmente, calcula el precio total.
-
 const PagCompra = ()=>{
     const [compras, setCompras] = useState([])
     const localID = JSON.parse(localStorage.getItem('localCompras') || [])
@@ -65,12 +64,22 @@ const PagCompra = ()=>{
         <div style={{marginTop: 1}}>
             <HamburgerMenu/>
         </div>
-        <div style={{marginBottom:'3%', marginTop:'-3%', marginLeft:'5%', position:'relative'}}>
+        <div style={{ marginTop:'-3%', marginLeft:'5%', position:'relative'}}>
             <Search/>
         </div>
-        <ListaCompra compraCard={agruparLibro}/> 
-        <CardPago total={totalCompra}/> 
-        <div style={{marginTop: 200}}>
+        <div style={{marginTop:'3%', position:'absolute', marginLeft:'3%'}}>
+            <h3>Tienes {compras.length} libros en el carrito</h3>
+        </div>
+        <div className="contenedor-compras-libros" style={{marginTop: '8%', marginLeft:'1%', display: 'flex',flexDirection: 'column',gap: '22px',maxHeight: '550px',overflowY: 'auto',padding: '10px',border: '1px solid #ccc',borderRadius: '5px'}}>
+            <div>
+                <ListaCompra compraCard={agruparLibro}/> 
+            </div>
+        </div>
+        <div>
+            <CardPago total={totalCompra}/> 
+        </div>
+
+        <div style={{marginTop: 400}}>
             <Footer/>
         </div> 
         </>

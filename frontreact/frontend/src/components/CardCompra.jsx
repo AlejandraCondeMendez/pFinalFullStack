@@ -6,7 +6,7 @@ const CardCompra = ({ libroCompra, usuarioCompra, autorCompra, estadoCompra, cat
 
     return (
         <>
-            <div className="card" style={{ width: "52vh", margin: '20px', height: '110vh', padding: '8px' }}>
+            <div className="card" style={{ width: "25%", margin: '20px', padding: '8px' }}>
                 <p className="text-muted">Usuario: {usuarioCompra}</p>
                 <img
                     src="https://mdbcdn.b-cdn.net/img/new/standard/city/062.webp"
@@ -21,13 +21,13 @@ const CardCompra = ({ libroCompra, usuarioCompra, autorCompra, estadoCompra, cat
                 </div>
 
                 <div className="precio-carro-total" style={{display:'flex'}}>
-                    <div style={{ marginLeft: '-90%', marginTop: '-30%', position: 'absolute' }}>
-                        <h5 className="card-title" style={{ fontSize: '15px' }}>Libro: {libroCompra}</h5>
+                    <div style={{ marginLeft: '-90%', marginTop: '-30%', position: 'absolute', color:'#1a3a8e'}}>
+                        <h5 className="card-title" style={{ fontSize: '15px' }}>Libro: <br /> {libroCompra}</h5>
                     </div>
-                    <div style={{ marginLeft: '90%', fontSize: '15px', marginTop: '-25%', textAlign: 'center' }}>
+                    <div style={{ marginLeft: '60%', fontSize: '15px', marginTop: '-25%', textAlign: 'center', color:'#1a3a8e'}}>
                         <p>Cantidad: {cantidadCompra}</p>
                     </div>
-                    <div style={{ marginLeft: '30%', marginTop: '-25%' }}>
+                    <div style={{ marginLeft:'45%', marginTop: '-25%', color:'#1a3a8e' }}>
                         <span style={{ display: 'inline-flex', alignItems: 'center' }}>
                             {precioTotal ? `₡ ${precioTotal}` : 'Gratis'} {/*Total de todos los libros */}
                         </span>

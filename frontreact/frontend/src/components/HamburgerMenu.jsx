@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../styles/HamburgerMenu.css';
 import { useNavigate } from 'react-router-dom';
+import { traerCookie } from '../services/cookies';
 const HamburgerMenu = () => {
     const navigate = useNavigate()
     const [isOpen, setIsOpen] = useState(false);
@@ -22,11 +23,12 @@ const HamburgerMenu = () => {
                     <li><a style={{"cursor":"pointer"}} onClick={()=>navigate('/paginaprincipal')}>Página principal</a></li>
                     <li><a style={{"cursor":"pointer"}} onClick={()=>navigate('/nosotros')}>Acerca de nosotros</a></li>
                     <li className="library-dropdown">
-                        <a style={{"cursor":"pointer"}} onClick={()=>navigate('/milibreria')}>Todos los libros</a>
+                        <a style={{"cursor":"pointer"}}>Todos los libros</a>
+                        {traerCookie("localUsuarioID") && 
                         <ul className="dropdown">
                             <li><a style={{"cursor":"pointer"}} onClick={()=>navigate('/librosagregados')}>Mis libros agregados</a></li>
-                            <li><a style={{"cursor":"pointer"}} onClick={()=>navigate('/librosprestados')}>Mis libros prestados</a></li>
                         </ul>
+}
                     </li>
                 </ul>
             </nav>
