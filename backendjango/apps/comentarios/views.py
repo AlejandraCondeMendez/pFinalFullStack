@@ -10,7 +10,6 @@ class ComentariosViews(generics.ListCreateAPIView): #get y post
     serializer_class = ComentarioSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     
-    
 # Todos los comentarios, según el ID del libro (libro_comentario)
 class ComentariosIDViews(generics.ListAPIView):
     serializer_class = ComentarioSerializer 
@@ -20,3 +19,11 @@ class ComentariosIDViews(generics.ListAPIView):
     def get_queryset(self):
         libro_comentario = self.kwargs.get(self.lookup_field)
         return Comentarios.objects.filter(libro_comentario = libro_comentario)
+
+class ComentariosUserView(generics.ListAPIView):
+    serializer_class = ComentarioSerializer
+    lookup_field = 'usuario_comentario'
+
+    def get_queryset(self):
+        usuario_comentario = self.kwargs.get(self.lookup_field)
+        return Comentarios.objects.filter(usuario_comentario = usuario_comentario)

@@ -43,6 +43,9 @@ const ModalBook = () => {
                 usuarioLibro: traerCookie('localUsuarioID')
             }
             const response = await postData(libro, 'libros/') //'libros/' viene de la base de datos, es la urls.py que a la vez contiene la lógica de la view
+            if(response){
+                muestraAlerta("Libro agregado con exito","success")
+            }
             console.log(response);
             setAutor('')
             setCategoria('')

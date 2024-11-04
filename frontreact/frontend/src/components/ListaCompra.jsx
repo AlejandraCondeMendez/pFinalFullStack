@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { muestraAlerta } from "../services/alertas"
 import CardCompra from "./CardCompra"
 
 // eslint-disable-next-line react/prop-types
@@ -10,6 +11,7 @@ const ListaCompra = ({compraCard}) => {
         if (buscarID !== -1) {
             localID.splice(buscarID, 1) // entramos al array, eliminamos la posición según el ID e indicamos la cantidad a eliminar
             localStorage.setItem('localCompras', JSON.stringify(localID))
+            muestraAlerta('Elminado del carrito con éxito', 'success')
         }
     }
 

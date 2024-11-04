@@ -30,11 +30,14 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL}) => {
         if (alerta) {
             console.log(id);
             await deleteData('librosDelete', id + "/");
+            muestraAlerta('Elminado con éxito', 'success')
+
         }
     }
 
     //FUNCIÓN: Agregar los libros al carrito
     const agregarLibro = async(id) =>{ // muestrame la longitud de ID's que son iguales si superan los 10, se muestra la alerta
+        muestraAlerta('Agregado al carrito', 'success')
         const librosCarrito = compras.filter(libro => libro === id).length // compras va a tener los libros del local
         if (librosCarrito >= 10) {
             muestraAlerta('La cantidad solicitada no está disponible', 'error')

@@ -1,5 +1,4 @@
 import Navbar from "../components/Navbar"
-import Search from "../components/Search"
 import HamburgerMenu from "../components/HamburgerMenu"
 import Footer from "../components/Footer"
 import '../styles/PagCuenta.css'
@@ -10,10 +9,9 @@ const PagCuenta = () =>{
     return (
         <>
         <Navbar/>
-        <div style={{marginTop: -40}}>
+        <div style={{marginTop: 1}}>
             <HamburgerMenu/>
         </div>
-        <Search/>
         <div style={{textAlign:'center', marginTop:'4%'}}>
             <div style={{fontSize:'35px'}}>
                 <i className="fa-solid fa-book-open-reader"></i>
@@ -33,8 +31,6 @@ const PagCuenta = () =>{
         <div>
             <FormCuenta/>
         </div>
-        
-
         <div style={{marginTop: 600}}>
             <Footer/>
         </div>

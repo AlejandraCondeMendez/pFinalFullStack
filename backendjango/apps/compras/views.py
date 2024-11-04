@@ -12,3 +12,12 @@ class ComprasViews(generics.ListCreateAPIView):
 class PrestamoViews(generics.ListCreateAPIView):
     queryset = Prestamo.objects.all()
     serializer_class = PrestamoSerializer
+    
+class PrestamosUsuarioView(generics.ListAPIView):
+    queryset = Prestamo.objects.all()
+    serializer_class = PrestamoSerializer
+    lookup_field = 'usuario_prestamo'
+
+    def get_queryset(self):
+        usuario_prestamo = self.kwargs.get(self.lookup_field)
+        return Prestamo.objects.filter(usuario_prestamo=usuario_prestamo).select_related('libros_prestamo')

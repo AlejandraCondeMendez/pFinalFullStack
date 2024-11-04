@@ -4,7 +4,6 @@ from .serializer import LibroSerializer
 from .models import Libros
 from django.db.models import Q
 
-
 # Create your views here.
 # hacer el token y guardarlo en cookie (definir cuanto dura o sesiones), en el backend buscar que las views
 # todo el resto de views verifiquen que exista el token. sección de seguridad, los endpoints no pueden ser utilizados sin un token de usuario

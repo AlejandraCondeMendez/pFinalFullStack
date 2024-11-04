@@ -25,36 +25,13 @@
 .libro-info{
   display: flex;
   margin-top: 2%;
-  margin-bottom: 5%;
-  margin-left: 20%;
+  margin-left: 15%;
   position: relative;
-}
-
-/*Caja de comentarios*/
-.comentarios-box{
-  display: flex;
-  position: relative;
-  margin-top: 25%;
-}
-
-/*formulario de contacto**/
-.form-contacto{
-  position: relative;
-  margin-left: 50%;
-  margin-top: -50%;
-}
-
-/*Contenedor de reseña y recomendaciones*/
-.seccion-enlaces{
-  display: flex;
-  position: absolute;
-  margin-top: 22%;
-  margin-left: 30%;
 }
 
 .carrusel{
   position: relative;
-  margin-top: 30%;
+  margin-top: 20%;
 }
 
 /*hr de Mas libros*/
@@ -62,7 +39,7 @@
   display: flex;
   width: 85%;
   position: absolute;
-  margin-top: 26%;
+  margin-top: 15%;
   align-items: center;
   border-bottom: 2px solid #ccc; /* Línea inferior */
   margin-left: 35px;
@@ -76,7 +53,6 @@
   font-size: 22px;
   color: #333;
 }
-
 
 /*hr de libros agregados*/
 .libros-agregados{
@@ -99,13 +75,32 @@
 
   /* Contenedor principal de los comentarios */
 .contenedor-comentarios {
-  max-width: 660px; /* Ancho máximo para que no ocupe todo el ancho de la página */
+  max-width: 500px; /* Ancho máximo para que no ocupe todo el ancho de la página */
   max-height: auto;
   margin: 0 auto; /* Centra el contenedor horizontalmente */
-  padding: 20px; /* Espaciado interno */
-  background-color: #f9f9f9; /* Fondo ligeramente gris */
+  padding: 30px; /* Espaciado interno */
+  background-color: white; /* Fondo ligeramente gris */
   border-radius: 10px; /* Bordes redondeados */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+/* lista de comentarios */
+.comentarios{
+  position: relative;
+  margin-top: -815px;
+  margin-left: 450px;
+}
+
+.contenedor-libro-comentario {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px;
+  max-width: 1000px;
+  max-height: 2000px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
 }
 
 

@@ -9,6 +9,7 @@ import SelectFiltro from "../components/SelectFiltro"
 import Footer from "../components/Footer"
 import HamburgerMenu from "../components/HamburgerMenu"
 import { useNavigate } from "react-router-dom"
+import { useSearch } from "../components/BusquedaContext"
 
 const PagPrincipal =()=>{
     const navigate = useNavigate()
@@ -16,22 +17,26 @@ const PagPrincipal =()=>{
     const [filtroCate, setFiltroCate] = useState('')
     const [contadorVenta, setContadorVenta ] = useState(0)
     const [contadorPrestamo, setContadorPrestamo] = useState(0)
+    const {librosBuscados} = useSearch()
 
     useEffect(()=>{ //get que trae todo los libros de la API
-        const traerLibros = async()=>{
-            const getLibros = await getData('libros')
-            setBooks(getLibros)
+        if (librosBuscados && librosBuscados.length>0) {
+            setBooks(librosBuscados)
+        } else{
+            const traerLibros = async()=>{
+                const getLibros = await getData('libros')
+                setBooks(getLibros)
+            }
+            traerLibros()
         }
         const contadores =async()=>{
             const venta = await getBusqueda('estado', 'Venta')
             const prestamo = await getBusqueda('estado', 'Préstamo')
             setContadorVenta(venta.length)
             setContadorPrestamo(prestamo.length)
-            
         }
         contadores()
-        traerLibros()
-    },[])
+    },[librosBuscados])
 
     const filtros = async (tipo)=>{
         setFiltroCate(tipo)
@@ -46,10 +51,12 @@ const PagPrincipal =()=>{
     return(
         <>
         <Navbar/>
-        <div style={{marginTop: -40}}>
+        <div style={{marginTop: 1}}>
             <HamburgerMenu/>
         </div>
-        <Search/>
+        <div style={{marginBottom:'3%', marginTop:'-3%', marginLeft:'5%', position:'relative'}}>
+            <Search/>
+        </div>
         <div className="w-25 mx-auto mt-3">
             <SelectFiltro tipoFiltro={filtros}/>
         </div>

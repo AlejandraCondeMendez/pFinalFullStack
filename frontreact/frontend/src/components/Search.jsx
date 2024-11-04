@@ -1,5 +1,12 @@
+import { useSearch } from "./BusquedaContext"
 const Search = () => {
 
+    const {barraBuqueda, setBarraBusqueda, BuscarLibros} = useSearch()
+    const libroBuscar = (e) => {
+        const contenido = e.target.value
+        setBarraBusqueda(contenido)
+        BuscarLibros(contenido)
+    }
     return (
         <>
             <div className="input-group rounded search-box">
@@ -9,6 +16,8 @@ const Search = () => {
                     placeholder="Search"
                     aria-label="Search"
                     aria-describedby="search-addon"
+                    value={barraBuqueda}
+                    onChange={libroBuscar}
                 />
                 <span className="input-group-text border-0" id="search-addon" style={{backgroundColor:'#002d85'}}>
                     <i className="lupita-busqueda fas fa-search text-light"/>

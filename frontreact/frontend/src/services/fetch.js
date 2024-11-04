@@ -129,3 +129,16 @@ async function patchData(obj, endpoint) {
     }  
 } 
 export { patchData }
+
+
+async function getBarraBusqueda(busqueda) {
+    try {
+        const response = await fetch(`${api}libros/busqueda/?q=${busqueda}`)
+        const data = await response.json()
+        return data        
+    } catch (error) {
+        console.log(error);
+        return null
+    }
+}
+export {getBarraBusqueda}

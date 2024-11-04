@@ -23,56 +23,16 @@
 .iniciar-sesion {
     font-size: 0.9rem;
     margin-top: 5px;
+    position: relative;
 }
 
 .session-link {
     color: #002d85;
     text-decoration: none;
+    position: relative;
 }
-
 .session-link:hover {
     color: #FFBE2D;
-}
-
-/* Menú de categorías debajo del navbar */
-.navbar-categories {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    background-color: #fff;
-    border-top: 1px solid #ccc;
-}
-
-/* Estilos de cada categoría */
-.category-item {
-    position: relative;
-    margin: 0 15px;
-}
-
-.category-link {
-    text-decoration: none;
-    color: #002d85;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.category-link:hover {
-    color: #FFBE2D;
-    border-bottom: 2px solid #002d85;
-}
-
-/* Menú desplegable */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #002d85;
-    border: 1px solid #FFBE2D;
-    border-radius: 4px;
-    min-width: 150px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
 }
 
 .dropdown-item {
@@ -92,7 +52,10 @@
 .category-item:hover .dropdown-menu {
     display: block;
 }
+/* titulo de la pagina */
 .titulo-liberty{
-    margin-left: 200px;
+    position: relative;
+    text-align: center;
+    margin-left: -25%;
     color: #002d85;
 }

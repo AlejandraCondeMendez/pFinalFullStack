@@ -1,7 +1,8 @@
 import { traerCookie } from "../services/cookies"
 import Input from "../components/Input"
-import { useState } from "react"
-import { patchData } from "../services/fetch"
+import { useEffect, useState } from "react"
+import { getData, patchData } from "../services/fetch"
+import ListaComentarios from "./ListaComentarios"
 
 const FormCuenta = () => {
     const [mostrarContra, setMostrarContra] = useState(false)
@@ -12,6 +13,16 @@ const FormCuenta = () => {
     const [monstrarUser, setMostrarUser] = useState(false)
     const [usuarioAct, setUsuarioAct] = useState('')
     const [usuarioNuevo, setUsuarioNuevo] = useState('')
+
+    // Estados para traer los comentarios
+    const [comentarios, setComentarios] = useState([])
+    useEffect(()=>{
+        const traerComentarios = async () =>{
+            const getComentarios = await getData('libros/usuarios/comentarios', traerCookie('localUsuarioID'))
+            setComentarios(getComentarios)
+        }
+        traerComentarios()
+    },[])
 
     const cambioContra = async()=>{
         const infoContra = {
@@ -151,6 +162,8 @@ const FormCuenta = () => {
                 <Input tipo={'username'} nombre={'Nuevo nombre de usuario'} cambio={(e)=>setUsuarioNuevo(e.target.value)}/>
             </form>
             }
+
+            <ListaComentarios comentarLista={comentarios}/>
         </>
     )
 }

@@ -7,30 +7,34 @@ import HamburgerMenu from "../components/HamburgerMenu"
 import Search from "../components/Search"
 import CardPago from "../components/CardPago"
 import '../styles/PagCompra.css'
+import { useSearch } from "../components/BusquedaContext"
 
 // Se crea PagComopra con el objetivo de gestionar el carrito de compras. Trae libros del localStorage, 
 // los agrupa por su ID para sumar cantidades y precios, y finalmente, calcula el precio total.
 
 const PagCompra = ()=>{
-
     const [compras, setCompras] = useState([])
     const localID = JSON.parse(localStorage.getItem('localCompras') || [])
     const [totalCompra,setTotalCompra] = useState(0)
+    const {librosBuscados} = useSearch()
     //crear una función que me traiga los libros que esta SOLO en el local para mostrarlos en la página
     //creamos un array vacío para guardalos en cada iteración que se haga del local
     useEffect(()=>{
-        const traerLibros = async ()=>{
-            let librosArray = []
-            for (let id = 0; id < localID.length; id++) { //se hace un for porque se necesita recorrer el local
-                const getLibros = await getData('libroID', localID[id]) //traermos los libros según el ID del libro que esta en el local
-                librosArray.push(getLibros) // se agregan esos libros que obtenemos del get en el array vacío
-                console.log(getLibros);
+        if (librosBuscados && librosBuscados.length>0) {
+            setCompras(librosBuscados)
+        } else {
+            const traerLibros = async ()=>{
+                let librosArray = []
+                for (let id = 0; id < localID.length; id++) { //se hace un for porque se necesita recorrer el local
+                    const getLibros = await getData('libroID', localID[id]) //traermos los libros según el ID del libro que esta en el local
+                    librosArray.push(getLibros) // se agregan esos libros que obtenemos del get en el array vacío
+                    console.log(getLibros);
+                }
+                setCompras(librosArray.flat())
             }
-            setCompras(librosArray.flat())
+            traerLibros()
         }
-        traerLibros()
-        console.log(compras);
-    },[])
+    },[librosBuscados,compras])
 
     // función para agrupar los libros según su ID 
     // organiza el array compras, agrupando libros con el mismo ID y calculando la cantidad y el precio total de cada grupo.
@@ -58,10 +62,12 @@ const PagCompra = ()=>{
     return(
         <>
         <Navbar/>
-        <div style={{marginTop: -40}}>
-             <HamburgerMenu/>
+        <div style={{marginTop: 1}}>
+            <HamburgerMenu/>
         </div>
-        <Search/>
+        <div style={{marginBottom:'3%', marginTop:'-3%', marginLeft:'5%', position:'relative'}}>
+            <Search/>
+        </div>
         <ListaCompra compraCard={agruparLibro}/> 
         <CardPago total={totalCompra}/> 
         <div style={{marginTop: 200}}>

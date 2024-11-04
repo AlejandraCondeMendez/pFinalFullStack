@@ -7,11 +7,9 @@ const LibrosPrestados=()=>{
     return(
         <>
         <Navbar/>
-
-        <div style={{marginTop: -40}}>
+        <div style={{marginTop: 1}}>
             <HamburgerMenu/>
         </div>
-
         <h1>Libros prestados</h1>
         <div style={{marginTop: 200}}>
             <Footer/>

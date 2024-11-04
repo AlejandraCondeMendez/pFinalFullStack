@@ -48,11 +48,9 @@ const InicioSesion=()=>{
     return(
         <>
         <Navbar/>
-
-        <div style={{marginTop: -40}}>
+        <div style={{marginTop: 1}}>
             <HamburgerMenu/>
         </div>
-
         <div>
             <h1 className="tituloInicio">Inicio de sesión</h1>
             <p className="subtituloInicio">Ingresa tus credenciales</p>

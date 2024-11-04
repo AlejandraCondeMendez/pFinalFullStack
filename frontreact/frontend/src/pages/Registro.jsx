@@ -63,7 +63,7 @@ const Registro = () => {
     return (
         <>
         <Navbar/>
-        <div style={{marginTop: -40}}>
+        <div style={{marginTop: 1}}>
             <HamburgerMenu/>
         </div>
 

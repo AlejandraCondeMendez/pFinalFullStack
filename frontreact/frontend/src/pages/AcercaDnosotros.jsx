@@ -2,7 +2,6 @@ import Navbar from "../components/Navbar"
 import '../styles/AcercaDnosotros.css'
 import Footer from "../components/Footer"
 import '../styles/PagPrincipal.css'
-import Search from "../components/Search"
 import HamburgerMenu from "../components/HamburgerMenu"
 
 const AcercaDnosotros = () => {
@@ -10,12 +9,10 @@ const AcercaDnosotros = () => {
 
     return (
         <>
-            <Navbar/>
-            <div style={{marginTop: -40}}>
-                <HamburgerMenu/>
-            </div>
-
-            <Search/>
+        <Navbar/>
+        <div style={{marginTop: 1}}>
+            <HamburgerMenu/>
+        </div>
             <h1 className="titulo-nosotros">Acerca de LibertyBooks</h1>
             <h2 className="subAcercaA">Historia</h2>
             <hr className="linea" />

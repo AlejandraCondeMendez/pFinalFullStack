@@ -19,6 +19,7 @@ const CardPago = ({ total = 0 }) => {
     const fechaRegex = /^(0[1-9]|1[0-2])\/\d{2}$/
     const cvvRgex = /^[0-9]{3,4}$/
 
+
     if (americanRegex.test(numTarjeta) || visaRegex.test(numTarjeta) ||
       masterRegex.test(numTarjeta) &&
       fechaRegex.test(fechaVencimiento) && cvvRgex.test(cvv)) {
@@ -38,6 +39,7 @@ const CardPago = ({ total = 0 }) => {
         muestraAlerta("Compra éxitosa", "success")
       }
     }
+    
   }
 
   return (

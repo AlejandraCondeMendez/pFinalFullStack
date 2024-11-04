@@ -1,7 +1,6 @@
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import HamburgerMenu from "../components/HamburgerMenu"
-import Search from "../components/Search"
 import { useNavigate } from "react-router-dom"
 
 const MiLibreria=()=>{
@@ -10,12 +9,9 @@ const MiLibreria=()=>{
     return(
         <>
         <Navbar/>
-
-        <div style={{marginTop: -40}}>
+        <div style={{marginTop: 1}}>
             <HamburgerMenu/>
         </div>
-    
-        <Search/>
         <div style={{textAlign:'center', marginTop:'4%'}}>
             <div style={{fontSize:'35px'}}>
                 <i className="fa-solid fa-book-open"></i>

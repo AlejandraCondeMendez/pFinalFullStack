@@ -32,21 +32,25 @@ const CardComentario = ({comentario, usuarioComentario, valoracionEstrella = 0,h
     return (
         <>
             <div className="comment-box">
-                <p>{usuarioComentario}</p>
-                <i className="fa-solid fa-user estilos-iconos-registro"></i>
-                <ReactStars
+                <div style={{display:'flex', gap:'10px'}}>
+                    <i className="fa-solid fa-user estilos-iconos-registro"></i>
+                    <p>{usuarioComentario}</p>
+                    <div style={{marginLeft:'50%', marginTop:'-1%'}}>
+                    <ReactStars
                     count={5}
                     onChange={cambioValoracion}
                     size={24}
                     value={valoracionEstrella}
                     activeColor="#ffd700"
                     edit={habilitados}
-                />
-                <div style={{marginTop:'2%', marginLeft:'12%'}}>
+                    />
+                    </div>
+                </div>
+                <div style={{marginLeft:'1%'}}>
                     <Input tipo={'text'} clase={'input-comentario'} habilitado={!habilitados} valor={comentario} cambio={(e)=>setEstadoComentario(e.target.value)}/>
                 </div>
                 {habilitados &&
-                <div style={{marginTop:'3%', textAlign:'right'}}>
+                <div style={{marginTop:'1%', textAlign:'right'}}>
                     <Botton nombre={'Añadir comentario'} evento={postComentario}/>
                 </div>
                 }

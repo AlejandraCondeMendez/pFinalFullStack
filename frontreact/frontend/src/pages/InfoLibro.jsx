@@ -7,8 +7,6 @@ import CarruselLibro from "../components/CarruselLibro"
 import "../styles/Carrusel.css"
 import { useNavigate } from "react-router-dom"
 import '../styles/InfoLibro.css'
-import Form from "../components/Form"
-import Search from "../components/Search"
 import HamburgerMenu from "../components/HamburgerMenu"
 import ListaComentarios from "../components/ListaComentarios"
 import CardComentario from "../components/CardComentario"
@@ -33,7 +31,7 @@ const InfoLibro = () => {
             setLibros(librosget)
         }
 
-        const traerComentarios = async ()=>{
+        const traerComentarios = async () => {
             const comentariosget = await getData('libros/comentarios', localStorage.getItem('LibrolocalID'))
             setComentariosLibros(comentariosget)
         }
@@ -46,33 +44,27 @@ const InfoLibro = () => {
     return (
         <>
             <Navbar />
-            <div style={{ marginTop: -40 }}>
+            <div style={{ marginTop: 1 }}>
                 <HamburgerMenu />
             </div>
-            <Search />
-            <div className="libro-info">
-                <ListaBooks cardBooks={libroInfo} mostrar={true} />
+            <div style={{position:'absolute', marginLeft:'45%', marginTop:'6%'}}>
+                <h5>Comentarios</h5>
             </div>
-
-            <div className="form-contacto">
-                <Form />
-            </div>
-            <section className="seccion-enlaces" style={{ gap: 300}}>
-                <div className="enlaceReseña">
-                    <a>Reseñas</a>
+            <div className="contenedor-libro-comentario">
+                <div className="libro-info">
+                    <ListaBooks cardBooks={libroInfo} mostrar={true} />
                 </div>
-                <div className="enlaceReseña">
-                    <a>Recomendaciones</a>
+                <div className="comentarios">
+                    <div className="contenedor-comentarios" style={{marginTop: '28%', display: 'flex',flexDirection: 'column',gap: '22px',maxHeight: '550px',overflowY: 'auto',padding: '10px',border: '1px solid #ccc',borderRadius: '5px'}}>
+                        <CardComentario habilitados={true}/>
+                        <ListaComentarios comentarLista={comentariosLibros} habilitadosLista={false} />
+                    </div>
                 </div>
-            </section>
-            <div className="contenedor-comentarios" style={{marginTop:'28%', display:'flex', flexDirection:'column', gap:'22px'}}>
-                <CardComentario habilitados={true}/>
-                <ListaComentarios comentarLista={comentariosLibros} habilitadosLista={false} />
             </div>
-        {/* hr de titulo */}
+            {/* hr de titulo */}
             <div className="libro-con-texto">
                 <i className="fas fa-book"></i>
-                <span style={{"cursor":"pointer"}} onClick={()=>navigate('/paginaprincipal')}>Todos los libros</span>
+                <span style={{ "cursor": "pointer" }} onClick={() => navigate('/paginaprincipal')}>Todos los libros</span>
             </div>
 
             <div className="carrusel" style={{ width: '90%', left: 40 }}>

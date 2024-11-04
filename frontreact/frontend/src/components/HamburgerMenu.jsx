@@ -25,7 +25,6 @@ const HamburgerMenu = () => {
                         <a style={{"cursor":"pointer"}} onClick={()=>navigate('/milibreria')}>Todos los libros</a>
                         <ul className="dropdown">
                             <li><a style={{"cursor":"pointer"}} onClick={()=>navigate('/librosagregados')}>Mis libros agregados</a></li>
-                            <li><a style={{"cursor":"pointer"}} onClick={()=>navigate('/librosdeseados')}>Mis libros deseados</a></li>
                             <li><a style={{"cursor":"pointer"}} onClick={()=>navigate('/librosprestados')}>Mis libros prestados</a></li>
                         </ul>
                     </li>

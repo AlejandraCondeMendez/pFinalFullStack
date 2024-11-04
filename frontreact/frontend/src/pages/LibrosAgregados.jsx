@@ -20,12 +20,12 @@ const LibrosAgregados = () => {
     const [contadorLibro, setContadorLibro] = useState(0)
 
     useEffect(() => {
-        const getUserLibros = async () => {
-            const librosID = await getData('librosUserID', idCookie + "/")
-            setLibrosID(librosID)
-            setContadorLibro(librosID.length)
-        };
-        getUserLibros();
+            const getUserLibros = async () => {
+                const librosID = await getData('librosUserID', idCookie + "/")
+                setLibrosID(librosID)
+                setContadorLibro(librosID.length)
+            };
+            getUserLibros();
     }, [librosID]);
 
     const handleEditarLibro = (infoLibro) => {
@@ -34,10 +34,10 @@ const LibrosAgregados = () => {
 
     return (
         <>
-            <Navbar />
-            <div style={{ marginTop: -40 }}>
-                <HamburgerMenu />
-            </div>
+        <Navbar/>
+        <div style={{marginTop: 1}}>
+            <HamburgerMenu/>
+        </div>
 
             {librosID.length === 0 && <h1>Acá no hay libros</h1>}
 

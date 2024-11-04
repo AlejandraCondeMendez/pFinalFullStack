@@ -36,16 +36,26 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
 
                 </div>
                 }
-                {precioCard === 0 &&
+                {precioCard === 0 && !mostrarBotonB &&
                 <div className="card-body" style={{position:'relative', marginTop:'-40px', textAlign:'center', justifyContent:'center'}}>
-
-                                    <div>
-                                    <Botton nombre={'Formulario de préstamo'} tipo={'button'} evento={btnPrestamo} clase={'btn btn-primary'}/>
-                                </div>
-                                <div>
-                                <Botton nombre={'Más información'} tipo={'button'} evento={btnInfo} clase={'informacion-button'}/>
-                            </div>
-                            </div>
+                    <div>
+                        <Botton nombre={'Formulario de préstamo'} tipo={'button'} evento={btnPrestamo} clase={'btn btn-primary'}/>
+                    </div>
+                    <div>
+                        <Botton nombre={'Más información'} tipo={'button'} evento={btnInfo} clase={'informacion-button'}/>
+                    </div>
+                </div>
+                }
+                {precioCard === 0 && mostrarBotonB &&
+                <div  style={{display:'grid', gap:'10px'}}>
+                    <div>
+                        <Botton nombre={'Eliminar'} tipo={'button'} evento={btnEliminar} clase={'btn btn-danger w-50'}/>
+                    </div>
+                    <div style={{marginLeft:'30px', position:'relative'}}>
+                        <Botton nombre={'Editar'} tipo={'button'} evento={btnEditar} clase={'btn btn-info w-50'}/> 
+                    </div>
+                    {/* En card book está la acción.  */}
+                </div>
                 }
                 {mostrarBotonB && precioCard > 0 &&
                 <div  style={{display:'grid', gap:'10px'}}>
