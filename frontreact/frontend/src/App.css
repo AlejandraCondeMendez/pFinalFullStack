@@ -1,42 +1,31 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.colored-toast.swal2-icon-success {
+  background-color: #a5dc86 !important;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.colored-toast.swal2-icon-error {
+  background-color: #f27474 !important;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.colored-toast.swal2-icon-warning {
+  background-color: #f8bb86 !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.colored-toast.swal2-icon-info {
+  background-color: #3fc3ee !important;
 }
 
-.card {
-  padding: 2em;
+.colored-toast.swal2-icon-question {
+  background-color: #87adbd !important;
 }
 
-.read-the-docs {
-  color: #888;
+.colored-toast .swal2-title {
+  color: white;
+}
+
+.colored-toast .swal2-close {
+  color: white;
+}
+
+.colored-toast .swal2-html-container {
+  color: white;
 }

@@ -1,0 +1,105 @@
+
+.payment-container {
+    border: 1px solid #1a3a8e;
+    border-radius: 8px;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    color: #333;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    padding: 20px;
+}
+
+.payment-container h2 {
+    font-size: 18px;
+    color: #1a3a8e;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Estilos para la fila del total */
+.payment-container .total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #d4d4d4;
+}
+
+.boton-pago {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #ffc107;
+    color: #1a3a8e;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-pago:hover {
+    background-color: #ffb300;
+}
+
+/* Estilos para las filas de resumen */
+.payment-container .input-group {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #666;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-size: 18px;
+    font-family: 'Georgia', serif;
+}
+
+
+hr {
+    margin: 10px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.small-inputs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-inputs .input-group {
+    width: 48%;
+}

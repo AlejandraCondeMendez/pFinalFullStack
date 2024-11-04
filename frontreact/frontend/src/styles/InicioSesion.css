@@ -1,0 +1,78 @@
+/* Contenedor principal del formulario */
+.formulario {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Título y subtítulo del formulario */
+.tituloInicio {
+  text-align: center;
+  font-size: 2rem;
+  color: #1a3a8e;
+  margin-top: 2rem;
+}
+
+.subtituloInicio {
+  text-align: center;
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.cont-inputs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  margin: 1rem auto;
+}
+
+.input-sesion{
+  margin-bottom: 3%;
+  width: 80% !important;
+  padding: 10px;
+  font-size: 1rem;
+  color: #1a3a8e;
+  background-color: #f9f9fb;
+  border: 1px solid #1a3a8e;
+  border-radius: 20px !important;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Hover y foco en inputs */
+.input-sesion:hover,
+.input-sesion:focus {
+  border-color: #ffc107;
+  box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+}
+
+.botonInicio{
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #1a3a8e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  margin: 1.5rem auto;
+  transition: background-color 0.3s ease;
+}
+.botonInicio:hover {
+  background-color: #ffc107;
+  color: #1a3a8e;
+}
+
+.enlaceCrear {
+  color: #1a3a8e;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.enlaceCrear:hover {
+  color: #ffc107;
+}

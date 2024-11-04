@@ -1,0 +1,93 @@
+.hamburger-container {
+    position: relative;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+}
+
+.bar {
+    height: 4px;
+    width: 100%;
+    background-color: #333;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open .bar:nth-child(2) {
+    opacity: 0; /* Oculta la segunda barra */
+}
+
+.hamburger.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu {
+    display: none; /* Oculta el menú por defecto */
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.menu.open {
+    display: block; /* Muestra el menú cuando está abierto */
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    position: relative;
+    padding: 10px 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #007BFF;
+}
+
+/* Estilos para el menú desplegable de la Librería */
+.library-dropdown {
+    position: relative;
+}
+
+.library-dropdown .dropdown {
+    display: none; /* Oculta el menú desplegable por defecto */
+    position: absolute;
+    top: 0;
+    left: 100%; /* Aparece a la derecha del enlace de Librería */
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    min-width: 150px;
+    z-index: 10;
+}
+
+.library-dropdown:hover .dropdown {
+    display: block; /* Muestra el menú desplegable al pasar el ratón */
+}
+
+.dropdown li {
+    padding: 10px 15px;
+}
+

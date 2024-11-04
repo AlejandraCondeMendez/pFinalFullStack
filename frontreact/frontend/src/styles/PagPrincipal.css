@@ -1,0 +1,61 @@
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #FFBE2D;
+}
+
+/* Estilos de los iconos */
+.navbar-icon {
+    color: #002d85;
+    font-size: 1.5rem;
+    margin: 0 10px;
+}
+
+.user-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iniciar-sesion {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    position: relative;
+}
+
+.session-link {
+    color: #002d85;
+    text-decoration: none;
+    position: relative;
+}
+.session-link:hover {
+    color: #FFBE2D;
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    color: #FFBE2D;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdown-item:hover {
+    background-color: #FFBE2D;
+    color: #002d85;
+}
+
+/* Muestra el menú desplegable al hacer hover */
+.category-item:hover .dropdown-menu {
+    display: block;
+}
+/* titulo de la pagina */
+.titulo-liberty{
+    position: relative;
+    text-align: center;
+    margin-left: -25%;
+    color: #002d85;
+}
