@@ -109,7 +109,7 @@ const Registro = () => {
         </div>
         <div className="d-flex flex-column">
             <Botton clase={"botonRegistro"} nombre={'Registrar'} tipo={'Button'} evento={ValidarInputs}/>
-            </div>
+        </div>
         <div className="text-center" style={{marginBottom: 200}}>
             <a onClick={()=>navigate("/iniciosesion")} className="enlaceInicio">Ir a inicio de sesión</a>
         </div>

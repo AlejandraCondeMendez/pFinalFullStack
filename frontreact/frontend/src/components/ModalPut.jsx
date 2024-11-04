@@ -6,6 +6,7 @@ import { muestraAlerta } from "../services/alertas";
 import Botton from "./Botton";
 import Input from "./Input";
 import { putData } from "../services/fetch";
+import '../styles/ModalPut.css'
 
 
 const ModalPut = ({ libroModal, setLibroModal }) => {

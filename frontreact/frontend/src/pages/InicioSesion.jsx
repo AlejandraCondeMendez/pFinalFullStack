@@ -57,12 +57,16 @@ const InicioSesion=()=>{
         </div> 
         
         <div className="d-flex flex-column mx-auto InputInicioS">
-            <Input tipo={'text'} nombre={'Usuario'} refvali={usuarioRef} valor={usuario} cambio={(e)=>setUsuario(e.target.value)}/>
+            <div className="inputFomr">
+                <Input tipo={'text'} nombre={'Usuario'} refvali={usuarioRef} valor={usuario} cambio={(e)=>setUsuario(e.target.value)}/>
+            </div>
             <Input tipo={'password'} nombre={'Contraseña'} refvali={contraRef} valor={contra} cambio={(e)=>setContra(e.target.value)}/>
+        </div>
+        <div style={{justifyContent:'center', textAlign:'center'}}>
             <Botton clase={"botonInicio"} nombre={'Iniciar sesión'} tipo={'button'} evento={validarInicio}/>
         </div>
-        <div className="text-center" style={{marginBottom: 200}}>
-        <a onClick={()=>navigate('/')} className="enlaceCrear">Crear una cuenta</a>
+        <div style={{marginBottom: 200, textAlign:'center', marginTop:'3%'}}>
+            <a onClick={()=>navigate('/')} className="enlaceCrear">Crear una cuenta</a>
         </div>
         <Footer/>
         </>

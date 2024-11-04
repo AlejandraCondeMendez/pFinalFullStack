@@ -18,24 +18,11 @@ const Footer = () => {
                     </div>
                     <div className="footer-column">
                         <h4>Mi cuenta</h4>
-                        <p style={{"cursor":"pointer"}} onClick={()=>{navigate('/milibreria'),window.scrollTo({
-                                top:0,
-                                behavior: 'smooth'})}}> Librería</p>
                         <ul>
                             <li>
                                 <a onClick={()=>{navigate('/librosagregados'),window.scrollTo({
                                 top:0,
                                 behavior: 'smooth'})}} style={{"cursor":"pointer"}}>Mis libros agregados</a>
-                            </li>
-                            <li>
-                                <a onClick={()=>{navigate('/librosdeseados'),window.scrollTo({
-                                top:0,
-                                behavior: 'smooth'})}} style={{"cursor":"pointer"}}>Mis libros deseados</a>
-                            </li>
-                            <li>
-                                <a onClick={()=>{navigate('/librosprestados'),window.scrollTo({
-                                top:0,
-                                behavior: 'smooth'})}} style={{"cursor":"pointer"}}>Mis libros prestados</a>
                             </li>
                         </ul>
                     </div>

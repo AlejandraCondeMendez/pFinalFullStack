@@ -1,177 +1,117 @@
-.formulario{
-    margin-top: 10vh;
+/* Contenedor principal del formulario */
+.formulario {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* título y subtitulo del formulario Inicio  */
+/* Título y subtítulo del formulario */
 .tituloInicio {
-    margin-top: 100px;
-    font-size: 30px;
-    color: #333;
-    text-align: center;
-    margin-bottom: 8px;
-    letter-spacing: 1.5px;
-    
-    }
+  margin-top: 100px;
+  font-size: 30px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 8px;
+  letter-spacing: 1.5px;
+}
 
 .subtituloInicio {
-    text-align: center;
+  text-align: center;
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
-/* forma de los inputs del formulario inicio  */
+/* Estilos uniformes para los inputs */
 .InputInicioS {
-    width: 75%;
-    font-size: 16px;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-} 
-
-/* bordes de los imputs del formulario inicio */
-.inputForm{
-    padding: 10px;
-    margin: 0 auto;
-    margin-top: 3vh;
-    border-radius: 25px;
-    border: 1px solid #073B3A;
-    width: 50%;
-  }
-  ::placeholder{
-    position: absolute;
-    left: 20px;
-  }
-
-/* botón del formulario incio  */
-.botonInicio {
-    margin: auto;
-    margin-top: 90px;
-    margin-bottom: 30px;
-    width: 250px;
-    background-color: #002d85;
-    color: #f2f2f2;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 15px;
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
-    cursor: pointer;
-  }
-.botonInicio:active {
-    transform: translateY(2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
-
-/* enlace de inicio que lleva a registro */
-.enlaceCrear {
-    color: #000;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-    position: relative;
-  }
-
-.enlaceCrear::after {
-    content: '';
-    width: 0;
-    height: 2px;
-    background-color: #000;
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    transition: width 0.3s ease;
-  }
-.enlaceCrear:hover::after {
-    width:100%;
-}
-
-/* enlace de registro que lleva a inicio */
-.enlaceInicio {
-    color: #000;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-    position: relative;
-  }
-
-.enlaceInicio::after {
-    content: '';
-    width: 0;
-    height: 2px;
-    background-color: #000;
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    transition: width 0.3s ease;
-  }
-  
-  .enlaceInicio:hover::after {
-    width: 100%;
-  }
-
-/* inputs de la página registro  */
-.cont-input-registro{
-    width: 55%;
-    font-size: 16px;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-}
-
-/* bordes de los imputs del formulario regitro */
-.inputFormRegistro {
-    padding: 10px;
-    margin: 0 auto;
-    margin-top: 3vh;
-    border-radius: 25px;
-    border: 1px solid #073B3A;
-    width: 50%;
-  }
-  ::placeholder{
-    position: absolute;
-    left: 20px;
-  }
-
-
-.estilos-iconos-registro {
-    text-align: center;
-}
-
-.contenedor-user-contra{
-    display: grid;
-    columns: 2;
-}
-.search-box{
-  margin-top: 40px;
-  width: 45%;
-  margin-left: 25%;
-}
-.form-control {
-  padding: 10px;
-  border: 1px solid #073B3A;
-}
-
-.inicio-sesion {
+  width: 30%;
   display: flex;
-  position: absolute;
-  margin-top: 52px;
-  margin-left: 9px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 0 auto;
+}
+
+.inputForm {
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #073B3A;
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.inputForm:hover,
+
+.inputForm:focus {
+  border-color: #002d85;
+  box-shadow: 0 0 5px rgba(0, 45, 133, 0.5);
+}
+
+/* Botón del formulario */
+.botonInicio {
+  margin-top: 4%;
+  width: 100%;
+  max-width: 250px;
+  background-color: #002d85;
+  color: #f2f2f2;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.botonInicio:hover {
+  background-color: #ffc107;
+  color: #002d85;
+}
+
+.botonInicio:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor del botón para centrarlo */
+.boton-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* Estilos para enlaces */
+.enlaceCrear {
   color: #000;
   text-decoration: none;
   font-size: 16px;
   cursor: pointer;
-  }
+  position: relative;
+}
 
-.inicio-sesion::after {
-    content: '';
-    width: 0;
-    height: 2px;
-    background-color: #000;
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    transition: width 0.3s ease;
-  }
-  
-  .inicio-sesion:hover::after {
-    width: 100%;
-  }
+.enlaceCrear::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  transition: width 0.3s ease;
+}
+
+.enlaceCrear:hover::after {
+  width: 100%;
+}
+
+/* Contenedor del enlace para centrarlo */
+.enlace-crear-container {
+  text-align: center;
+  margin-bottom: 200px;
+  margin-top: 2%;
+}
