@@ -11,8 +11,8 @@ import { postData } from "../services/fetch";
 // ¿qué propiedades tiene comentario?
 const CardComentario = ({comentario, usuarioComentario, valoracionEstrella = 0,habilitados}) => {
     //cada que haya un cambio usamos el useState, en este caso comentario y valoración de cada usuario
-    const [estadoComentario, setEstadoComentario] = useState('')
-    const [estadoValoracion, setEstadoValoracion] = useState(0)
+    const [estadoComentario, setEstadoComentario] = useState('') // texto
+    const [estadoValoracion, setEstadoValoracion] = useState(0) // valoración
 
 // se necesita que el comentario se agregue desde el frontend al backend, usaré un post
     const postComentario = async () =>{

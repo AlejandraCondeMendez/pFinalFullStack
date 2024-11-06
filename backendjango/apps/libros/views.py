@@ -8,32 +8,31 @@ from django.db.models import Q
 # hacer el token y guardarlo en cookie (definir cuanto dura o sesiones), en el backend buscar que las views
 # todo el resto de views verifiquen que exista el token. sección de seguridad, los endpoints no pueden ser utilizados sin un token de usuario
 # sirve para mantener la sesión iniciada
-# 21 de octubre (avance II - autenticaciones)
 
-class LibroView(generics.ListCreateAPIView):
+class LibroView(generics.ListCreateAPIView): # hace un get y post de libros
     queryset = Libros.objects.all()
     serializer_class = LibroSerializer
 
-class LibroGetView(generics.ListAPIView): # hace un get según el ID
+class LibroGetView(generics.ListAPIView): # hace un get - pagina de la cuenta (trae los libros del usuario)
     serializer_class = LibroSerializer
-    lookup_field = 'usuarioLibro' # lookup va a buscar el campo usuarioLibro en la BD
+    lookup_field = 'usuarioLibro' # lookup va a buscar el campo usuarioLibro (usuario dueño)en la BD
     
     def get_queryset(self): #método de django
         usuario_libro = self.kwargs.get(self.lookup_field) #kwargs: el campo usuarioLibro sea igual a lo que tiene la URL (urls.py) // traéme el campo lookupfield
         return Libros.objects.filter(usuarioLibro=usuario_libro)
 
-class LibroDeleteView(generics.DestroyAPIView):
+class LibroDeleteView(generics.DestroyAPIView): # borra los libros según el ID
     queryset = Libros.objects.all()
     serializer_class = LibroSerializer
-    lookup_field = 'id' 
+    lookup_field = 'id' #ID del ibro
 
-class LibroPutView(generics.UpdateAPIView):
+class LibroPutView(generics.UpdateAPIView): # actualiza los libros según el ID
     queryset = Libros.objects.all()
     serializer_class = LibroSerializer
     lookup_field = 'id' 
     
 # View que sirve en el frontend para traer los libros según su ID
-class LibroIDView(generics.ListAPIView):
+class LibroIDView(generics.ListAPIView): # Paginas Info y Carrito
     serializer_class = LibroSerializer
     lookup_field = 'id' # lookup va a buscar el campo id en la BD
     
@@ -41,7 +40,7 @@ class LibroIDView(generics.ListAPIView):
         id = self.kwargs.get(self.lookup_field) #kwargs: el campo id sea igual a lo que tiene la URL (urls.py) // traéme el campo lookupfield
         return Libros.objects.filter(id=id)
     
-class LibroCateView(generics.ListAPIView):
+class LibroCateView(generics.ListAPIView): # trae libros según la categoría
     serializer_class = LibroSerializer
     lookup_field = 'categoria' # lookup va a buscar el campo categoria en la BD
     
@@ -49,7 +48,7 @@ class LibroCateView(generics.ListAPIView):
         categoria = self.kwargs.get(self.lookup_field) #kwargs: el campo categoria sea igual a lo que tiene la URL (urls.py) // traéme el campo lookupfield
         return Libros.objects.filter(categoria=categoria) 
 
-class LibroEstadoView(generics.ListAPIView):
+class LibroEstadoView(generics.ListAPIView): # trae libros según el estado (venta o préstamo)
     serializer_class = LibroSerializer
     lookup_field = 'estado' # lookup va a buscar el campo estado en la BD (vente - intercambio)
     

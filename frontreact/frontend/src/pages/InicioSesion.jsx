@@ -34,12 +34,10 @@ const InicioSesion=()=>{
         if (inicioSesion.success){
             localStorage.setItem('localUsuarioID', inicioSesion.id)
             crearCookie('token_inicio', inicioSesion.token_acceso, 1) // nombre de la cookie - valor - expiración 
-            
             crearCookie("telefonoUsuario", inicioSesion.telefono,1)
             crearCookie("correoUsuario", inicioSesion.correo,1)
             crearCookie("nombreUsuario", inicioSesion.nombre,1)
             crearCookie("ubicacionUsuario", inicioSesion.ubicacion,1)
-
             crearCookie("localUsuarioID", inicioSesion.id,1)
             navigate("/paginaprincipal")
         }

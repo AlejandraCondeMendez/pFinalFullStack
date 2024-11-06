@@ -17,17 +17,18 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 # re.match: intenta hacer coincidir un patrón con el inicio de una cadena de texto. Si encuentra 
 # una coincidencia, devuelve un objeto Match. Si no encuentra coincidencia al inicio de la cadena, devuelve None.
 
+# Esta view se creé para rgistrar un nuevo usuario validando la información antes de crearlo
 class RegistroView(APIView):
     permission_classes = [AllowAny] # AllowAny permite acceso abierto a una vista sin requerir autenticación
     def post(self, request):
-        usuario_registro = request.data.get('username') #path_user
-        contrasena_registro = request.data.get('password') #path_use
-        correo_registro = request.data.get('email') #path_user
-        tel_registro = request.data.get('telefono') #Registro
-        ubi_registro = request.data.get('ubicacion') #Registro
+        usuario_registro = request.data.get('username') # obtiene el valores de los datos enviados desde frontend
+        contrasena_registro = request.data.get('password') 
+        correo_registro = request.data.get('email') 
+        tel_registro = request.data.get('telefono') 
+        ubi_registro = request.data.get('ubicacion') 
         
         
-    # Validaciones para el registro
+    # Validaciones para el registro - EXPRESIONES REGULARES
         usuario_regex= r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{1,10}$'
         contra_regex = r'(?P<password>((?=\S*[A-Z])(?=\S*[a-z])(?=\S*\d)(?=\S*[\!\"\§\$\%\&\/\(\)\=\?\+\*\#\'\^\°\,\;\.\:\<\>\ä\ö\ü\Ä\Ö\Ü\ß\?\|\@\~\´\`\\])\S{8,}))'
         correo_regex = r'^[a-zA-Z0-9._%+-]+@gmail\.com$'
@@ -54,7 +55,7 @@ class RegistroView(APIView):
             return Response({'falso': 'Usuario ya existe'}, status=status.HTTP_400_BAD_REQUEST)
         else: 
             nuevo_usuario = User.objects.create_user(username=usuario_registro, password=contrasena_registro, email=correo_registro)
-            
+            # si los datos nos válidos crea un nuevo usuario y guarda los datos en el model de Registro
             Registro.objects.create(
                 user = nuevo_usuario,
                 telefono = tel_registro,
@@ -63,15 +64,15 @@ class RegistroView(APIView):
             
             return Response({'success': 'Usuario creado'}, status=status.HTTP_201_CREATED)
                
-
+# Esta view la creé para utenticar a un usuario existente (debe estar accesible) y generar un token de acceso para el inicio de sesión
 class InicioSesionView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
-        usuarioLogin = request.data.get('usernameFront') # obtiene el valor de 'username' de los datos enviados del frontend
+        usuarioLogin = request.data.get('usernameFront') # obtiene el valor de 'username' de los datos enviados desde frontend
         contrasenaLogin = request.data.get('passwordFront')
         
-        userDatos = authenticate(request, username=usuarioLogin, password=contrasenaLogin)
+        userDatos = authenticate(request, username=usuarioLogin, password=contrasenaLogin) #verifica que el nombre de usuario y contraseña sean correctos
         
         if userDatos is not None:
             telefono = Registro.objects.get(user=userDatos).telefono
@@ -79,6 +80,7 @@ class InicioSesionView(APIView):
             
             refresh = RefreshToken.for_user(userDatos) # crea el token para el usuario
             return Response({'success': "Usuario valido",'correo':userDatos.email,'telefono': telefono, 'ubicacion': ubicacion,'nombre':userDatos.username ,'id': userDatos.id,'token_acceso':str(refresh.access_token),'token_refresco':str(refresh)}, status=status.HTTP_200_OK)
+        # envía info del usuario junto con los tokens si la autenticación es exitosa
         #la respuesta a la solicitud HTTP es enviar el menssaje de succes y también en esta respuesta se incluye el ID, esto para almacenar el ID del usuario que inicio sesión.
         else:
             return Response({'falso': 'Credenciales inválidas'}, status=status.HTTP_400_BAD_REQUEST)
@@ -95,12 +97,12 @@ class InicioSesionView(APIView):
 # el más seguro: en lugar de guardarlas en una cookie, las de refreso se guardan en el backend (cookie)
 # views privatizadas, que ocupen el token para ser usadas
 
-
+# Esta views las creé para que el usuario autenticado cambie su contraseña y nombre de usuario actuales
 class CambioContraView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated] # lo usé para asegurar que solo los usuario ya autenticados puedan actualizar la contraseña y nombre de usuario
     queryset = User.objects.all()
     
-    def get_object(self):
+    def get_object(self): #recupera un objeto en específico, el usuario autenticado
         return self.request.user 
     
     def patch(self, request): #referencia, petición - petición de la referencia
@@ -109,7 +111,8 @@ class CambioContraView(APIView):
         clave_actual = request.data.get('contra_actual')
         clave_nueva = request.data.get('contra_nueva')
         
-        usuarioDatos = authenticate(request, username=usuarioIniciado.username, password=clave_actual)
+        # comprobar que la contraseña actual coincida con la actual en el sistema
+        usuarioDatos = authenticate(request, username=usuarioIniciado.username, password=clave_actual) 
         
         if usuarioDatos is None:
             return Response({'falso': 'No es la contraseña correcta'}, status=status.HTTP_400_BAD_REQUEST)
@@ -118,9 +121,9 @@ class CambioContraView(APIView):
         if not re.match(contra_regex, clave_nueva):
             return Response({'falso':'La contraseña no cumple con lo requerido'}, status=status.HTTP_400_BAD_REQUEST)
         
-        usuarioIniciado.set_password(clave_nueva)
-        usuarioIniciado.save()
-        return Response({'verdadero': 'La contraseña se actualizada'}, status=status.HTTP_200_OK)
+        usuarioIniciado.set_password(clave_nueva) #actualiza la contraseña
+        usuarioIniciado.save() # se guarda la nueva contraseña en la BD
+        return Response({'verdadero': 'La contraseña se actualizó'}, status=status.HTTP_200_OK)
     
     
 class CambioNombreView(APIView):

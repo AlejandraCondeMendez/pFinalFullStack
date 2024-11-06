@@ -10,7 +10,7 @@ async function postData(obj, endpoint) {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
-                'Authorization': `Bearer ${cookie}` 
+                'Authorization': `Bearer ${cookie}` // en el encabezado de la petición envía el token para permitirle el acceso
             },
             body: JSON.stringify(obj)
         })

@@ -12,7 +12,7 @@ class Comentarios(models.Model):
     texto_comentario = models.CharField(max_length=200)
     
     def __str__(self):
-        return {f"El usaurio {self.usuario_comentario} hizo el comentario {self.texto_comentario}"}
+        return {f"El usuario {self.usuario_comentario} hizo el comentario {self.texto_comentario}"}
     
     class Meta:
         db_table = 'libro_comentarios'

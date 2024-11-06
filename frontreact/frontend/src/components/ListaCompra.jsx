@@ -8,10 +8,10 @@ const ListaCompra = ({compraCard}) => {
     const eliminarCompra = (id) => {
         const localID = JSON.parse(localStorage.getItem('localCompras') || '[]')
         const buscarID = localID.indexOf(id) // buscar la posición del ID
-        if (buscarID !== -1) {
+        if (buscarID !== -1) { //si el libro existe se elimina
             localID.splice(buscarID, 1) // entramos al array, eliminamos la posición según el ID e indicamos la cantidad a eliminar
             localStorage.setItem('localCompras', JSON.stringify(localID))
-            muestraAlerta('Elminado del carrito con éxito', 'success')
+            muestraAlerta('Eliminado del carrito', 'success')
         }
     }
 

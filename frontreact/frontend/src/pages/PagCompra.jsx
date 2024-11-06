@@ -33,7 +33,7 @@ const PagCompra = ()=>{
             }
             traerLibros()
         }
-    },[librosBuscados,compras])
+    },[librosBuscados, compras])
 
     // función para agrupar los libros según su ID 
     // organiza el array compras, agrupando libros con el mismo ID y calculando la cantidad y el precio total de cada grupo.

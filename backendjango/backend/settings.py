@@ -63,7 +63,7 @@ REST_FRAMEWORK = { # permite autenticar (privatizar)las vistas
 }
 
 # permite a los usuarios no autenticados realizar solo lecturas (como GET), mientras que a los usuarios 
-# autenticados les permite realizar cualquier operación (lectura y escritura, como GET, POST, PUT, DELETE).
+# autenticados les permite realizar cualquier operación (lectura y escritura, como POST, PUT, DELETE).
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',

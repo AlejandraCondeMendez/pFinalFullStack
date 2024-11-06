@@ -10,7 +10,7 @@ import '../styles/ListaBooks.css'
 // JSON.parse (formato JSON a un objeto js)
 
 const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL}) => {
-    
+    //carrito
     const localStorageLibro = localStorage.getItem('localCompras') // obtener los ID de los libros  
     const [compras, setCompras] = useState(localStorageLibro ? JSON.parse(localStorageLibro) : []) // si el local no tiene datos va a iniciar en un array vacío
     
@@ -71,7 +71,7 @@ const ListaBooks = ({ cardBooks, mostrar, mostrarB, btnEditarL, btnInfoL}) => {
         }
         crearCookie('localPrestamo', JSON.stringify(infoPrestamo), 1)
         localStorage.setItem('localCompras', JSON.stringify([...compras, libro.id]))
-        muestraAlerta("Agregado a prestamo con exito","success")
+        muestraAlerta("Solicitud enviada","success")
         setModal(false)
     }
 
