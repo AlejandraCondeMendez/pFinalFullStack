@@ -99,7 +99,7 @@ class InicioSesionView(APIView):
 
 # Esta views las creé para que el usuario autenticado cambie su contraseña y nombre de usuario actuales
 class CambioContraView(APIView):
-    permission_classes = [IsAuthenticated] # lo usé para asegurar que solo los usuario ya autenticados puedan actualizar la contraseña y nombre de usuario
+    # permission_classes = [IsAuthenticated] # lo usé para asegurar que solo los usuario ya autenticados puedan actualizar la contraseña y nombre de usuario
     queryset = User.objects.all()
     
     def get_object(self): #recupera un objeto en específico, el usuario autenticado

@@ -30,9 +30,17 @@ const CardBook = ({tituloCard, autorCard, estadoCard, categoriaCard, ubicacionCa
                         <Botton nombre={'Más información'} tipo={'button'} evento={btnInfo} clase={'informacion-button'}/>
                     
                     </div>
-
                 </div>
                 }
+                {traerCookie('localUsuarioID') === null &&
+                    <div className="card-body" style={{position:'relative', marginTop:'-40px', textAlign:'center', justifyContent:'center'}}>
+                    <div style={{marginBottom:'5px'}}>
+                    </div>
+                    <div className="d-flex gap-3 flex-column">
+                        <Botton nombre={'Más información'} tipo={'button'} evento={btnInfo} clase={'informacion-button'}/>
+                    
+                    </div>
+                </div>}
                 {precioCard === 0 && !mostrarBotonB &&   traerCookie("localUsuarioID") &&
                 <div className="card-body" style={{position:'relative', marginTop:'-40px', textAlign:'center', justifyContent:'center'}}>
                     <div className="d-flex gap-3 flex-column">

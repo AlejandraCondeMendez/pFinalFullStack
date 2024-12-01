@@ -27,7 +27,7 @@ class LibroDeleteView(generics.DestroyAPIView): # borra los libros según el ID
     lookup_field = 'id' #ID del ibro
 
 class LibroPutView(generics.UpdateAPIView): # actualiza los libros según el ID
-    queryset = Libros.objects.all()
+    queryset = Libros.objects.all()    
     serializer_class = LibroSerializer
     lookup_field = 'id' 
     

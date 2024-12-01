@@ -48,9 +48,12 @@ const FormCuenta = () => {
             contra_actual: contraAct,
             contra_nueva: contraNueva 
         }
-        await patchData(infoContra, 'usuario/contra/')
+       const respuesta = await patchData(infoContra, 'usuario/contra/')
+       if (respuesta.success) {
         muestraAlerta('Contraseña actualizada', 'success')
-
+       } else {
+        muestraAlerta('Contraseña incorrecta', 'error')
+       }
     }
 
     const cambioNombre = async()=>{
@@ -82,10 +85,20 @@ const FormCuenta = () => {
         <>
         <section style={{ display: 'flex', gap: 210, justifyContent:'center', marginTop:'3%'}}>
                 <div className="enlace-cuenta" >
-                    <a onClick={()=>{setInfoCuenta(!infoCuenta)}}>Información de la cuenta</a>
+                    <a onClick={()=>{
+                        setInfoCuenta(!infoCuenta)
+                        setInfoComentarios(false)
+                        setMostrarUser(false)
+                        setMostrarContra(false)
+                        }}>Información de la cuenta</a>
                 </div>
                 <div className="enlace-cuenta" style={{marginRight:'90px', position:'relative'}}>
-                    <a onClick={()=>setInfoComentarios(!infoComentarios)}>Mis reseñas</a>
+                    <a onClick={()=>{
+                    setInfoComentarios(!infoComentarios)
+                    setInfoCuenta(false)
+                    setMostrarUser(false)
+                    setMostrarContra(false)
+                    }}>Mis reseñas</a>
                 </div>            
         </section>
 
