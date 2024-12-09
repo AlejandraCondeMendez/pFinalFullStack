@@ -19,3 +19,32 @@
 .card-button-icon:hover {
     background-color: #218838;
 } 
+
+/* Responsividad para pantallas medianas */
+@media (max-width: 768px) {
+    .card-button-icon {
+      padding: 8px 16px; /* Reduce el padding */
+      font-size: 14px; /* Reduce el tamaño de la fuente */
+      border-radius: 40px; /* Ajusta el borde redondeado */
+    }
+  
+    .card-button-icon i {
+      margin-right: 6px; /* Reduce el margen entre el icono y el texto */
+    }
+  }
+  
+  /* Responsividad para pantallas pequeñas */
+  @media (max-width: 480px) {
+    .card-button-icon {
+      padding: 6px 12px; /* Reduce aún más el padding */
+      font-size: 12px; /* Ajusta el tamaño de la fuente */
+      border-radius: 30px; /* Reduce el redondeado del borde */
+      flex-wrap: wrap; /* Permite que el contenido se ajuste si es necesario */
+      text-align: center; /* Centra el texto */
+    }
+  
+    .card-button-icon i {
+      margin-right: 4px; /* Reduce más el espacio */
+    }
+  }
+  

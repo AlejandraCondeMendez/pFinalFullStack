@@ -103,3 +103,66 @@ input[type="text"] {
 .small-inputs .input-group {
     width: 48%;
 }
+/* Responsividad para pantallas medianas */
+@media (max-width: 768px) {
+    .payment-container {
+      width: 90%; /* Ocupa la mayor parte del ancho */
+      padding: 15px; /* Reduce el padding */
+      font-size: 14px; /* Ajusta el tamaño del texto */
+    }
+  
+    .payment-container h2 {
+      font-size: 16px; /* Reduce ligeramente el tamaño del título */
+    }
+  
+    .boton-pago {
+      padding: 10px; /* Ajusta el padding del botón */
+      font-size: 12px; /* Reduce el tamaño del texto */
+    }
+  
+    .input-group {
+      font-size: 12px; /* Ajusta el tamaño del texto */
+    }
+  
+    .total {
+      font-size: 16px; /* Reduce el tamaño del texto del total */
+    }
+  }
+  
+  /* Responsividad para pantallas pequeñas */
+  @media (max-width: 480px) {
+    .payment-container {
+      width: 100%; /* Usa todo el ancho disponible */
+      padding: 10px; /* Reduce aún más el padding */
+      box-shadow: none; /* Elimina la sombra para simplificar */
+    }
+  
+    .payment-container h2 {
+      font-size: 14px; /* Reduce el tamaño del título */
+      text-align: center; /* Centra el título */
+    }
+  
+    .boton-pago {
+      padding: 8px; /* Ajusta el padding */
+      font-size: 10px; /* Reduce el tamaño del texto */
+    }
+  
+    .input-group {
+      font-size: 10px; /* Reduce el tamaño del texto */
+    }
+  
+    .small-inputs {
+      flex-direction: column; /* Apila los campos pequeños */
+      gap: 10px; /* Agrega espacio entre los elementos */
+    }
+  
+    .small-inputs .input-group {
+      width: 100%; /* Ocupa todo el ancho */
+    }
+  
+    .total {
+      font-size: 14px; /* Reduce el tamaño del texto del total */
+      text-align: center; /* Centra la fila de total */
+    }
+  }
+  

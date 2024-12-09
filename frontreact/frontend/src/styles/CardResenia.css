@@ -43,3 +43,48 @@
     cursor: pointer;
     transition: background-color 0.3s ease-in
   }
+
+  /* Responsividad para pantallas medianas */
+@media (max-width: 768px) {
+  .comment-box {
+    max-width: 90%; /* Reduce el ancho máximo */
+    padding: 8px; /* Reduce el padding */
+  }
+
+  .comment-box h3 {
+    font-size: 1rem; /* Ajusta el tamaño del texto */
+  }
+
+  .comment-box textarea {
+    height: 80px; /* Reduce la altura del textarea */
+    font-size: 0.9rem; /* Ajusta el tamaño de fuente */
+  }
+
+  .comment-box button {
+    padding: 8px 12px; /* Ajusta el tamaño del botón */
+    font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+  }
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 480px) {
+  .comment-box {
+    max-width: 100%; /* Usa el ancho completo */
+    padding: 6px; /* Reduce aún más el padding */
+    box-shadow: none; /* Elimina la sombra para simplificar el diseño */
+  }
+
+  .comment-box h3 {
+    font-size: 0.9rem; /* Reduce aún más el tamaño del texto */
+  }
+
+  .comment-box textarea {
+    height: 60px; /* Reduce la altura del textarea */
+    font-size: 0.85rem; /* Ajusta el tamaño de fuente */
+  }
+
+  .comment-box button {
+    padding: 6px 10px; /* Reduce el tamaño del botón */
+    font-size: 0.85rem; /* Reduce el tamaño de la fuente */
+  }
+}

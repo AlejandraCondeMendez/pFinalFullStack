@@ -1,22 +1,42 @@
 /* Enlace de info cuenta */
 .enlace-cuenta {
-    color: #000;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-    position: relative;
-    margin-bottom: 5%;
-  }
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 5%;
+}
 .enlace-cuenta::after {
-    content: '';
-    width: 0;
-    height: 2px;
-    background-color: #000;
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    transition: width 0.3s ease;
-  }
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  transition: width 0.3s ease;
+}
 .enlace-cuenta:hover::after {
-    width: 100%;
+  width: 100%;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .enlace-cuenta {
+      font-size: 14px;
+      margin-bottom: 7%;
   }
+}
+
+@media (max-width: 480px) {
+  .enlace-cuenta {
+      font-size: 12px;
+      margin-bottom: 10%;
+  }
+
+  .enlace-cuenta::after {
+      height: 1px;
+  }
+}
+

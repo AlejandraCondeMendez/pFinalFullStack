@@ -81,3 +81,59 @@
     background-color: #1a3a8e;
     color: #ffffff;
 }
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%; /* Aumenta el ancho relativo */
+        padding: 15px; /* Reduce el padding */
+    }
+
+    .modal-content h2 {
+        font-size: 20px; /* Reduce el tamaño de fuente */
+    }
+
+    .modal-content h5 {
+        font-size: 16px;
+    }
+
+    .modal-content p {
+        font-size: 14px;
+    }
+
+    .modal-content button {
+        width: 60%; /* Ajusta el ancho del botón */
+        font-size: 14px; /* Reduce el tamaño de fuente */
+        margin-left: 20%;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%; /* Ajusta el ancho para pantallas más pequeñas */
+        padding: 10px; /* Reduce aún más el padding */
+    }
+
+    .modal-content h2 {
+        font-size: 18px; /* Reduce el tamaño de fuente */
+    }
+
+    .modal-content h5 {
+        font-size: 14px;
+    }
+
+    .modal-content p {
+        font-size: 12px;
+    }
+
+    .modal-content input[type="date"] {
+        padding: 6px; /* Reduce el padding de los inputs */
+    }
+
+    .modal-content button {
+        width: 100%; /* Los botones ocupan todo el ancho */
+        font-size: 12px; /* Reduce el tamaño de fuente */
+        margin-left: 0;
+    }
+}
+

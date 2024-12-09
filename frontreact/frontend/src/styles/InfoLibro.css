@@ -1,51 +1,51 @@
-/*Enlace reseña*/
+/* Enlace reseña */
 .enlaceReseña {
-    color: #000;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-    position: relative;
-    margin-bottom: 5%;
-  }
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 5%;
+}
 .enlaceReseña::after {
-    content: '';
-    width: 0;
-    height: 2px;
-    background-color: #000;
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    transition: width 0.3s ease;
-  }
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  transition: width 0.3s ease;
+}
 .enlaceReseña:hover::after {
-    width: 100%;
-  }
+  width: 100%;
+}
 
-/*Card de libro en la página*/
-.libro-info{
+/* Card de libro en la página */
+.libro-info {
   margin-top: 2%;
   margin-left: 3%;
   position: relative;
 }
 
-.carrusel{
+.carrusel {
   position: relative;
   margin-top: 10%;
 }
 
-/*hr de Mas libros*/
+/* hr de Más libros */
 .libro-con-texto {
   display: flex;
   width: 85%;
   position: absolute;
   margin-top: 5%;
   align-items: center;
-  border-bottom: 2px solid #ccc; /* Línea inferior */
+  border-bottom: 2px solid #ccc;
   margin-left: 35px;
   gap: 10px;
   padding-bottom: 10px;
   font-size: 30px;
-  font-family: Arial, sans-serif; /* Ajusta según tu fuente preferida */
+  font-family: Arial, sans-serif;
 }
 
 .libro-con-texto span {
@@ -53,37 +53,35 @@
   color: #333;
 }
 
-/*hr de libros agregados*/
-.libros-agregados{
+/* hr de libros agregados */
+.libros-agregados {
   display: flex;
   width: 85%;
   position: absolute;
   align-items: center;
-  border-bottom: 2px solid #ccc; /* Línea inferior */
+  border-bottom: 2px solid #ccc;
   margin-top: 3%;
   margin-left: 35px;
   gap: 10px;
   padding-bottom: 10px;
   font-size: 32px;
-  font-family: Arial, sans-serif; /* Ajusta según tu fuente preferida */
-}
-.libros-agregados {
-  font-size: 22px;
+  font-family: Arial, sans-serif;
   color: #333;
 }
 
-  /* Contenedor principal de los comentarios */
+/* Contenedor principal de los comentarios */
 .contenedor-comentarios {
-  max-width: 500px; /* Ancho máximo para que no ocupe todo el ancho de la página */
+  max-width: 500px;
   max-height: auto;
-  margin: 0 auto; /* Centra el contenedor horizontalmente */
-  padding: 30px; /* Espaciado interno */
-  background-color: white; /* Fondo ligeramente gris */
-  border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin: 0 auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-/* lista de comentarios */
-.comentarios{
+
+/* Lista de comentarios */
+.comentarios {
   position: relative;
   margin-top: -770px;
   margin-left: 400px;
@@ -100,6 +98,97 @@
   background-color: #ffffff;
   margin-top: 5%;
 }
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .enlaceReseña {
+      font-size: 14px;
+  }
+
+  .libro-info {
+      margin-left: 2%;
+  }
+
+  .carrusel {
+      margin-top: 8%;
+  }
+
+  .libro-con-texto {
+      width: 90%;
+      font-size: 26px;
+      margin-left: 20px;
+  }
+
+  .libro-con-texto span {
+      font-size: 20px;
+  }
+
+  .libros-agregados {
+      width: 90%;
+      font-size: 28px;
+      margin-left: 20px;
+  }
+
+  .contenedor-comentarios {
+      padding: 20px;
+  }
+
+  .comentarios {
+      margin-top: -600px;
+      margin-left: 50px;
+  }
+
+  .contenedor-libro-comentario {
+      padding: 10px;
+      min-height: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  .enlaceReseña {
+      font-size: 12px;
+  }
+
+  .libro-info {
+      margin-left: 0;
+  }
+
+  .carrusel {
+      margin-top: 5%;
+  }
+
+  .libro-con-texto {
+      width: 95%;
+      font-size: 20px;
+      margin-left: 10px;
+  }
+
+  .libro-con-texto span {
+      font-size: 18px;
+  }
+
+  .libros-agregados {
+      width: 95%;
+      font-size: 22px;
+      margin-left: 10px;
+  }
+
+  .contenedor-comentarios {
+      padding: 15px;
+  }
+
+  .comentarios {
+      margin-top: 0;
+      margin-left: 0;
+      margin-bottom: 50px;
+  }
+
+  .contenedor-libro-comentario {
+      padding: 8px;
+      min-height: 400px;
+  }
+}
+
 
 
 

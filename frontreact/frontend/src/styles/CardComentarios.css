@@ -3,3 +3,22 @@
     height: 70px;
     justify-content: center;
 }
+
+/* Responsividad para pantallas medianas */
+@media (max-width: 768px) {
+    .input-comentario {
+      width: 50px; /* Incrementa el ancho para dispositivos más grandes que móviles */
+      height: 50px; /* Reduce la altura */
+      justify-content: center; /* Mantiene la alineación */
+    }
+  }
+  
+  /* Responsividad para pantallas pequeñas */
+  @media (max-width: 480px) {
+    .input-comentario {
+      width: 100%; /* Ocupa todo el ancho disponible */
+      height: 40px; /* Reduce aún más la altura */
+      justify-content: flex-start; /* Alinea al inicio */
+    }
+  }
+  

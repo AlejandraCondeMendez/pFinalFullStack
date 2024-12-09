@@ -20,7 +20,8 @@
   font-size: 20px;
   margin-bottom: 20px;
 }
-.cont-inputs{
+
+.cont-inputs {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,7 +29,7 @@
   margin: 1rem auto;
 }
 
-.input-sesion{
+.input-sesion {
   margin-bottom: 3%;
   width: 80% !important;
   padding: 10px;
@@ -48,7 +49,7 @@
   box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
 }
 
-.botonInicio{
+.botonInicio {
   width: 100%;
   max-width: 400px;
   padding: 10px;
@@ -62,6 +63,7 @@
   margin: 1.5rem auto;
   transition: background-color 0.3s ease;
 }
+
 .botonInicio:hover {
   background-color: #ffc107;
   color: #1a3a8e;
@@ -75,4 +77,51 @@
 
 .enlaceCrear:hover {
   color: #ffc107;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .tituloInicio {
+    font-size: 1.5rem;
+  }
+
+  .subtituloInicio {
+    font-size: 18px;
+  }
+
+  .cont-inputs {
+    width: 70%;
+  }
+
+  .input-sesion {
+    width: 90% !important;
+  }
+
+  .botonInicio {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tituloInicio {
+    font-size: 1.2rem;
+  }
+
+  .subtituloInicio {
+    font-size: 16px;
+  }
+
+  .cont-inputs {
+    width: 90%;
+  }
+
+  .input-sesion {
+    font-size: 0.9rem;
+  }
+
+  .botonInicio {
+    font-size: 0.8rem;
+    padding: 7px;
+  }
 }

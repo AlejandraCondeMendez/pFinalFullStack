@@ -1,27 +1,57 @@
 .libros-compra {
-    display: flex;
-    width: 85%;
-    position: absolute;
-    align-items: center;
-    border-bottom: 2px solid #ccc; /* Línea inferior */
-    margin-top: 3%;
-    margin-left: 35px;
-    gap: 10px;
-    padding-bottom: 10px;
-    font-size: 32px;
-    font-family: Arial, sans-serif; /* Ajusta según tu fuente preferida */
-  }
+  display: flex;
+  width: 85%;
+  position: absolute;
+  align-items: center;
+  border-bottom: 2px solid #ccc; /* Línea inferior */
+  margin-top: 3%;
+  margin-left: 35px;
+  gap: 10px;
+  padding-bottom: 10px;
+  font-size: 32px;
+  font-family: Arial, sans-serif; /* Ajusta según tu fuente preferida */
+  color: #333;
+}
+
+.contenedor-compras-libros {
+  padding: 50px;
+  max-width: 80%;
+  margin: 0 auto;
+  border: 1px solid #1a3a8e;
+  border-radius: 10px;
+  background-color: #ffffff;
+  position: absolute;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
   .libros-compra {
-    font-size: 22px;
-    color: #333;
+      width: 90%;
+      font-size: 26px;
+      margin-left: 20px;
+      gap: 8px;
+      padding-bottom: 8px;
   }
 
   .contenedor-compras-libros {
-    padding: 50px;
-    max-width: 80%;
-    margin: 0 auto;
-    border: 1px solid #1a3a8e;
-    border-radius: 10px;
-    background-color: #ffffff;
-    position: absolute;
+      padding: 30px;
+      max-width: 90%;
+      margin: 10px auto;
   }
+}
+
+@media (max-width: 480px) {
+  .libros-compra {
+      width: 95%;
+      font-size: 20px;
+      margin-left: 10px;
+      gap: 5px;
+      padding-bottom: 5px;
+  }
+
+  .contenedor-compras-libros {
+      padding: 20px;
+      max-width: 95%;
+      margin: 5px auto;
+  }
+}

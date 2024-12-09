@@ -82,3 +82,42 @@
 .enlaceInicio:hover {
   color: #ffc107;
 }
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .tituloRegistro {
+    font-size: 1.5rem;
+  }
+
+  .cont-input-registro {
+    width: 90%;
+  }
+
+  .inputFormRegistro {
+    width: 100% !important;
+  }
+
+  .botonRegistro {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tituloRegistro {
+    font-size: 1.2rem;
+  }
+
+  .estilos-iconos-registro {
+    font-size: 1.2rem;
+  }
+
+  .inputFormRegistro {
+    font-size: 0.9rem;
+  }
+
+  .botonRegistro {
+    font-size: 0.8rem;
+    padding: 7px;
+  }
+}

@@ -37,3 +37,41 @@
 .slick-next.custom-arrow {
     right: -25px; /* Ajusta para posicionar la flecha derecha */
 }
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .slick-dots {
+    bottom: -10px; /* Ajusta la distancia desde la parte inferior */
+  }
+
+  .slick-dots li button:before {
+    font-size: 10px; /* Reduce el tamaño de los puntos */
+  }
+
+  .slick-prev.custom-arrow {
+    left: -15px; /* Cambia la posición para pantallas más pequeñas */
+    font-size: 20px; /* Ajusta el tamaño de las flechas */
+  }
+
+  .slick-next.custom-arrow {
+    right: -15px; /* Cambia la posición para pantallas más pequeñas */
+    font-size: 20px; /* Ajusta el tamaño de las flechas */
+  }
+}
+
+/* Responsividad para pantallas extra pequeñas */
+@media (max-width: 480px) {
+  .slick-dots {
+    bottom: -15px; /* Aumenta la distancia para evitar superposición */
+  }
+
+  .slick-dots li button:before {
+    font-size: 8px; /* Reduce aún más el tamaño de los puntos */
+  }
+
+  .slick-prev.custom-arrow,
+  .slick-next.custom-arrow {
+    font-size: 18px; /* Reduce el tamaño de las flechas */
+  }
+}
+

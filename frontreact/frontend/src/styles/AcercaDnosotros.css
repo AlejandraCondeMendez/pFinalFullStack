@@ -132,3 +132,83 @@ hr {
     padding: 10px;
     margin-left: 800px;
 }
+/* Agregar responsividad para pantallas más pequeñas */
+@media (max-width: 1200px) {
+    .subAcercaA, .subAcercaB, .subAcercaC {
+        margin-left: 50px;
+        font-size: 35px;
+    }
+    .divAcercaA, .divAcercaB, .divAcercaC {
+        margin-left: 20px;
+        max-width: 100%;
+    }
+    hr {
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+        position: static;
+    }
+    .linea {
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+        position: static;
+    }
+    .subValores {
+        font-size: 35px;
+    }
+    .divAcceso, .divCalidad, .divComu {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        position: static;
+    }
+    .calidad, .comu, .sostenible {
+        position: static;
+        margin: 20px 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .titulo-nosotros {
+        font-size: 24px;
+    }
+    .subAcercaA, .subAcercaB, .subAcercaC {
+        font-size: 30px;
+        text-align: center;
+        margin: 20px auto;
+    }
+    .divAcercaA, .divAcercaB, .divAcercaC {
+        height: auto;
+        font-size: 16px;
+    }
+    hr, .linea {
+        width: 100%;
+        margin: 20px auto;
+    }
+    .subValores {
+        font-size: 28px;
+    }
+    .divValores {
+        font-size: 18px;
+    }
+    .divAcceso, .divCalidad, .divComu {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .subAcercaA, .subAcercaB, .subAcercaC {
+        font-size: 24px;
+    }
+    .divAcercaA, .divAcercaB, .divAcercaC {
+        font-size: 14px;
+    }
+    .subValores {
+        font-size: 24px;
+    }
+    .divValores {
+        font-size: 14px;
+    }
+}

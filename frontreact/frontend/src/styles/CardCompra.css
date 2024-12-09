@@ -15,5 +15,29 @@
     color: #333;
   }
 
+/* Responsividad para pantallas medianas */
+@media (max-width: 768px) {
+    .precio-carro-total {
+      width: 100%; /* Ocupa todo el ancho disponible */
+      margin-top: 10%; /* Ajusta el margen superior */
+      margin-left: 0; /* Centra el contenido */
+      gap: 20px; /* Reduce el espacio entre elementos */
+      font-size: 18px; /* Ajusta el tamaño del texto */
+      flex-wrap: wrap; /* Permite que los elementos se apilen si es necesario */
+    }}  
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 480px) {
+  .precio-carro-total {
+    width: 100%; /* Usa todo el ancho disponible */
+    margin-top: 5%; /* Reduce el margen superior */
+    margin-left: 0; /* Centra el contenido */
+    gap: 10px; /* Reduce aún más el espacio entre elementos */
+    font-size: 16px; /* Reduce el tamaño del texto para pantallas pequeñas */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    padding-bottom: 5px; /* Ajusta el padding inferior */
+  }
+}
 
 

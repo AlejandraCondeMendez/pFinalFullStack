@@ -12,6 +12,8 @@
     border-radius: 8px;
     color: #1a3a8e;
     border: 2px solid #1a3a8e;
+    width: 500px; /* Ancho predeterminado */
+    max-width: 90%; /* Asegura que no desborde en pantallas pequeñas */
 }
 
 /* Header de la modal */
@@ -81,3 +83,55 @@
     font-weight: bold;
     padding: 8px 16px;
 }
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 80%; /* Reduce el ancho para pantallas medianas */
+    }
+
+    .modal-title {
+        font-size: 18px;
+    }
+
+    .modal-body {
+        padding: 15px;
+    }
+
+    .modal-footer {
+        padding: 10px;
+    }
+
+    .modal-footer .btn-secondary,
+    .modal-footer .btn-primary {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%; /* Reduce aún más el ancho */
+    }
+
+    .modal-title {
+        font-size: 16px;
+    }
+
+    .modal-body {
+        padding: 10px;
+    }
+
+    .modal-footer {
+        flex-direction: column; /* Botones en columna */
+        gap: 10px; /* Espacio entre botones */
+    }
+
+    .modal-footer .btn-secondary,
+    .modal-footer .btn-primary {
+        width: 100%; /* Botones ocupan todo el ancho */
+        font-size: 12px;
+        padding: 6px;
+    }
+}
+

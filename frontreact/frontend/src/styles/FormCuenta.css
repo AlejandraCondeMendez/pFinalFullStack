@@ -26,3 +26,20 @@
     border-color: #002d85;
     box-shadow: 0 0 5px rgba(0, 45, 133, 0.5);
 }
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .formulario-cambio-contra {
+        width: 50%; /* Ajustar ancho para tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .formulario-cambio-contra {
+        width: 80%; /* Ajustar ancho para dispositivos móviles */
+    }
+
+    .inputForm {
+        font-size: 14px; /* Reducir tamaño de fuente para pantallas más pequeñas */
+    }
+}

@@ -1,3 +1,4 @@
+/* Estilos existentes del footer */
 footer {
   background-color: #002d85; /* Color de fondo azul */
   color: white; /* Texto en blanco */
@@ -64,6 +65,38 @@ footer a {
 footer a:hover {
   color: #FFBE2D;
 }
-.titulo-footer{
+
+.titulo-footer {
   margin-right: 10vw;
+}
+
+/* Responsividad para dispositivos pequeños */
+@media (max-width: 768px) {
+  .footer-columns {
+    flex-direction: column; /* Cambia a diseño en columna */
+    align-items: center; /* Centra las columnas */
+  }
+
+  .footer-column {
+    flex-basis: 100%; /* Cada columna ocupa el 100% del ancho */
+    margin-bottom: 20px; /* Espaciado entre columnas */
+  }
+
+  .titulo-footer {
+    margin-right: 0; /* Ajusta el margen para centrar el título */
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 20px 10px; /* Reduce el padding del footer */
+  }
+
+  .footer-bottom p {
+    font-size: 12px; /* Reduce el tamaño del texto en el footer inferior */
+  }
+
+  .footer-column h4 {
+    font-size: 16px; /* Reduce el tamaño de los encabezados */
+  }
 }
